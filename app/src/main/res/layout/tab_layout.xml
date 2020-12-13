@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_Layout"
+        app:tabIndicatorAnimationMode="elastic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true"
+        app:tabMode="auto"
+        app:tabIndicator="@drawable/rip"
+        app:tabSelectedTextColor="@color/colorPrimaryDark"
+        app:tabUnboundedRipple="true"
+        android:background="@drawable/tab_shape"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="55dp">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/civiltab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CE" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/cstab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CS" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/ettab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ET" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/metab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ME" />
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/pageholder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

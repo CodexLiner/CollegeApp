@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "841602754028",
+    "firebase_url": "https://gpc-harsud.firebaseio.com",
+    "project_id": "gpc-harsud",
+    "storage_bucket": "gpc-harsud.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:841602754028:android:1ead9337dffa7d42228cc9",
+        "android_client_info": {
+          "package_name": "com.codingergo.myproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "841602754028-cvbqdkq8kb5il7abjs4v3ifaav50k0g7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBadNTPr6ZAxrKtDrn-rLrzEqcfAVJQhqQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "841602754028-cvbqdkq8kb5il7abjs4v3ifaav50k0g7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

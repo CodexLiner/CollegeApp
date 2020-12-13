@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backlogin"
+    tools:context=".MainActivity">
+
+    <EditText
+
+        android:id="@+id/RollView"
+        android:layout_width="310dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="336dp"
+        android:autofillHints=""
+        android:drawableStart="@drawable/focusemail"
+        android:drawablePadding="20dp"
+        android:background="@drawable/inputshape2"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:ems="10"
+        android:hint="@string/roll_number_hint"
+        android:inputType="textNoSuggestions|textEmailAddress"
+        android:textColorHighlight="#59535754"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/LoginPassView"
+        android:layout_width="310dp"
+        android:layout_height="55dp"
+        android:background="@drawable/inputshape2"
+        android:drawableStart="@drawable/focuslock"
+        android:drawablePadding="20dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:ems="10"
+        android:hint="@string/passwordString"
+        android:inputType="textPassword"
+        android:textColorHighlight="#59535754"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RollView"
+        app:layout_constraintVertical_bias="0.034" />
+
+    <TextView
+        android:id="@+id/HeadtextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/loginHeading"
+        android:textColor="@color/cardview_dark_background"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/RollView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.829" />
+
+
+    <TextView
+        android:id="@+id/SubmitButton"
+        android:layout_width="65dp"
+        android:layout_height="50dp"
+        android:background="@drawable/inputshape"
+        android:fontFamily="sans-serif-black"
+        android:foreground="@drawable/rip"
+        android:textAllCaps="false"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LoginPassView"
+        app:layout_constraintVertical_bias="0.16" />
+
+    <!--    <ImageView-->
+<!--        android:id="@+id/rightarr"-->
+<!--        android:layout_width="124dp"-->
+<!--        android:layout_height="38dp"-->
+<!--        android:layout_marginBottom="280dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/SubmitButton"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/SubmitButton"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/LoginPassView"-->
+<!--        app:layout_constraintVertical_bias="0.87"-->
+<!--        android:src="@drawable/ic_forward" />-->
+
+<!--    <ProgressBar-->
+<!--        android:id="@+id/progressBar"-->
+<!--        style="?android:attr/progressBarStyle"-->
+<!--        android:layout_width="47dp"-->
+<!--        android:layout_height="37dp"-->
+<!--        android:visibility="invisible"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.501"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/LoginPassView"-->
+<!--        app:layout_constraintVertical_bias="0.387" />-->
+
+    <TextView
+        android:id="@+id/onHelpButton"
+        android:layout_width="142dp"
+        android:layout_height="39dp"
+        android:fontFamily="sans-serif-black"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:text="@string/register"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LoginPassView"
+        app:layout_constraintVertical_bias="0.45" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="49dp"
+        android:layout_height="37dp"
+        app:layout_constraintBottom_toBottomOf="@+id/SubmitButton"
+        app:layout_constraintEnd_toEndOf="@+id/SubmitButton"
+        app:layout_constraintStart_toStartOf="@+id/SubmitButton"
+        app:layout_constraintTop_toTopOf="@+id/SubmitButton"
+        app:srcCompat="@drawable/right_white" />
+
+    <TextView
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:id="@+id/ForogotButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/SubmitButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.834"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LoginPassView"
+        app:layout_constraintVertical_bias="0.228" />
+
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/progressBar"
+        style="@style/SpinKitView.FadingCircle"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        app:SpinKit_Color="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.51" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
