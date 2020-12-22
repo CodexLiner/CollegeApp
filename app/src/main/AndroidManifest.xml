@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".noticeBoard"></activity>
+        <activity android:name=".PDFViewer" />
+        <activity android:name=".noticeBoard" />
         <activity android:name=".forgotPass" />
         <activity android:name=".imagedemo" />
         <activity android:name=".DashBoard" />

@@ -166,9 +166,10 @@ public class home extends AppCompatActivity {
 //
 //            }
 //        });
+        //Notice Baord Rec View
         FirebaseRecyclerOptions<noticeModel> options =
                 new FirebaseRecyclerOptions.Builder<noticeModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Users"), noticeModel.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Notifications"), noticeModel.class)
                         .build();
         adapter = new noticeAdapter(options);
         recyclerView.setAdapter(adapter);

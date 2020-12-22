@@ -34,7 +34,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:foregroundGravity="center"
-        android:text="Welcome Back"
+        android:text=""
         android:textColor="@color/Black"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -331,14 +331,15 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/notice_Rec"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="305dp"
             android:layout_marginStart="1dp"
             android:layout_marginTop="1dp"
             android:layout_marginEnd="1dp"
-            android:layout_marginBottom="121dp"
+            android:layout_marginBottom="1dp"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.466"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
             app:layout_constraintVertical_bias="0.0" />

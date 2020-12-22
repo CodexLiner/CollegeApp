@@ -2,6 +2,7 @@ package com.codingergo.myproject;
 
 public class noticeModel {
     String Name ;
+    String url;
     noticeModel()
     {
 
@@ -17,5 +18,13 @@ public class noticeModel {
 
     public noticeModel(String name) {
         Name = name;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

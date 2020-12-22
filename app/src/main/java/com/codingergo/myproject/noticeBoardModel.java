@@ -1,7 +1,7 @@
 package com.codingergo.myproject;
 
 public class noticeBoardModel {
-    String Url , name;
+    String name , Url;
 
     public noticeBoardModel(String url, String name) {
         Url = url;

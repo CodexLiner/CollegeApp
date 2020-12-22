@@ -41,7 +41,7 @@ public class CivilAdapter extends FirebaseRecyclerAdapter <CivilModel , CivilAda
         public CivilViewHolder(@NonNull View itemView) {
             super(itemView);
             name = (TextView) itemView.findViewById(R.id.rec_name);
-            email =(TextView) itemView.findViewById(R.id.rec_mail);
+//            email =(TextView) itemView.findViewById(R.id.rec_mail);
 //            address = (TextView) itemView.findViewById(R.id.addressrec);
 //            mobile =(TextView) itemView.findViewById(R.id.recmob);
 //            roll =(TextView) itemView.findViewById(R.id.recroll);
