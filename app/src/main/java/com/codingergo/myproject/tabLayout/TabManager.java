@@ -1,9 +1,14 @@
-package com.codingergo.myproject;
+package com.codingergo.myproject.tabLayout;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+
+import com.codingergo.myproject.Extras.CeFragment;
+import com.codingergo.myproject.Extras.CsFragment;
+import com.codingergo.myproject.Extras.EtFragment;
+import com.codingergo.myproject.Extras.MeFragment;
 
 public class TabManager extends FragmentPagerAdapter
 {

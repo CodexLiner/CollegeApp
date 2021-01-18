@@ -3,9 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/backhome"
     android:layout_height="match_parent"
-    tools:context=".home">
+    tools:context=".Main.home">
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -25,326 +24,454 @@
         app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/nav_menu" />
 
-    <TextView
-        android:id="@+id/welcome_text"
-        android:layout_width="187dp"
-        android:layout_height="32dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:foregroundGravity="center"
-        android:text=""
-        android:textColor="@color/Black"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <RelativeLayout
+        android:layout_marginBottom="20dp"
+        android:background="@color/colorPrimaryDark"
+        android:elevation="30dp"
+        android:id="@+id/relativeLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.103" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/pdf"
-        android:layout_width="241dp"
-        android:layout_height="46dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="28dp"
-        android:fontFamily="sans-serif-light"
-        android:textStyle="bold"
-        android:foregroundGravity="center"
-        android:text="Welcome Back"
-        android:textColor="@color/white"
-        android:textSize="35sp"
+
+        <TextView
+            android:id="@+id/pdf"
+            android:layout_width="298dp"
+            android:layout_height="49dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="91dp"
+            android:layout_marginBottom="46dp"
+            android:fontFamily="sans-serif-light"
+            android:foregroundGravity="center"
+            android:text="Welcome Back"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.094"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/welcome_text"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="186dp"
+            android:layout_marginBottom="15dp"
+            android:foregroundGravity="center"
+            android:text="vbbbbbbb"
+            android:textColor="@color/Black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.08"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.103" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="48dp"
+            android:layout_height="56dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="332dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="13dp"
+            android:layout_marginBottom="40dp"
+            android:foreground="?attr/selectableItemBackground"
+            android:src="@drawable/profile"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.967"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.034" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="670dp"
+        android:scrollbars="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/BottomNav"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.094"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView16"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.257"
-        app:srcCompat="@drawable/teachers" />
-
-    <ImageView
-        android:id="@+id/imageView16"
-        android:layout_width="255dp"
-        android:layout_height="166dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.06"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.228"
-        app:srcCompat="@drawable/principle" />
-
-<!--    <TextView-->
-<!--        android:id="@+id/textView"-->
-<!--        android:layout_width="176dp"-->
-<!--        android:layout_height="51dp"-->
-<!--        android:fontFamily="@font/cabin"-->
-<!--        android:gravity="left"-->
-<!--        android:text="TimeLine"-->
-<!--        android:textColor="@color/Black"-->
-<!--        android:textSize="33sp"-->
-<!--        android:textStyle="bold"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.344"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.409" />-->
-
-    <ImageView
-        android:id="@+id/imageView17"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView16"
-        app:layout_constraintEnd_toEndOf="@+id/imageView16"
-        app:layout_constraintHorizontal_bias="0.877"
-        app:layout_constraintStart_toStartOf="@+id/imageView16"
-        app:layout_constraintTop_toTopOf="@+id/imageView16"
-        app:layout_constraintVertical_bias="0.868"
-        app:srcCompat="@drawable/ic_bubble" />
-
-    <ImageView
-        android:id="@+id/imageView18"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView16"
-        app:layout_constraintEnd_toEndOf="@+id/imageView16"
-        app:layout_constraintHorizontal_bias="0.139"
-        app:layout_constraintStart_toStartOf="@+id/imageView16"
-        app:layout_constraintTop_toTopOf="@+id/imageView16"
-        app:layout_constraintVertical_bias="0.141"
-        app:srcCompat="@drawable/ic_supervised" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="114dp"
-        android:layout_height="32dp"
-        android:gravity="left"
-        android:text="Gopal Meena"
-        android:fontFamily="sans-serif"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView16"
-        app:layout_constraintEnd_toEndOf="@+id/imageView16"
-        app:layout_constraintHorizontal_bias="0.24"
-        app:layout_constraintStart_toEndOf="@+id/imageView18"
-        app:layout_constraintTop_toTopOf="@+id/imageView16"
-        app:layout_constraintVertical_bias="0.395" />
-
-    <ImageView
-        android:id="@+id/imageView19"
-        android:layout_width="85dp"
-        android:layout_height="58dp"
-        android:src="@drawable/ic_unit"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView16"
-        app:layout_constraintEnd_toEndOf="@+id/imageView16"
-        app:layout_constraintHorizontal_bias="0.064"
-        app:layout_constraintStart_toStartOf="@+id/imageView16"
-        app:layout_constraintTop_toTopOf="@+id/imageView16"
-        app:layout_constraintVertical_bias="0.87" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="116dp"
-        android:layout_height="35dp"
-        android:gravity="left"
-        android:text="Principle ‍"
-        android:textColor="@color/white"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView16"
-        app:layout_constraintEnd_toEndOf="@+id/imageView16"
-        app:layout_constraintHorizontal_bias="0.72"
-        app:layout_constraintStart_toStartOf="@+id/imageView16"
-        app:layout_constraintTop_toTopOf="@+id/imageView16"
-        app:layout_constraintVertical_bias="0.142" />
-
-    <TextView
-
-        android:id="@+id/textView9"
-        android:layout_width="105dp"
-        android:layout_height="26dp"
-        android:text="Teachers ‍"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintHorizontal_bias="0.617"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.817" />
-
-    <ImageView
-        android:id="@+id/imageView20"
-        android:layout_width="58dp"
-        android:layout_height="48dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintHorizontal_bias="0.956"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.015"
-        app:srcCompat="@drawable/ic_bubble" />
-
-    <ImageView
-        android:id="@+id/imageView21"
-        android:layout_width="64dp"
-        android:layout_height="69dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
-        app:srcCompat="@drawable/ic_people" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
-        android:layout_width="44dp"
-        android:layout_height="40dp"
-        android:foreground="?attr/selectableItemBackground"
-        android:src="@drawable/men"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.967"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.034" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="337dp"
-        android:layout_height="367dp"
-        android:background="@color/navcolor"
-        app:layout_constraintBottom_toBottomOf="@+id/BottomNav"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.77"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.791">
-
-        <com.facebook.shimmer.ShimmerFrameLayout
-            android:id="@+id/shimmer"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout4">
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="@+id/notice_Rec">
+            android:background="@color/white">
+
+
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/constraintLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <include
-                    android:id="@+id/include2"
-                    layout="@layout/shimmerfrag"
-                    android:layout_width="400dp"
-                    android:layout_height="72dp"
-                    android:layout_marginTop="4dp"
-                    app:layout_constraintTop_toTopOf="@+id/civil_rec"
-                    tools:layout_editor_absoluteX="7dp" />
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView16"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.257"
+                    app:srcCompat="@drawable/teachers" />
 
-                <include
-                    android:id="@+id/include3"
-                    layout="@layout/shimmerfrag"
-                    android:layout_width="400dp"
-                    android:layout_height="72dp"
-                    android:layout_marginTop="5dp"
-                    app:layout_constraintTop_toBottomOf="@+id/include2"
-                    tools:layout_editor_absoluteX="5dp" />
+                <ImageView
+                    android:id="@+id/imageView16"
+                    android:layout_width="255dp"
+                    android:layout_height="166dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.06"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.228"
+                    app:srcCompat="@drawable/principle" />
 
-                <include
-                    android:id="@+id/include"
-                    layout="@layout/shimmerfrag"
-                    android:layout_width="400dp"
-                    android:layout_height="72dp"
-                    android:layout_marginTop="5dp"
-                    app:layout_constraintTop_toBottomOf="@+id/include3"
-                    tools:layout_editor_absoluteX="7dp" />
+                <!--    <TextView-->
+                <!--        android:id="@+id/textView"-->
+                <!--        android:layout_width="176dp"-->
+                <!--        android:layout_height="51dp"-->
+                <!--        android:fontFamily="@font/cabin"-->
+                <!--        android:gravity="left"-->
+                <!--        android:text="TimeLine"-->
+                <!--        android:textColor="@color/Black"-->
+                <!--        android:textSize="33sp"-->
+                <!--        android:textStyle="bold"-->
+                <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--        app:layout_constraintEnd_toEndOf="parent"-->
+                <!--        app:layout_constraintHorizontal_bias="0.344"-->
+                <!--        app:layout_constraintStart_toStartOf="parent"-->
+                <!--        app:layout_constraintTop_toTopOf="parent"-->
+                <!--        app:layout_constraintVertical_bias="0.409" />-->
 
-                <include
-                    android:id="@+id/include4"
-                    layout="@layout/shimmerfrag"
-                    android:layout_width="400dp"
-                    android:layout_height="72dp"
-                    android:layout_marginTop="5dp"
-                    app:layout_constraintTop_toBottomOf="@+id/include"
-                    tools:layout_editor_absoluteX="7dp" />
+                <ImageView
+                    android:id="@+id/imageView17"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView16"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView16"
+                    app:layout_constraintHorizontal_bias="0.877"
+                    app:layout_constraintStart_toStartOf="@+id/imageView16"
+                    app:layout_constraintTop_toTopOf="@+id/imageView16"
+                    app:layout_constraintVertical_bias="0.868"
+                    app:srcCompat="@drawable/ic_bubble" />
 
+                <ImageView
+                    android:id="@+id/imageView18"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView16"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView16"
+                    app:layout_constraintHorizontal_bias="0.139"
+                    app:layout_constraintStart_toStartOf="@+id/imageView16"
+                    app:layout_constraintTop_toTopOf="@+id/imageView16"
+                    app:layout_constraintVertical_bias="0.141"
+                    app:srcCompat="@drawable/ic_supervised" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="114dp"
+                    android:layout_height="32dp"
+                    android:fontFamily="sans-serif"
+                    android:gravity="left"
+                    android:text="Gopal Meena"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView16"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView16"
+                    app:layout_constraintHorizontal_bias="0.24"
+                    app:layout_constraintStart_toEndOf="@+id/imageView18"
+                    app:layout_constraintTop_toTopOf="@+id/imageView16"
+                    app:layout_constraintVertical_bias="0.395" />
+
+                <ImageView
+                    android:id="@+id/imageView19"
+                    android:layout_width="85dp"
+                    android:layout_height="58dp"
+                    android:src="@drawable/ic_unit"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView16"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView16"
+                    app:layout_constraintHorizontal_bias="0.064"
+                    app:layout_constraintStart_toStartOf="@+id/imageView16"
+                    app:layout_constraintTop_toTopOf="@+id/imageView16"
+                    app:layout_constraintVertical_bias="0.87" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="116dp"
+                    android:layout_height="35dp"
+                    android:gravity="left"
+                    android:text="Principle ‍"
+                    android:textColor="@color/white"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView16"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView16"
+                    app:layout_constraintHorizontal_bias="0.72"
+                    app:layout_constraintStart_toStartOf="@+id/imageView16"
+                    app:layout_constraintTop_toTopOf="@+id/imageView16"
+                    app:layout_constraintVertical_bias="0.142" />
+
+                <TextView
+
+                    android:id="@+id/textView9"
+                    android:layout_width="105dp"
+                    android:layout_height="26dp"
+                    android:text="Teachers ‍"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView3"
+                    app:layout_constraintHorizontal_bias="0.617"
+                    app:layout_constraintStart_toStartOf="@+id/imageView3"
+                    app:layout_constraintTop_toTopOf="@+id/imageView3"
+                    app:layout_constraintVertical_bias="0.817" />
+
+                <ImageView
+                    android:id="@+id/imageView20"
+                    android:layout_width="58dp"
+                    android:layout_height="48dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView3"
+                    app:layout_constraintHorizontal_bias="0.956"
+                    app:layout_constraintStart_toStartOf="@+id/imageView3"
+                    app:layout_constraintTop_toTopOf="@+id/imageView3"
+                    app:layout_constraintVertical_bias="0.015"
+                    app:srcCompat="@drawable/ic_bubble" />
+
+                <ImageView
+                    android:id="@+id/imageView21"
+                    android:layout_width="64dp"
+                    android:layout_height="69dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView3"
+                    app:layout_constraintStart_toStartOf="@+id/imageView3"
+                    app:layout_constraintTop_toTopOf="@+id/imageView3"
+                    app:srcCompat="@drawable/ic_people" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </com.facebook.shimmer.ShimmerFrameLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout12"
+                android:layout_width="332dp"
+                android:layout_height="395dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/shapeall"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
-        <!--                <include-->
-        <!--                    layout="@layout/tab_layout"-->
-        <!--                    app:layout_constraintStart_toStartOf="parent"-->
-        <!--                    tools:layout_editor_absoluteY="16dp" />-->
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:visibility="invisible"
+                    android:id="@+id/shimmer"
+                    android:layout_width="322dp"
+                    android:layout_height="312dp"
+                    android:layout_margin="30dp"
+                    android:background="@color/white"
+                    app:layout_constraintEnd_toEndOf="@+id/notice_Rec"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-        <RelativeLayout
-            android:id="@+id/relativeLayout"
-            android:layout_width="match_parent"
-            android:layout_height="53dp"
-            android:layout_marginTop="4dp"
-            android:background="@color/navcolor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white">
+
+                        <include
+                            android:id="@+id/include2"
+                            layout="@layout/shimmerfrag"
+                            android:layout_width="400dp"
+                            android:layout_height="72dp"
+                            android:layout_marginTop="4dp"
+                            android:visibility="invisible"
+                            app:layout_constraintTop_toTopOf="@+id/civil_rec"
+                            tools:layout_editor_absoluteX="7dp" />
+
+                        <include
+                            android:id="@+id/include3"
+                            layout="@layout/shimmerfrag"
+                            android:layout_width="400dp"
+                            android:layout_height="72dp"
+                            android:layout_marginTop="5dp"
+                            app:layout_constraintTop_toBottomOf="@+id/include2"
+                            tools:layout_editor_absoluteX="5dp" />
+
+                        <include
+                            android:id="@+id/include"
+                            layout="@layout/shimmerfrag"
+                            android:layout_width="400dp"
+                            android:layout_height="72dp"
+                            android:layout_marginTop="5dp"
+                            app:layout_constraintTop_toBottomOf="@+id/include3"
+                            tools:layout_editor_absoluteX="7dp" />
+
+                        <include
+                            android:id="@+id/include4"
+                            layout="@layout/shimmerfrag"
+                            android:layout_width="400dp"
+                            android:layout_height="72dp"
+                            android:layout_marginTop="5dp"
+                            app:layout_constraintTop_toBottomOf="@+id/include"
+                            tools:layout_editor_absoluteX="7dp" />
 
 
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="250dp"
-                android:layout_height="56dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="0dp"
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
+                <!--                <include-->
+                <!--                    layout="@layout/tab_layout"-->
+                <!--                    app:layout_constraintStart_toStartOf="parent"-->
+                <!--                    tools:layout_editor_absoluteY="16dp" />-->
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="53dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/navcolor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="250dp"
+                        android:layout_height="56dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="111dp"
+                        android:layout_marginBottom="-3dp"
+                        android:drawableStart="@drawable/ic_note"
+                        android:drawablePadding="10dp"
+                        android:gravity="center"
+                        android:paddingStart="20dp"
+                        android:text="Notice Board"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/Black"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/notice_Rec"
+                    android:layout_width="match_parent"
+                    android:layout_height="335dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="1dp"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+                    app:layout_constraintVertical_bias="0.0" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <RelativeLayout
                 android:layout_marginTop="0dp"
-                android:layout_marginEnd="111dp"
-                android:layout_marginBottom="-3dp"
-                android:drawableStart="@drawable/ic_note"
-                android:drawablePadding="10dp"
-                android:gravity="center"
-                android:paddingStart="20dp"
-                android:text="Notice Board"
-                android:textAlignment="textStart"
-                android:textColor="@color/Black"
-                android:textSize="25sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="50dp"
+                android:background="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/BottomNav"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout12">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/notice_Rec"
-            android:layout_width="match_parent"
-            android:layout_height="305dp"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginEnd="1dp"
-            android:layout_marginBottom="1dp"
+                <RelativeLayout
+                    android:id="@+id/relativeLayoutgallery"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/shimmer"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="0dp">
 
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
-            app:layout_constraintVertical_bias="0.0" />
+                    <TextView
+                        android:id="@+id/textview"
+                        android:layout_width="206dp"
+                        android:layout_height="56dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="205dp"
+                        android:fontFamily="@font/cabin"
+                        android:gravity="left"
+                        android:text="Gallery"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="30sp" />
+                </RelativeLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/galleryrec"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/relativeLayoutgallery"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@color/mainbgcolor"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="1dp"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+                    app:layout_constraintVertical_bias="0.0" />
+
+
+            </RelativeLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
     <!--    <com.facebook.shimmer.ShimmerFrameLayout-->
 <!--        android:id="@+id/shimmer"-->
 <!--        android:layout_width="wrap_content"-->

@@ -1,9 +1,9 @@
-package com.codingergo.myproject;
+package com.codingergo.myproject.Main;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
@@ -15,11 +15,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.codingergo.myproject.Cs_Dashboard.DashBoard;
+import com.codingergo.myproject.R;
+import com.codingergo.myproject.noticeBoard.noticeAdapter;
+import com.codingergo.myproject.noticeBoard.noticeModel;
+import com.codingergo.myproject.photoGallery.galleryMain;
+import com.codingergo.myproject.photoGallery.imageAdapter;
+import com.codingergo.myproject.photoGallery.imageModel;
+import com.codingergo.myproject.tabLayout.TabManager;
+import com.codingergo.myproject.users.Profile;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -35,8 +43,10 @@ import com.google.firebase.database.ValueEventListener;
 public class home extends AppCompatActivity {
     // globale varialbe
     ImageView imageView;
-    RecyclerView recyclerView;
+    RecyclerView recyclerView ;
+    RecyclerView galleryrec;
     noticeAdapter adapter;
+    imageAdapter iadapter;
     DrawerLayout drawerLayout ;
     private long backbutton;
     TextView welcome , pdf;
@@ -60,11 +70,14 @@ public class home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         // button = findViewById(R.id.signout);
        shimmerFrameLayout = findViewById(R.id.shimmer);
-        imageView = (ImageView)findViewById(R.id.profile_image);
-     //  drawerLayout =(DrawerLayout) findViewById(R.id.drawer_tab);
-      // tableLayout=(TabLayout)findViewById(R.id.tab_Layout);
+       imageView = (ImageView)findViewById(R.id.profile_image);
+       //  drawerLayout =(DrawerLayout) findViewById(R.id.drawer_tab);
+       // tableLayout=(TabLayout)findViewById(R.id.tab_Layout);
        viewPager = (ViewPager)findViewById(R.id.pageholder);
        recyclerView = findViewById(R.id.notice_Rec);
+       galleryrec = findViewById(R.id.galleryrec);
+       GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
+       galleryrec.setLayoutManager(gridLayoutManager);
        recyclerView.setLayoutManager(new LinearLayoutManager(this));
        ce = (TabItem)findViewById(R.id.civiltab);
        cs = (TabItem)findViewById(R.id.cstab);
@@ -88,21 +101,20 @@ public class home extends AppCompatActivity {
                     case R.id.home:
                         return true;
                     case R.id.dash:
-                        startActivity(new Intent(getApplicationContext(),DashBoard.class));
+                        startActivity(new Intent(getApplicationContext(), DashBoard.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.profile:
-                        startActivity(new Intent(getApplicationContext(),Profile.class));
+                        startActivity(new Intent(getApplicationContext(), Profile.class));
                         overridePendingTransition(0,0);
                         return true;
                 }
                 return false;
             }
         });
-        ////nav bar end
-        ///
+//nav bar end
 //        welcome text
-       shimmerFrameLayout.setVisibility(View.VISIBLE);
+        shimmerFrameLayout.setVisibility(View.VISIBLE);
         userref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -110,6 +122,7 @@ public class home extends AppCompatActivity {
                     if ( snap.child("email").getValue().equals(welcomename))
                     {
                         welcome.setText(snap.child("name").getValue(String.class));
+                        Glide.with()
                     }
                 }
             }
@@ -123,7 +136,7 @@ public class home extends AppCompatActivity {
          pdf.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-              startActivity(new Intent(getApplicationContext(), noticeBoard.class));
+              startActivity(new Intent(getApplicationContext(), galleryMain.class));
           }
       });
 /// tab manager
@@ -150,7 +163,7 @@ public class home extends AppCompatActivity {
          imageView.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
-                 startActivity(new Intent(getApplicationContext(),Profile.class));
+                 startActivity(new Intent(getApplicationContext(), Profile.class));
              }
          });
 //        button.setOnClickListener(new View.OnClickListener() {
@@ -166,29 +179,41 @@ public class home extends AppCompatActivity {
 //
 //            }
 //        });
-        //Notice Baord Rec View
+//Notice Baord Rec View
         FirebaseRecyclerOptions<noticeModel> options =
                 new FirebaseRecyclerOptions.Builder<noticeModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Notifications"), noticeModel.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Notifications").orderByChild("date"), noticeModel.class)
                         .build();
         adapter = new noticeAdapter(options);
         recyclerView.setAdapter(adapter);
+
+//  galleryAdapter
+        FirebaseRecyclerOptions<imageModel> option =
+                new FirebaseRecyclerOptions.Builder<imageModel>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Gallery").orderByChild("date"), imageModel.class)
+                       .build();
+        iadapter = new imageAdapter(option);
+        galleryrec.setAdapter(iadapter);
+
     }
     @Override
     public void onStart() {
         super.onStart();
         adapter.startListening();
+        iadapter.startListening();
     }
     @Override
     public void onStop() {
         super.onStop();
         adapter.stopListening();
+         iadapter.stopListening();
+        shimmerFrameLayout.setVisibility(View.INVISIBLE);
     }
+
+
     @Override
     public void onBackPressed() {
-
-
-        if (backbutton + 2000 > System.currentTimeMillis()) {
+           if (backbutton + 2000 > System.currentTimeMillis()) {
             Log.d("CDA", "onBackPressed Called");
             Intent setIntent = new Intent(Intent.ACTION_MAIN);
             setIntent.addCategory(Intent.CATEGORY_HOME);

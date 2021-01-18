@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backlogin"
-    tools:context=".MainActivity">
+    tools:context=".users.MainActivity">
 
     <EditText
 
@@ -104,6 +104,7 @@
 <!--        app:layout_constraintVertical_bias="0.387" />-->
 
     <TextView
+        android:visibility="invisible"
         android:id="@+id/onHelpButton"
         android:layout_width="142dp"
         android:layout_height="39dp"

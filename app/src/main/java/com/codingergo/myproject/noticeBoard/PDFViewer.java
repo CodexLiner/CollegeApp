@@ -1,4 +1,4 @@
-package com.codingergo.myproject;
+package com.codingergo.myproject.noticeBoard;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,8 +8,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import com.codingergo.myproject.R;
 
 import java.net.URLEncoder;
 
@@ -23,7 +24,7 @@ public class PDFViewer extends AppCompatActivity {
         setContentView(R.layout.activity_p_d_f_viewer);
         webView = (WebView)findViewById(R.id.webview);
         webView.getSettings().setJavaScriptEnabled(true);
-        String filename = getIntent().getStringExtra("filename");
+        String filename = getIntent().getStringExtra("Filename");
         String url = getIntent().getStringExtra("url");
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Opening Pdf");

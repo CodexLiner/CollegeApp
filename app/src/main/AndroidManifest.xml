@@ -14,15 +14,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".PDFViewer" />
-        <activity android:name=".noticeBoard" />
-        <activity android:name=".forgotPass" />
-        <activity android:name=".imagedemo" />
-        <activity android:name=".DashBoard" />
-        <activity android:name=".Profile" />
-        <activity android:name=".SignUp" />
-        <activity android:name=".home" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".photoGallery.galleryMain"></activity>
+        <activity android:name=".AboutDev.developer" />
+        <activity android:name=".noticeBoard.PDFViewer" />
+        <activity android:name=".noticeBoard.noticeBoard" />
+        <activity android:name=".users.forgotPass" />
+        <activity android:name=".Garbage.imagedemo" />
+        <activity android:name=".Cs_Dashboard.DashBoard" />
+        <activity android:name=".users.Profile" />
+        <activity android:name=".users.SignUp" />
+        <activity android:name=".Main.home" />
+        <activity android:name=".users.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

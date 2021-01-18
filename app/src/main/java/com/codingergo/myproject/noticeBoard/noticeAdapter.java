@@ -1,4 +1,4 @@
-package com.codingergo.myproject;
+package com.codingergo.myproject.noticeBoard;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -9,10 +9,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.codingergo.myproject.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
-public class noticeAdapter extends  FirebaseRecyclerAdapter<noticeModel , noticeAdapter.viewHolder> {
+public class noticeAdapter extends  FirebaseRecyclerAdapter<noticeModel, noticeAdapter.viewHolder> {
 
 
     public noticeAdapter(@NonNull FirebaseRecyclerOptions<noticeModel> options) {
@@ -28,7 +29,7 @@ public class noticeAdapter extends  FirebaseRecyclerAdapter<noticeModel , notice
                 holder.name.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(holder.name.getContext(),PDFViewer.class);
+                        Intent intent = new Intent(holder.name.getContext(), PDFViewer.class);
                         intent.putExtra("Filename", model.getName());
                         intent.putExtra("url", model.getUrl());
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -40,7 +41,7 @@ public class noticeAdapter extends  FirebaseRecyclerAdapter<noticeModel , notice
 
     @Override
     public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.timelinerow , parent , false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.timelinerow , parent ,false);
 
         return new viewHolder(view);
     }

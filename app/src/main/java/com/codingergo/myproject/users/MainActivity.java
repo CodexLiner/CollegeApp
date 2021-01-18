@@ -1,11 +1,9 @@
-package com.codingergo.myproject;
+package com.codingergo.myproject.users;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Patterns;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -15,10 +13,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.codingergo.myproject.R;
+import com.codingergo.myproject.Main.home;
 import com.github.ybq.android.spinkit.sprite.Sprite;
 import com.github.ybq.android.spinkit.style.Circle;
-import com.github.ybq.android.spinkit.style.DoubleBounce;
-import com.github.ybq.android.spinkit.style.ThreeBounce;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -58,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),SignUp.class));
+                startActivity(new Intent(getApplicationContext(), SignUp.class));
 
 
             }
@@ -72,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
      if (auth.getCurrentUser()!= null){
          finish();
 
-         startActivity(new Intent(getApplicationContext(),home.class));
+         startActivity(new Intent(getApplicationContext(), home.class));
      }
         Login.setOnClickListener(new View.OnClickListener() {
             @Override

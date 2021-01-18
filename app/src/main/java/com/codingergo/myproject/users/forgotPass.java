@@ -1,8 +1,10 @@
-package com.codingergo.myproject;
+package com.codingergo.myproject.users;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.codingergo.myproject.R;
 
 public class forgotPass extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.codingergo.myproject;
+package com.codingergo.myproject.Cs_Dashboard;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,11 +6,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.codingergo.myproject.R;
+import com.codingergo.myproject.Main.home;
+import com.codingergo.myproject.noticeBoard.noticeBoard;
+import com.codingergo.myproject.users.Profile;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -19,12 +24,16 @@ public class DashBoard extends AppCompatActivity {
 SimpleDateFormat simpleDateFormat , timef;
 TextView timeview , todays;
 String time , Date;
+ImageView notice , faculty , assign;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dash_board);
+        setContentView(R.layout.admin_dashboard);
         timeview =(TextView)findViewById(R.id.TimeDash);
+        notice =(ImageView)findViewById(R.id.add_notice_btn);
+        faculty=(ImageView)findViewById(R.id.add_faculty_btn);
+        assign=(ImageView)findViewById(R.id.add_assignment_btn);
         todays = (TextView)findViewById(R.id.DateDash);
         timef = new SimpleDateFormat("h:mm ");
         simpleDateFormat = new SimpleDateFormat("dd MMM yy");
@@ -41,13 +50,13 @@ String time , Date;
              public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                  switch (item.getItemId()){
                      case R.id.home:
-                     startActivity(new Intent(getApplicationContext(),home.class));
+                     startActivity(new Intent(getApplicationContext(), home.class));
                          overridePendingTransition(0,0);
                      return true;
                      case R.id.dash:
                      return true;
                      case R.id.profile:
-                     startActivity(new Intent(getApplicationContext(),Profile.class));
+                     startActivity(new Intent(getApplicationContext(), Profile.class));
                      overridePendingTransition(0,0);
                      return true;
                  }
@@ -57,7 +66,7 @@ String time , Date;
          //// end of nav bar
 //        time and date updater
 
-        Thread thread = new Thread() {
+        final Thread thread = new Thread() {
             @Override
             public void run() {
                 try {
@@ -80,5 +89,27 @@ String time , Date;
         };
 
         thread.start();
+// notice add listner
+        notice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), noticeBoard.class));
+            }
+        });
+// faculty
+        faculty.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),DashBoard.class));
+            }
+        });
+// assignment
+        assign.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),DashBoard.class));
+            }
+        });
+//
     }
 }

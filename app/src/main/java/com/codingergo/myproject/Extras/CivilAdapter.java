@@ -1,18 +1,18 @@
-package com.codingergo.myproject;
+package com.codingergo.myproject.Extras;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.codingergo.myproject.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
-public class CivilAdapter extends FirebaseRecyclerAdapter <CivilModel , CivilAdapter.CivilViewHolder>{
+public class CivilAdapter extends FirebaseRecyclerAdapter <CivilModel, CivilAdapter.CivilViewHolder>{
 
 
     public CivilAdapter(@NonNull FirebaseRecyclerOptions<CivilModel> options) {

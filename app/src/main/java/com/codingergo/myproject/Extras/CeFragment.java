@@ -1,4 +1,4 @@
-package com.codingergo.myproject;
+package com.codingergo.myproject.Extras;
 
 import android.os.Bundle;
 
@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
+import com.codingergo.myproject.R;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;

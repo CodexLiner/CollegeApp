@@ -1,12 +1,12 @@
-package com.codingergo.myproject;
+package com.codingergo.myproject.users;
 
-public class User {
+public class userModel {
     public String name , email, roll , mobile , address , image;
-    public  User()
+    public userModel()
     {
 
     }
- public User(String name, String email, String roll, String mobile , String address) {
+ public userModel(String name, String email, String roll, String mobile , String address) {
         this.name = name;
         this.email = email;
         this.roll = roll;

@@ -1,4 +1,4 @@
-package com.codingergo.myproject;
+package com.codingergo.myproject.users;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,8 +8,11 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.codingergo.myproject.Cs_Dashboard.DashBoard;
+//import MainActivity;
+import com.codingergo.myproject.R;
+import com.codingergo.myproject.Main.home;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,7 +21,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
 
 public class Profile extends AppCompatActivity {
   TextView name , email , address , roll ,phone, branch, profileLogout;
@@ -93,11 +95,11 @@ public class Profile extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.home:
-                        startActivity(new Intent(getApplicationContext(),home.class));
+                        startActivity(new Intent(getApplicationContext(), home.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.dash:
-                       startActivity(new Intent(getApplicationContext(),DashBoard.class));
+                       startActivity(new Intent(getApplicationContext(), DashBoard.class));
                        overridePendingTransition(0,0);
                        return true;
                     case R.id.profile:
@@ -111,7 +113,7 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 auth.signOut();
-                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 finish();
 
             }

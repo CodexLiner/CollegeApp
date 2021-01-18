@@ -1,14 +1,11 @@
-package com.codingergo.myproject;
+package com.codingergo.myproject.noticeBoard;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.Manifest;
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.media.session.MediaSession;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -16,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.codingergo.myproject.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
@@ -25,12 +22,9 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.karumi.dexter.Dexter;
-import com.karumi.dexter.PermissionToken;
-import com.karumi.dexter.listener.PermissionDeniedResponse;
-import com.karumi.dexter.listener.PermissionGrantedResponse;
-import com.karumi.dexter.listener.PermissionRequest;
-import com.karumi.dexter.listener.single.PermissionListener;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class noticeBoard extends AppCompatActivity {
     TextView pdfname, padupload;
@@ -38,6 +32,10 @@ public class noticeBoard extends AppCompatActivity {
    StorageReference storageReference;
    DatabaseReference databaseReference;
    Uri path;
+   Date Date = new Date();
+    SimpleDateFormat ft =
+            new SimpleDateFormat("yyyy/MM/ddsm");
+   String date = (ft.format(Date));;
 
 
 
@@ -45,7 +43,7 @@ public class noticeBoard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notice_board);
-        storageReference = FirebaseStorage.getInstance().getReference();
+        storageReference = FirebaseStorage.getInstance().getReference("Notification");
         databaseReference = FirebaseDatabase.getInstance().getReference("Notifications");
         pdfname = (TextView)findViewById(R.id.PDF_name);
         padupload= (TextView)findViewById(R.id.pdf_loader);
@@ -149,7 +147,7 @@ public class noticeBoard extends AppCompatActivity {
                 Task<Uri> uri = taskSnapshot.getStorage().getDownloadUrl();
                 while (!uri.isComplete());
                 Uri url = uri.getResult();
-                noticeBoardModel noticeBoardModel = new noticeBoardModel( url.toString(),pdfname.getText().toString());
+                noticeBoardModel noticeBoardModel = new noticeBoardModel( url.toString(),pdfname.getText().toString(), date);
                 databaseReference.child(databaseReference.push().getKey()).setValue(noticeBoardModel);
                 Toast.makeText(getApplicationContext(),"Uploaded",Toast.LENGTH_LONG).show();
                 progressDialog.dismiss();

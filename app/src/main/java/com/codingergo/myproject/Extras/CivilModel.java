@@ -1,4 +1,4 @@
-package com.codingergo.myproject;
+package com.codingergo.myproject.Extras;
 
 public class CivilModel {
 

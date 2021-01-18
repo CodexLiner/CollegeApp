@@ -1,4 +1,4 @@
-package com.codingergo.myproject;
+package com.codingergo.myproject.Extras;
 
 import android.os.Bundle;
 
@@ -8,12 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.codingergo.myproject.R;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link CsFragment#newInstance} factory method to
+ * Use the {@link MeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CsFragment extends Fragment {
+public class MeFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +26,7 @@ public class CsFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public CsFragment() {
+    public MeFragment() {
         // Required empty public constructor
     }
 
@@ -34,11 +36,11 @@ public class CsFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment CsFragment.
+     * @return A new instance of fragment MeFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static CsFragment newInstance(String param1, String param2) {
-        CsFragment fragment = new CsFragment();
+    public static MeFragment newInstance(String param1, String param2) {
+        MeFragment fragment = new MeFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +61,6 @@ public class CsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cs, container, false);
+        return inflater.inflate(R.layout.fragment_me, container, false);
     }
 }
