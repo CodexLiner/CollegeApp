@@ -21,6 +21,8 @@ import android.widget.Toast;
 import com.codingergo.myproject.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
@@ -206,7 +208,7 @@ public class SignUp extends AppCompatActivity {
         FirebaseStorage Firestorage = FirebaseStorage.getInstance();
          Signup.setOnClickListener(new View.OnClickListener() {
              @Override
-             public void onClick(View v) {
+             public void onClick(final View v) {
 
                      final String loginmaill = email.getText().toString().trim();
                      final String loginPass = password.getText().toString().trim();
@@ -270,13 +272,16 @@ public class SignUp extends AppCompatActivity {
                                           progressBar.setVisibility(View.GONE);
                                      }
                                      else{
-                                         Toast.makeText(SignUp.this, "Error" +task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                                         Toast.makeText(SignUp.this, "" +task.getException().getMessage(), Toast.LENGTH_LONG).show();
                                          progressBar.setVisibility(View.GONE);
                                      }
                                  }
                              });
-                             startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                             finish();
+//                             startActivity(new Intent(getApplicationContext(),MainActivity.class));
+//                             finish();
+                         Snackbar snackbar = Snackbar.make(v,"Example",Snackbar.LENGTH_LONG);
+                             snackbar.show();
+
                              progressBar.setVisibility(View.GONE);
                          }
                          else {

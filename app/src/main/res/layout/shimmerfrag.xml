@@ -1,51 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+ <androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#6A1232">
 
-    <RelativeLayout
-        android:layout_width="266dp"
-        android:layout_height="78dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.018"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:padding="10dp"
+            android:background="@drawable/noticeshimmer">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/img"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/shimmer3">
+            <de.hdodenhof.circleimageview.CircleImageView
 
-        </de.hdodenhof.circleimageview.CircleImageView>
+                android:layout_weight="1"
+                android:id="@+id/rec_image"
+                android:src="@drawable/shimmer3"
+                android:layout_width="50dp"
+                android:layout_height="65dp">
 
-        <TextView
-            android:id="@+id/text"
-            android:layout_width="306dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_toRightOf="@+id/img"
-            android:background="@drawable/shimmer1">
+            </de.hdodenhof.circleimageview.CircleImageView>
 
-        </TextView>
+            <ImageView
+                android:layout_weight="1"
+                android:id="@+id/rec_name"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:autoSizePresetSizes="@array/autosize_text_sizes"
+                android:autoSizeTextType="uniform"
+                android:fontFamily="sans-serif-medium"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:background="@drawable/shimmer2"
+                android:src="@drawable/shimmer3"
+                android:textStyle="bold"
+                app:autoSizeMaxTextSize="20sp" />
 
-        <TextView
-            android:layout_width="275dp"
-            android:layout_height="15dp"
-            android:layout_below="@+id/text"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="28dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="10dp"
-            android:layout_toRightOf="@+id/img"
-            android:background="@drawable/shimmer2" />
-    </RelativeLayout>
+            <!--        <TextView-->
+            <!--            android:id="@+id/rec_mail"-->
+            <!--            android:layout_width="163dp"-->
+            <!--            android:layout_height="28dp"-->
+            <!--            android:layout_below="@+id/rec_name"-->
+            <!--            android:layout_alignParentStart="true"-->
+            <!--            android:layout_alignParentEnd="true"-->
+            <!--            android:autoSizeMaxTextSize="20sp"-->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <!--            android:layout_marginStart="36dp"-->
+            <!--            android:layout_toRightOf="@id/rec_image"-->
+            <!--            android:autoSizeTextType="uniform"-->
+            <!--            android:fontFamily="sans-serif-medium"-->
+            <!--            android:text="TextView"-->
+            <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--            app:layout_constraintHorizontal_bias="0.0"-->
+            <!--            app:layout_constraintStart_toEndOf="@+id/rec_image"-->
+            <!--            app:layout_constraintTop_toTopOf="parent"-->
+            <!--            app:layout_constraintVertical_bias="0.86" />-->
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+

@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,14 +28,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class noticeBoard extends AppCompatActivity {
-    TextView pdfname, padupload;
-    ImageView chooser;
-   StorageReference storageReference;
-   DatabaseReference databaseReference;
-   Uri path;
-   Date Date = new Date();
+    TextView pdfname ,select , selected;
+    Button padupload;
+    ImageView chooser ,choosed;
+    StorageReference storageReference;
+    DatabaseReference databaseReference;
+    Uri path;
+    Date Date = new Date();
     SimpleDateFormat ft =
-            new SimpleDateFormat("yyyy/MM/ddsm");
+            new SimpleDateFormat("dd-MM-yyyy");
    String date = (ft.format(Date));;
 
 
@@ -46,8 +48,11 @@ public class noticeBoard extends AppCompatActivity {
         storageReference = FirebaseStorage.getInstance().getReference("Notification");
         databaseReference = FirebaseDatabase.getInstance().getReference("Notifications");
         pdfname = (TextView)findViewById(R.id.PDF_name);
-        padupload= (TextView)findViewById(R.id.pdf_loader);
+        padupload= (Button)findViewById(R.id.pdf_loader);
         chooser = (ImageView)findViewById(R.id.Chooser);
+        choosed = (ImageView)findViewById(R.id.choosed);
+        select = findViewById(R.id.selectonTap);
+        selected = findViewById(R.id.selected);
 
 
         chooser.setOnClickListener(new View.OnClickListener() {
@@ -89,6 +94,12 @@ public class noticeBoard extends AppCompatActivity {
 //          }).check();
 //      }
 //  });
+        choosed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                choosepdf();
+            }
+        });
      padupload.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
@@ -116,11 +127,15 @@ public class noticeBoard extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1 && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            chooser.setVisibility(View.INVISIBLE);
+            choosed.setVisibility(View.VISIBLE);
+            select.setVisibility(View.INVISIBLE);
+            selected.setVisibility(View.VISIBLE);
 
             path = data.getData();
         }
         else
-            Toast.makeText(getApplicationContext(),"Request Code Error",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"File Not Selected",Toast.LENGTH_LONG).show();
 
     }
 //    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -158,7 +173,7 @@ public class noticeBoard extends AppCompatActivity {
             public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
 
                 double pro =  (100*snapshot.getBytesTransferred())/snapshot.getTotalByteCount();
-                progressDialog.setMessage("uploded "+(int)pro+ " %");
+                progressDialog.setMessage("Uploded "+(int)pro+ " %");
 //                Toast.makeText(getApplicationContext(),"Uploading" , Toast.LENGTH_LONG).show();
 
             }

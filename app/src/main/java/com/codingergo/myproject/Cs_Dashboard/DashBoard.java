@@ -7,13 +7,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.codingergo.myproject.Assignment.Assignment;
 import com.codingergo.myproject.R;
 import com.codingergo.myproject.Main.home;
 import com.codingergo.myproject.noticeBoard.noticeBoard;
+import com.codingergo.myproject.photoGallery.galleryMain;
 import com.codingergo.myproject.users.Profile;
+import com.codingergo.myproject.users.SignUp;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.text.SimpleDateFormat;
@@ -24,16 +28,18 @@ public class DashBoard extends AppCompatActivity {
 SimpleDateFormat simpleDateFormat , timef;
 TextView timeview , todays;
 String time , Date;
-ImageView notice , faculty , assign;
+Button notice , faculty , assign, addStudent , addGallery;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_dashboard);
         timeview =(TextView)findViewById(R.id.TimeDash);
-        notice =(ImageView)findViewById(R.id.add_notice_btn);
-        faculty=(ImageView)findViewById(R.id.add_faculty_btn);
-        assign=(ImageView)findViewById(R.id.add_assignment_btn);
+        notice =(Button) findViewById(R.id.add_notice_btn);
+        faculty=(Button) findViewById(R.id.add_faculty_btn);
+        assign=(Button) findViewById(R.id.add_assignment_btn);
+        addStudent = findViewById(R.id.addStudentDash);
+        addGallery = findViewById(R.id.addGalleryDash);
         todays = (TextView)findViewById(R.id.DateDash);
         timef = new SimpleDateFormat("h:mm ");
         simpleDateFormat = new SimpleDateFormat("dd MMM yy");
@@ -107,9 +113,23 @@ ImageView notice , faculty , assign;
         assign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),DashBoard.class));
+                startActivity(new Intent(getApplicationContext(), Assignment.class));
             }
         });
-//
+// add Student
+        addStudent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), SignUp.class));
+            }
+        });
+ // add GAllery
+        addGallery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), galleryMain.class));
+            }
+        });
+// Button ands here
     }
 }

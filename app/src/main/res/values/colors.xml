@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#14776E</color>
-    <color name="colorPrimaryDark">#F2B911</color>
+    <color name="colorPrimaryDark2">#F2B911</color>
+    <color name="colorPrimaryDark">#ABE4FAFA</color>
     <color name="colorAccent">#0E5E56</color>
     <color name="mainbgcolor">#EFF5F6</color>
     <color name="mainbgcolor2">#ffff</color>
     <color name="red">#EC3535</color>
     <color name="white">#ffffff</color>
     <color name="Black">#000000</color>
+    <color name="startHome">#E2E2E2</color>
+    <color name="endHome">#B3BCDA</color>
+    <color name="Xhome">#C9D6FF</color>
     <color name="navcolor">#DBEDEF</color>
     <color name="selected">#FFFFFF</color>
     <color name="colorGrey">#706A6A</color>
@@ -18,5 +22,6 @@
     <color name="s">#EFBC0A</color>
     <color name="shimmer2">#B3A5A5</color>
     <color name="shimmer">#777272</color>
+    <color name="colorRed">#E40D08</color>
 
 </resources>

@@ -4,7 +4,7 @@
     <string name="register">Register</string>
     <string name="agreetext">By Clicking Submit You Agree To The Terms And Conditions</string>
     <string name="passwordString">Password    </string>
-    <string name="loginHeading">Hello There!</string>
+    <string name="loginHeading">LOGIN</string>
     <string name="roll_number_hint">Email</string>
     <string name="loginagree">By Clicking Submit You Agree To Terms And Condition</string>
     <string name="title_activity_home">home</string>

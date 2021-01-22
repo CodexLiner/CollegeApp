@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.codingergo.myproject.AboutDev.developer;
 import com.codingergo.myproject.Cs_Dashboard.DashBoard;
 import com.codingergo.myproject.R;
 import com.codingergo.myproject.noticeBoard.noticeAdapter;
@@ -69,28 +71,29 @@ public class home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         // button = findViewById(R.id.signout);
-       shimmerFrameLayout = findViewById(R.id.shimmer);
-       imageView = (ImageView)findViewById(R.id.profile_image);
+      shimmerFrameLayout = findViewById(R.id.shimmer);
+      imageView = (ImageView)findViewById(R.id.profile_image);
        //  drawerLayout =(DrawerLayout) findViewById(R.id.drawer_tab);
        // tableLayout=(TabLayout)findViewById(R.id.tab_Layout);
        viewPager = (ViewPager)findViewById(R.id.pageholder);
        recyclerView = findViewById(R.id.notice_Rec);
        galleryrec = findViewById(R.id.galleryrec);
        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
-       galleryrec.setLayoutManager(gridLayoutManager);
-       recyclerView.setLayoutManager(new LinearLayoutManager(this));
+       galleryrec.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false));
+       recyclerView.setLayoutManager(new LinearLayoutManager(this ,LinearLayoutManager.HORIZONTAL, false ));
+       welcome = (TextView)findViewById(R.id.welcome_text);
        ce = (TabItem)findViewById(R.id.civiltab);
        cs = (TabItem)findViewById(R.id.cstab);
        me = (TabItem)findViewById(R.id.metab);
        et = (TabItem)findViewById(R.id.ettab);
-       pdf = (TextView)findViewById(R.id.pdf);
+      // pdf = (TextView)findViewById(R.id.pdf);
 
 //        databaseReference  = FirebaseDatabase.getInstance().getReference();
 //        DatabaseReference user = databaseReference.child(USER);
         auth = FirebaseAuth.getInstance();
         DatabaseReference rooref = FirebaseDatabase.getInstance().getReference();
         DatabaseReference userref = rooref.child(USER);
-        welcome = findViewById(R.id.welcome_text);
+       // welcome = findViewById(R.id.welcome_text);
         welcomename = auth.getCurrentUser().getEmail();
         BottomNavigationView bottomNavigationView = findViewById(R.id.BottomNav);
         bottomNavigationView.setSelectedItemId(R.id.home);
@@ -113,16 +116,22 @@ public class home extends AppCompatActivity {
             }
         });
 //nav bar end
+        String uri = "https://scontent-bom1-1.cdninstagram.com/v/t51.2885-19/s320x320/117567853_3278764075515229_6349804811514481652_n.jpg?_nc_ht=scontent-bom1-1.cdninstagram.com&_nc_ohc=B_1OXxT4dRkAX_3AbB3&tp=1&oh=4d99dbd66c972cdb060bd7c9920363ca&oe=6030CAD8";
+        Glide.with(imageView).load(uri).into(imageView);
 //        welcome text
+
         shimmerFrameLayout.setVisibility(View.VISIBLE);
         userref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot snap : snapshot.getChildren()){
-                    if ( snap.child("email").getValue().equals(welcomename))
-                    {
-                        welcome.setText(snap.child("name").getValue(String.class));
-                        Glide.with()
+                    if ( snap.child("email").getValue().equals(welcomename)) {
+
+                        String first = snap.child("name").getValue(String.class);
+                        String[] splited = first.split("\\s+");
+                        welcome.setText("Hi "+splited[0]);
+                     //   welcome.setText("Hi "+snap.child("name").getValue(String.class));
+
                     }
                 }
             }
@@ -133,12 +142,12 @@ public class home extends AppCompatActivity {
             }
         });
 
-         pdf.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-              startActivity(new Intent(getApplicationContext(), galleryMain.class));
-          }
-      });
+//         pdf.setOnClickListener(new View.OnClickListener() {
+//          @Override
+//          public void onClick(View v) {
+//              startActivity(new Intent(getApplicationContext(), developer.class));
+//          }
+//      });
 /// tab manager
 //        tabManager = new TabManager(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT,tableLayout.getTabCount());
 //        viewPager.setAdapter(tabManager);
@@ -160,12 +169,12 @@ public class home extends AppCompatActivity {
 //          });
 //          viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tableLayout));
 
-         imageView.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 startActivity(new Intent(getApplicationContext(), Profile.class));
-             }
-         });
+//         imageView.setOnClickListener(new View.OnClickListener() {
+//             @Override
+//             public void onClick(View v) {
+//                 startActivity(new Intent(getApplicationContext(), Profile.class));
+//             }
+//         });
 //        button.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -186,6 +195,7 @@ public class home extends AppCompatActivity {
                         .build();
         adapter = new noticeAdapter(options);
         recyclerView.setAdapter(adapter);
+//        recyclerView.smoothScrollToPosition(adapter.getItemCount());
 
 //  galleryAdapter
         FirebaseRecyclerOptions<imageModel> option =
@@ -207,7 +217,7 @@ public class home extends AppCompatActivity {
         super.onStop();
         adapter.stopListening();
          iadapter.stopListening();
-        shimmerFrameLayout.setVisibility(View.INVISIBLE);
+       // shimmerFrameLayout.setVisibility(View.INVISIBLE);
     }
 
 

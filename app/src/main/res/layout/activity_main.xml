@@ -4,79 +4,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backlogin"
+    android:background="@color/white"
     tools:context=".users.MainActivity">
-
-    <EditText
-
-        android:id="@+id/RollView"
-        android:layout_width="310dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="336dp"
-        android:autofillHints=""
-        android:drawableStart="@drawable/focusemail"
-        android:drawablePadding="20dp"
-        android:background="@drawable/inputshape2"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="12dp"
-        android:ems="10"
-        android:hint="@string/roll_number_hint"
-        android:inputType="textNoSuggestions|textEmailAddress"
-        android:textColorHighlight="#59535754"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/LoginPassView"
-        android:layout_width="310dp"
-        android:layout_height="55dp"
-        android:background="@drawable/inputshape2"
-        android:drawableStart="@drawable/focuslock"
-        android:drawablePadding="20dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="12dp"
-        android:ems="10"
-        android:hint="@string/passwordString"
-        android:inputType="textPassword"
-        android:textColorHighlight="#59535754"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RollView"
-        app:layout_constraintVertical_bias="0.034" />
-
-    <TextView
-        android:id="@+id/HeadtextView"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:elevation="1dp"
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/loginHeading"
-        android:textColor="@color/cardview_dark_background"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/RollView"
+        android:background="@color/Xhome"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.829" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Sign In"
+            android:textColor="@color/Black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="To verify and continue"
+            android:textSize="18sp"/>
+
+    </LinearLayout>
 
 
-    <TextView
-        android:id="@+id/SubmitButton"
-        android:layout_width="65dp"
-        android:layout_height="50dp"
-        android:background="@drawable/inputshape"
-        android:fontFamily="sans-serif-black"
-        android:foreground="@drawable/rip"
-        android:textAllCaps="false"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LoginPassView"
-        app:layout_constraintVertical_bias="0.16" />
+    <!--    <TextView-->
+<!--        android:id="@+id/SubmitButton"-->
+<!--        android:layout_width="65dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:background="@drawable/inputshape"-->
+<!--        android:fontFamily="sans-serif-black"-->
+<!--        android:foreground="@drawable/rip"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:textSize="24sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.16" />-->
 
     <!--    <ImageView-->
 <!--        android:id="@+id/rightarr"-->
@@ -103,6 +77,96 @@
 <!--        app:layout_constraintTop_toBottomOf="@+id/LoginPassView"-->
 <!--        app:layout_constraintVertical_bias="0.387" />-->
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:layout_marginBottom="128dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/logosplash" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/HeadtextView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:layout_marginBottom="20dp"-->
+<!--            android:fontFamily="sans-serif-medium"-->
+<!--            android:text="@string/loginHeading"-->
+<!--            android:textColor="@color/cardview_dark_background"-->
+<!--            android:textSize="30sp" />-->
+
+        <EditText
+            android:id="@+id/RollView"
+            android:layout_width="310dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="15dp"
+            android:autofillHints=""
+            android:background="@drawable/inputshape2"
+            android:drawableStart="@drawable/focusemail"
+            android:drawablePadding="20dp"
+            android:ems="10"
+            android:hint="@string/roll_number_hint"
+            android:inputType="textNoSuggestions|textEmailAddress"
+            android:textColorHighlight="#59535754" />
+
+        <EditText
+            android:id="@+id/LoginPassView"
+            android:layout_width="310dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/inputshape2"
+            android:drawableStart="@drawable/focuslock"
+            android:drawablePadding="20dp"
+            android:ems="10"
+            android:hint="@string/passwordString"
+            android:inputType="textPassword"
+            android:textColorHighlight="#59535754" />
+
+        <TextView
+            android:id="@+id/ForogotButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginEnd="45dp"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:text="Forgot Password"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/SubmitButton"
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/buttonshape"
+                android:text="Login" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
     <TextView
         android:visibility="invisible"
         android:id="@+id/onHelpButton"
@@ -121,29 +185,7 @@
         app:layout_constraintTop_toBottomOf="@+id/LoginPassView"
         app:layout_constraintVertical_bias="0.45" />
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="49dp"
-        android:layout_height="37dp"
-        app:layout_constraintBottom_toBottomOf="@+id/SubmitButton"
-        app:layout_constraintEnd_toEndOf="@+id/SubmitButton"
-        app:layout_constraintStart_toStartOf="@+id/SubmitButton"
-        app:layout_constraintTop_toTopOf="@+id/SubmitButton"
-        app:srcCompat="@drawable/right_white" />
 
-    <TextView
-        android:foreground="?attr/selectableItemBackgroundBorderless"
-        android:id="@+id/ForogotButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Forgot Password"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/SubmitButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.834"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LoginPassView"
-        app:layout_constraintVertical_bias="0.228" />
 
     <com.github.ybq.android.spinkit.SpinKitView
         android:id="@+id/progressBar"
@@ -152,11 +194,10 @@
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:visibility="invisible"
-        app:SpinKit_Color="@color/colorPrimaryDark"
+        app:SpinKit_Color="@color/colorPrimaryDark2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.51" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

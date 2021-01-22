@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/dashboard"
     android:layout_height="match_parent"
     tools:context=".Cs_Dashboard.DashBoard">
 
@@ -12,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/Xhome"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
@@ -24,349 +23,509 @@
         app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/nav_menu" />
 
-    <TextView
-        android:id="@+id/TimeDash"
-        android:layout_width="136dp"
-        android:layout_height="52dp"
-        android:gravity="right"
-        android:textColor="@color/white"
-        android:textSize="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.96"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias=".001123" />
+    <RelativeLayout
+        android:id="@+id/relativeLayout8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/Xhome"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/DateDash"
-        android:layout_width="104dp"
-        android:layout_height="27dp"
-        android:layout_marginBottom="668dp"
-        android:fontFamily="sans-serif"
-        android:gravity="right"
-        android:textColor="@color/Black"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.945"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TimeDash"
-        app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:id="@+id/dashboardName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:fontFamily="@font/cabin"
+            android:text="Dashobard"
+            android:textColor="@color/Black"
+            android:textSize="30dp" />
 
-    <TextView
-        android:id="@+id/dashboardName"
-        android:layout_width="220dp"
-        android:layout_height="64dp"
-        android:fontFamily="@font/cabin"
-        android:gravity="center"
-        android:text="Your Dashobard"
-        android:textAlignment="center"
-        android:textColor="@color/Black"
-        android:textSize="30dp"
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/TimeDash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="9dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:text="TIME"
+            android:textColor="@color/white"
+            android:textSize="40sp" />
 
-        app:layout_constraintBottom_toBottomOf="@+id/BottomNav"
-        app:layout_constraintEnd_toStartOf="@+id/TimeDash"
-        app:layout_constraintHorizontal_bias="0.592"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.02" />
+        <TextView
+            android:id="@+id/DateDash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/TimeDash"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="26dp"
+            android:fontFamily="sans-serif"
+            android:gravity="end"
+            android:text="date"
+            android:layout_marginBottom="1dp"
+            android:textColor="@color/Black"
+            android:textSize="15dp" />
+
+
+    </RelativeLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="658dp"
-        android:layout_marginTop="100dp"
-        android:paddingTop="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/BottomNav"
+        android:paddingTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout8">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/cardview_light_background"
-            android:padding="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/BottomNav"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-
-            <ImageView
-                android:id="@+id/imageView25"
-                android:layout_width="350dp"
-                android:layout_height="100dp"
-                android:layout_margin="5dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/dashshape" />
-
-            <ImageView
-                android:id="@+id/hhhhhh"
-                android:layout_width="350dp"
-                android:layout_height="100dp"
-                android:layout_margin="5dp"
-                app:layout_constraintBottom_toTopOf="@+id/imageView2ffff5"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView25"
-                app:srcCompat="@drawable/dashshape" />
-
-            <ImageView
-                android:id="@+id/imageView2ffff5"
-                android:layout_width="350dp"
-                android:layout_height="100dp"
-                android:layout_margin="5dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/hhhhhh"
-                app:srcCompat="@drawable/dashshape" />
-
-            <ImageView
-                android:id="@+id/add_notice_btn"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView25"
-                app:layout_constraintEnd_toEndOf="@+id/imageView25"
-                app:layout_constraintHorizontal_bias="0.85"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/imageView25"
-                app:layout_constraintVertical_bias="0.512"
-                app:srcCompat="@drawable/ic_add" />
-
-            <ImageView
-                android:id="@+id/add_assignment_btn"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                app:layout_constraintBottom_toBottomOf="@+id/hhhhhh"
-                app:layout_constraintEnd_toEndOf="@+id/hhhhhh"
-                app:layout_constraintHorizontal_bias="0.848"
-                app:layout_constraintStart_toStartOf="@+id/hhhhhh"
-                app:layout_constraintTop_toTopOf="@+id/hhhhhh"
-                app:srcCompat="@drawable/ic_add" />
-
-            <ImageView
-                android:id="@+id/add_faculty_btn"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView2ffff5"
-                app:layout_constraintEnd_toEndOf="@+id/imageView2ffff5"
-                app:layout_constraintHorizontal_bias="0.848"
-                app:layout_constraintStart_toStartOf="@+id/imageView2ffff5"
-                app:layout_constraintTop_toTopOf="@+id/imageView2ffff5"
-                app:layout_constraintVertical_bias="0.575"
-                app:srcCompat="@drawable/ic_add" />
-
+            android:orientation="vertical">
             <TextView
-                android:id="@+id/textView"
-                android:layout_width="124dp"
-                android:layout_height="28dp"
-                android:autoSizeMaxTextSize="20sp"
-                android:autoSizeMinTextSize="17.5sp"
-                android:fontFamily="sans-serif-light"
-                android:text="Add Notice"
-                android:textColor="@color/white"
-                android:textSize="17.5sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView25"
-                app:layout_constraintEnd_toStartOf="@+id/add_notice_btn"
-                app:layout_constraintHorizontal_bias="0.229"
-                app:layout_constraintStart_toStartOf="@+id/imageView25"
-                app:layout_constraintTop_toTopOf="@+id/imageView25"
-                app:layout_constraintVertical_bias="0.256" />
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="124dp"
-                android:layout_height="28dp"
-                android:autoSizeMaxTextSize="20sp"
-                android:autoSizeMinTextSize="17.5sp"
-                android:fontFamily="sans-serif-light"
-                android:text="Add Assignment"
-                android:textColor="@color/white"
-                android:textSize="17.5sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/hhhhhh"
-                app:layout_constraintEnd_toStartOf="@+id/add_assignment_btn"
-                app:layout_constraintHorizontal_bias="0.173"
-                app:layout_constraintStart_toStartOf="@+id/hhhhhh"
-                app:layout_constraintTop_toTopOf="@+id/hhhhhh"
-                app:layout_constraintVertical_bias="0.273" />
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="124dp"
-                android:layout_height="28dp"
-                android:autoSizeMaxTextSize="20sp"
-                android:autoSizeMinTextSize="17.5sp"
-                android:fontFamily="sans-serif-light"
-                android:text="Add Faculty"
-                android:textColor="@color/white"
-                android:textSize="17.5sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView2ffff5"
-                app:layout_constraintEnd_toStartOf="@+id/add_faculty_btn"
-                app:layout_constraintHorizontal_bias="0.172"
-                app:layout_constraintStart_toStartOf="@+id/imageView2ffff5"
-                app:layout_constraintTop_toTopOf="@+id/imageView2ffff5"
-                app:layout_constraintVertical_bias="0.319" />
-
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="168dp"
-                android:layout_height="37dp"
-                android:text="You Can Add Notice Here"
-                android:textAllCaps="false"
-                android:textColor="@color/Black"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView25"
-                app:layout_constraintEnd_toStartOf="@+id/add_notice_btn"
-                app:layout_constraintHorizontal_bias="0.354"
-                app:layout_constraintStart_toStartOf="@+id/imageView25"
-                app:layout_constraintTop_toBottomOf="@+id/textView"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <TextView
-
-                android:id="@+id/textView14"
-                android:layout_width="168dp"
-                android:layout_height="37dp"
-                android:text="You Can Add Assignment Here"
-                android:textAllCaps="false"
-                android:textColor="@color/Black"
-                app:layout_constraintBottom_toBottomOf="@+id/hhhhhh"
-                app:layout_constraintEnd_toStartOf="@+id/add_assignment_btn"
-                app:layout_constraintHorizontal_bias="0.269"
-                app:layout_constraintStart_toStartOf="@+id/hhhhhh"
-                app:layout_constraintTop_toBottomOf="@+id/textView11"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_width="168dp"
-                android:layout_height="37dp"
-                android:text="You Can Add Faculty Here"
-                android:textAllCaps="false"
-                android:textColor="@color/Black"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView2ffff5"
-                app:layout_constraintEnd_toStartOf="@+id/add_faculty_btn"
-                app:layout_constraintHorizontal_bias="0.269"
-                app:layout_constraintStart_toStartOf="@+id/imageView2ffff5"
-                app:layout_constraintTop_toBottomOf="@+id/textView12"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <HorizontalScrollView
-                android:id="@+id/horizontalScrollView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Quick Access"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginStart="15dp"
+                android:alpha="0.7"
+                android:fontFamily="@font/cabin"/>
+        <LinearLayout
+            android:elevation="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/dashboardshape"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_marginStart="10dp"
+                android:layout_weight="0"
+                android:layout_gravity="center"
+                android:layout_toLeftOf="@id/DashnoticeText"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/ic_add"/>
+            <TextView
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:id="@+id/DashnoticeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Notice"
+               android:layout_gravity="center"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-medium"/>
+            <Button
+                android:id="@+id/add_notice_btn"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="0"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:text="Add"
+                android:layout_toEndOf="@id/DashnoticeText"
+                android:background="@drawable/buttonshape"/>
 
-                android:layout_margin="0dp"
-                android:scrollbars="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView17">
 
-                <GridLayout
+        </LinearLayout>
+            <LinearLayout
+                android:elevation="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@drawable/dashboardshape"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="0"
+                    android:layout_gravity="center"
+                    android:layout_toLeftOf="@id/DashnoticeText"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_add"/>
+                <TextView
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:id="@+id/DashnassisgnText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="0dp"
-                    android:padding="1dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView2ffff5">
-
-                    <ImageView
-                        android:id="@+id/gallery"
-                        android:layout_width="170dp"
-                        android:layout_height="170dp"
-                        android:layout_row="0"
-                        android:layout_column="0"
-                        android:padding="5dp"
-                        android:paddingStart="0dp"
-                        android:src="@drawable/dashshape" />
-
-                    <ImageView
-                        android:id="@+id/gallery2"
-                        android:layout_width="170dp"
-                        android:layout_height="170dp"
-                        android:layout_row="0"
-                        android:layout_column="1"
-                        android:padding="5dp"
-                        android:src="@drawable/dashshape" />
-
-                    <ImageView
-                        android:id="@+id/gallery3"
-                        android:layout_width="170dp"
-                        android:layout_height="170dp"
-                        android:layout_row="0"
-                        android:layout_column="2"
-                        android:padding="5dp"
-                        android:src="@drawable/dashshape" />
-
-                    <ImageView
-                        android:id="@+id/gallery4"
-                        android:layout_width="170dp"
-                        android:layout_height="170dp"
-                        android:layout_row="0"
-                        android:layout_column="3"
-                        android:padding="5dp"
-                        android:paddingEnd="10dp"
-                        android:src="@drawable/dashshape" />
-
-                    <ImageView
-                        android:id="@+id/textView16"
-                        android:layout_width="169dp"
-                        android:layout_height="110dp"
-                        android:layout_row="0"
-                        android:layout_column="0"
-                        android:layout_gravity="bottom"
-                        android:src="@drawable/ic_photo" />
-
-                    <TextView
-                        android:gravity="center"
-                        android:id="@+id/textView18"
-                        android:layout_width="158dp"
-                        android:layout_height="56dp"
-                        android:textSize="20sp"
-                        android:layout_marginTop="5dp"
-                        android:fontFamily="sans-serif-light"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:layout_row="0"
-                        android:layout_column="0"
-                        android:text="Add To Gallery" />
+                    android:text="Add Assignment"
+                    android:layout_gravity="center"
+                    android:textSize="20sp"
+                    android:fontFamily="sans-serif-medium"/>
+                <Button
+                    android:id="@+id/add_assignment_btn"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="0"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:text="Add"
+                    android:layout_toEndOf="@id/DashnoticeText"
+                    android:background="@drawable/buttonshape"/>
 
 
-                </GridLayout>
-
-            </HorizontalScrollView>
-
-            <TextView
-                android:id="@+id/textView17"
+            </LinearLayout>
+            <LinearLayout
+                android:elevation="1dp"
                 android:layout_width="match_parent"
-                android:layout_height="37dp"
-                android:layout_marginTop="8dp"
-                android:gravity="start"
-                android:paddingStart="5dp"
-                android:text="Extras"
-                android:textColor="@color/Black"
-                android:textSize="25sp"
+                android:layout_height="80dp"
+                android:background="@drawable/dashboardshape"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="0"
+                    android:layout_gravity="center"
+                    android:layout_toLeftOf="@id/DashnoticeText"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_add"/>
+                <TextView
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:id="@+id/DashfacultyText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add Lecturers"
+                    android:layout_gravity="center"
+                    android:textSize="20sp"
+                    android:fontFamily="sans-serif-medium"/>
+                <Button
+                    android:id="@+id/add_faculty_btn"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="0"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:text="Add"
+                    android:layout_toEndOf="@id/DashnoticeText"
+                    android:background="@drawable/buttonshape"/>
+
+
+            </LinearLayout>
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add To Database"
+                android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.025"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView2ffff5" />
+                android:layout_marginStart="15dp"
+                android:alpha="0.7"
+                android:fontFamily="@font/cabin"/>
+            <RelativeLayout
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <HorizontalScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <RelativeLayout
+                            android:layout_margin="5dp"
+                            android:layout_width="200dp"
+                            android:layout_height="150dp"
+                            android:background="@drawable/homeshapegrid">
+                            <RelativeLayout
+                                android:id="@+id/iconrelative"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:background="@drawable/dashitemshape"
+                                android:layout_margin="15dp">
+                                <ImageView
+                                    android:alpha="0.6"
+                                    android:layout_margin="5dp"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:src="@drawable/menmain"/>
+                            </RelativeLayout>
+
+                            <LinearLayout
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginStart="6dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="20dp"
+                                android:layout_marginBottom="50dp"
+                                android:layout_toEndOf="@+id/iconrelative"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:alpha="0.5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:gravity="start"
+                                    android:textStyle="bold"
+                                    android:text="200"
+                                    android:textColor="#5E35B1"
+                                    android:textSize="30dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:gravity="start"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:text="Student"
+                                    android:textSize="15dp" />
+
+                             </LinearLayout>
+
+                            <Button
+                                android:id="@+id/addStudentDash"
+                                android:background="@drawable/buttonshape"
+                                android:text="Add Student"
+                                android:textSize="10dp"
+                                android:layout_width="94dp"
+                                android:layout_height="50dp"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginStart="44dp"
+                                android:layout_marginTop="89dp"
+                                android:layout_marginEnd="44dp"
+                                android:layout_marginBottom="0dp"
+                                android:gravity="center" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                        </RelativeLayout>
+<!--                        <RelativeLayout-->
+<!--                            android:layout_margin="5dp"-->
+<!--                            android:layout_width="200dp"-->
+<!--                            android:layout_height="150dp"-->
+<!--                            android:background="@drawable/homeshapegrid">-->
+<!--                            <RelativeLayout-->
+<!--                                android:id="@+id/iconrelative"-->
+<!--                                android:layout_width="60dp"-->
+<!--                                android:layout_height="60dp"-->
+<!--                                android:background="@drawable/dashitemshape"-->
+<!--                                android:layout_margin="15dp">-->
+<!--                                <ImageView-->
+<!--                                    android:layout_margin="5dp"-->
+<!--                                    android:layout_width="50dp"-->
+<!--                                    android:layout_height="50dp"-->
+<!--                                    android:src="@drawable/menmain"/>-->
+<!--                            </RelativeLayout>-->
+
+<!--                            <LinearLayout-->
+<!--                                android:layout_width="100dp"-->
+<!--                                android:layout_height="100dp"-->
+<!--                                android:layout_alignParentTop="true"-->
+<!--                                android:layout_alignParentEnd="true"-->
+<!--                                android:layout_alignParentBottom="true"-->
+<!--                                android:layout_marginStart="6dp"-->
+<!--                                android:layout_marginTop="15dp"-->
+<!--                                android:layout_marginEnd="20dp"-->
+<!--                                android:layout_marginBottom="50dp"-->
+<!--                                android:layout_toEndOf="@+id/iconrelative"-->
+<!--                                android:orientation="vertical">-->
+
+<!--                                <TextView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_gravity="start"-->
+<!--                                    android:gravity="start"-->
+<!--                                    android:textStyle="bold"-->
+<!--                                    android:text="200"-->
+<!--                                    android:textColor="@color/colorRed"-->
+<!--                                    android:textSize="30dp" />-->
+
+<!--                                <TextView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_gravity="start"-->
+<!--                                    android:gravity="start"-->
+<!--                                    android:fontFamily="sans-serif-medium"-->
+<!--                                    android:text="Faculty"-->
+<!--                                    android:textSize="15dp" />-->
+
+<!--                            </LinearLayout>-->
+
+<!--                            <Button-->
+<!--                                android:background="@drawable/buttonshape"-->
+<!--                                android:text="Add Faculty"-->
+<!--                                android:textSize="10dp"-->
+<!--                                android:layout_width="94dp"-->
+<!--                                android:layout_height="50dp"-->
+<!--                                android:layout_alignParentStart="true"-->
+<!--                                android:layout_alignParentTop="true"-->
+<!--                                android:layout_alignParentEnd="true"-->
+<!--                                android:layout_alignParentBottom="true"-->
+<!--                                android:layout_marginStart="44dp"-->
+<!--                                android:layout_marginTop="89dp"-->
+<!--                                android:layout_marginEnd="44dp"-->
+<!--                                android:layout_marginBottom="0dp"-->
+<!--                                android:gravity="center" />-->
+
+
+<!--                        </RelativeLayout>-->
+                        <RelativeLayout
+                            android:layout_margin="5dp"
+                            android:layout_width="200dp"
+                            android:layout_height="150dp"
+                            android:background="@drawable/homeshapegrid">
+                            <RelativeLayout
+                                android:id="@+id/iconrelative"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:background="@drawable/dashitemshape"
+                                android:layout_margin="15dp">
+                                <ImageView
+                                    android:alpha="0.7"
+                                    android:layout_margin="5dp"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:src="@drawable/photo"/>
+                            </RelativeLayout>
+
+                            <LinearLayout
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginStart="6dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="20dp"
+                                android:layout_marginBottom="50dp"
+                                android:layout_toEndOf="@+id/iconrelative"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:alpha="0.5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:gravity="start"
+                                    android:textStyle="bold"
+                                    android:text="200"
+                                    android:textColor="#8E24AA"
+                                    android:textSize="30dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:gravity="start"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:text="Gallery"
+                                    android:textSize="15dp" />
+
+                            </LinearLayout>
+
+                            <Button
+                                android:id="@+id/addGalleryDash"
+                                android:background="@drawable/buttonshape"
+                                android:text="Add Photo"
+                                android:textSize="10dp"
+                                android:layout_width="94dp"
+                                android:layout_height="50dp"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginStart="44dp"
+                                android:layout_marginTop="89dp"
+                                android:layout_marginEnd="44dp"
+                                android:layout_marginBottom="0dp"
+                                android:gravity="center" />
+
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+            </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Manage Students"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginStart="15dp"
+                android:alpha="0.7"
+                android:fontFamily="@font/cabin"/>
+            <RelativeLayout
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/homeshapegrid">
+
+            </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Manage Teachers"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginStart="15dp"
+                android:alpha="0.7"
+                android:fontFamily="@font/cabin"/>
+            <RelativeLayout
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/homeshapegrid">
+
+            </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Manage Gallery"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginStart="15dp"
+                android:alpha="0.7"
+                android:fontFamily="@font/cabin"/>
+            <RelativeLayout
+                android:layout_marginBottom="30dp"
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/homeshapegrid">
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"/>
+
+
+        </LinearLayout>
+
+
+
 
     </ScrollView>
 

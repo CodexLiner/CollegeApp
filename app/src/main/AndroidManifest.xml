@@ -14,7 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".photoGallery.galleryMain"></activity>
+        <activity android:name=".studentDashboard.studentdashboard"></activity>
+        <activity android:name=".Assignment.Assignment" />
+        <activity android:name=".studentList.studentList" />
+        <activity android:name=".facultyList.facultyList" />
+        <activity android:name=".photoGallery.galleryMain" />
         <activity android:name=".AboutDev.developer" />
         <activity android:name=".noticeBoard.PDFViewer" />
         <activity android:name=".noticeBoard.noticeBoard" />
@@ -22,9 +26,15 @@
         <activity android:name=".Garbage.imagedemo" />
         <activity android:name=".Cs_Dashboard.DashBoard" />
         <activity android:name=".users.Profile" />
-        <activity android:name=".users.SignUp" />
-        <activity android:name=".Main.home" />
-        <activity android:name=".users.MainActivity">
+        <activity
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:name=".users.SignUp" />
+        <activity
+            android:name=".Main.home"
+            android:theme="@style/mainTheme" />
+        <activity
+            android:name=".users.MainActivity"
+            android:theme="@style/SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
