@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".noticeBoard.noticeBoard">
+
+    <RelativeLayout
+        android:elevation="1dp"
+        android:background="@color/Xhome"
+        android:id="@+id/relativeLayout9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Upload Assignment"
+            android:textColor="@color/Black"
+            android:textSize="25sp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout9"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+            android:elevation="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/pdfimage"
+            android:layout_marginBottom="10dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
+
+            <ImageView
+                android:id="@+id/Chooser"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="100dp"
+                android:src="@drawable/upcircle" />
+
+
+            <ImageView
+                android:id="@+id/choosed"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="5dp"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="100dp"
+                android:src="@drawable/pdf"
+                android:visibility="invisible" />
+            <TextView
+                android:id="@+id/selectonTap"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Select File"
+                android:layout_below="@id/Chooser"
+                android:textColor="@color/Black"
+                android:textSize="20sp"/>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:textAlignment="center"
+                android:visibility="invisible"
+                android:id="@+id/selected"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_below="@id/Chooser"
+                android:text="File Selected"
+                android:textColor="#6200EA"
+                android:textSize="20sp"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/PDF_name"
+                android:layout_width="match_parent"
+                android:layout_height="73dp"
+                android:background="@drawable/inputshape2"
+                android:ems="10"
+                android:inputType="textPersonName" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/pdf_loader"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:background="@drawable/buttonshape"
+            android:text="Upload" />
+
+
+    </LinearLayout>
+
+    <!--    <ImageView-->
+    <!--        android:id="@+id/Chooser"-->
+    <!--        android:layout_width="94dp"-->
+    <!--        android:layout_height="109dp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintVertical_bias="0.223"-->
+    <!--        app:srcCompat="@drawable/ic_pdf" />-->
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/PDF_name"-->
+    <!--        android:layout_width="343dp"-->
+    <!--        android:layout_height="73dp"-->
+    <!--        android:background="@drawable/inputshape2"-->
+    <!--        android:ems="10"-->
+    <!--        android:inputType="textPersonName"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintVertical_bias="0.434" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/pdf_loader"-->
+    <!--        android:layout_width="89dp"-->
+    <!--        android:layout_height="63dp"-->
+    <!--        android:background="@drawable/inputshape"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.509"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/PDF_name"-->
+    <!--        app:layout_constraintVertical_bias="0.379" />-->
+
+    <!--    <ImageView-->
+    <!--        android:id="@+id/imageView23"-->
+    <!--        android:layout_width="48dp"-->
+    <!--        android:layout_height="45dp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@+id/pdf_loader"-->
+    <!--        app:layout_constraintEnd_toEndOf="@+id/pdf_loader"-->
+    <!--        app:layout_constraintHorizontal_bias="0.414"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/pdf_loader"-->
+    <!--        app:layout_constraintTop_toTopOf="@+id/pdf_loader"-->
+    <!--        app:srcCompat="@drawable/right_white" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="autosizeText">
+        <item>17sp</item>
+        <item>19sp</item>
+        <item>18sp</item>
+        <item>20sp</item>
+    </array>
+</resources>
