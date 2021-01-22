@@ -2,6 +2,8 @@ package com.codingergo.myproject.Cs_Dashboard;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,19 +18,24 @@ import com.codingergo.myproject.R;
 import com.codingergo.myproject.Main.home;
 import com.codingergo.myproject.noticeBoard.noticeBoard;
 import com.codingergo.myproject.photoGallery.galleryMain;
+import com.codingergo.myproject.photoGallery.imageAdapter;
+import com.codingergo.myproject.photoGallery.imageModel;
 import com.codingergo.myproject.users.Profile;
 import com.codingergo.myproject.users.SignUp;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DashBoard extends AppCompatActivity {
-
+imageAdapter iadapter;
 SimpleDateFormat simpleDateFormat , timef;
 TextView timeview , todays;
 String time , Date;
 Button notice , faculty , assign, addStudent , addGallery;
+RecyclerView studentsRecycler , galleryRecycler , teachersRecycler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +54,10 @@ Button notice , faculty , assign, addStudent , addGallery;
         Date = timef.format(new Date());
         timeview.setText(Date);
         todays.setText(time);
+        studentsRecycler = findViewById(R.id.adminStudentrec);
+        galleryRecycler = findViewById(R.id.adminGalleryrec);
+        teachersRecycler = findViewById(R.id.adminTeachersrec);
+
 
         /////nav bar starts here
          BottomNavigationView bottomNavigationView = findViewById(R.id.BottomNav);
@@ -107,6 +118,7 @@ Button notice , faculty , assign, addStudent , addGallery;
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),DashBoard.class));
+
             }
         });
 // assignment
@@ -131,5 +143,29 @@ Button notice , faculty , assign, addStudent , addGallery;
             }
         });
 // Button ands here
+// recyclerView
+        galleryRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        studentsRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        teachersRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        FirebaseRecyclerOptions<imageModel> option =
+                new FirebaseRecyclerOptions.Builder<imageModel>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Gallery").orderByChild("date"), imageModel.class)
+                        .build();
+        iadapter = new imageAdapter(option);
+        galleryRecycler.setAdapter(iadapter);
+        teachersRecycler.setAdapter(iadapter);
+        studentsRecycler.setAdapter(iadapter);
+    }
+// ouside of onCreate
+    @Override
+    protected void onStart() {
+        super.onStart();
+        iadapter.startListening();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        iadapter.stopListening();
     }
 }

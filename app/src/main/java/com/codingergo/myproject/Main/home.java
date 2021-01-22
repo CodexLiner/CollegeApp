@@ -129,7 +129,7 @@ public class home extends AppCompatActivity {
 
                         String first = snap.child("name").getValue(String.class);
                         String[] splited = first.split("\\s+");
-                        welcome.setText("Hi "+splited[0]);
+                        welcome.setText("Hello "+splited[0]);
                      //   welcome.setText("Hi "+snap.child("name").getValue(String.class));
 
                     }

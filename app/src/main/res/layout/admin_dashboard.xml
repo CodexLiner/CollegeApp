@@ -480,8 +480,11 @@
             <RelativeLayout
                 android:layout_margin="5dp"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:background="@drawable/homeshapegrid">
+                android:layout_height="wrap_content">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/adminStudentrec"/>
 
             </RelativeLayout>
             <TextView
@@ -496,8 +499,11 @@
             <RelativeLayout
                 android:layout_margin="5dp"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:background="@drawable/homeshapegrid">
+                android:layout_height="wrap_content">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/adminTeachersrec"/>
 
             </RelativeLayout>
             <TextView
@@ -513,8 +519,11 @@
                 android:layout_marginBottom="30dp"
                 android:layout_margin="5dp"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:background="@drawable/homeshapegrid">
+                android:layout_height="wrap_content">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/adminGalleryrec"/>
 
             </RelativeLayout>
             <RelativeLayout
