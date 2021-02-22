@@ -38,7 +38,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="750dp"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
         <LinearLayout
@@ -163,7 +164,7 @@
                         android:layout_marginTop="28dp"
                         android:background="@drawable/buttonshape"
                         android:fontFamily="sans-serif-black"
-                        android:foreground="?android:attr/selectableItemBackground"
+                        android:foreground="@drawable/rip"
                         android:text="Add"
                         android:textAllCaps="false"
                         android:textSize="24sp"/>

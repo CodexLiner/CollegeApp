@@ -20,8 +20,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="Upload PDF"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="Update New Notification"
             android:textColor="@color/Black"
             android:textSize="25sp" />
 
@@ -63,7 +63,7 @@
                 android:layout_marginStart="100dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="100dp"
-                android:src="@drawable/upcircle" />
+                android:src="@drawable/pluspanso" />
 
 
             <ImageView
@@ -77,7 +77,7 @@
                 android:layout_marginStart="100dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="100dp"
-                android:src="@drawable/pdf"
+                android:src="@drawable/uploadpanso"
                 android:visibility="invisible" />
             <TextView
                 android:id="@+id/selectonTap"
@@ -100,9 +100,18 @@
                 android:textStyle="bold"
                 android:layout_below="@id/Chooser"
                 android:text="File Selected"
-                android:textColor="#6200EA"
+                android:textColor="@color/Black"
                 android:textSize="20sp"/>
         </RelativeLayout>
+        <TextView
+            android:layout_margin="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:fontFamily="@font/arya"
+            android:text="@string/pdfText"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -113,16 +122,21 @@
             <EditText
                 android:id="@+id/PDF_name"
                 android:layout_width="match_parent"
-                android:layout_height="73dp"
+                android:layout_height="60dp"
+                android:hint="Enter Title Here"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textAlignment="center"
                 android:background="@drawable/inputshape2"
-                android:ems="10"
                 android:inputType="textPersonName" />
         </LinearLayout>
 
         <Button
+            android:foreground="@drawable/rip"
             android:id="@+id/pdf_loader"
             android:layout_width="100dp"
             android:layout_height="50dp"
+            android:gravity="center"
             android:layout_gravity="center"
             android:background="@drawable/buttonshape"
             android:text="Upload" />

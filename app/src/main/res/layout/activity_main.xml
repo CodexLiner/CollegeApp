@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/gradiantbg"
     tools:context=".users.MainActivity">
     <LinearLayout
-        android:elevation="1dp"
+
         android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/Xhome"
         android:orientation="vertical"
+        android:background="#54FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -22,17 +22,19 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:text="Sign In"
-            android:textColor="@color/Black"
+            android:text="Login"
+            android:textColor="@color/white"
             android:textSize="30sp"
             android:textStyle="bold" />
 
         <TextView
+            android:fontFamily="sans-serif-medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:layout_marginStart="20dp"
             android:layout_marginBottom="20dp"
-            android:text="To verify and continue"
+            android:text="To Verify and Continue"
             android:textSize="18sp"/>
 
     </LinearLayout>
@@ -107,6 +109,7 @@
 <!--            android:textSize="30sp" />-->
 
         <EditText
+            android:elevation="5dp"
             android:id="@+id/RollView"
             android:layout_width="310dp"
             android:layout_height="55dp"
@@ -125,6 +128,7 @@
             android:textColorHighlight="#59535754" />
 
         <EditText
+            android:elevation="5dp"
             android:id="@+id/LoginPassView"
             android:layout_width="310dp"
             android:layout_height="55dp"
@@ -151,12 +155,16 @@
             android:textStyle="bold" />
 
         <RelativeLayout
+            android:elevation="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <Button
+                android:elevation="5dp"
+                android:foreground="@drawable/rip"
                 android:id="@+id/SubmitButton"
                 android:layout_width="80dp"
+                android:layout_marginBottom="10dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/buttonshape"

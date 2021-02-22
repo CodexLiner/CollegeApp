@@ -37,210 +37,197 @@
 
    </LinearLayout>
 
-   <LinearLayout
-       android:background="@color/white"
-
+   <ScrollView
        android:layout_width="match_parent"
-       android:layout_height="1000dp"
+       android:layout_height="wrap_content"
        android:orientation="vertical"
-       app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
-       tools:layout_editor_absoluteX="0dp">
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
       <LinearLayout
-          android:elevation="1dp"
-          android:background="@color/Xhome"
+          android:background="@color/white"
+
           android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-         android:orientation="horizontal">
-         <de.hdodenhof.circleimageview.CircleImageView
-             android:layout_weight="0"
-             android:layout_marginEnd="5dp"
-             android:layout_marginStart="20dp"
-             android:layout_marginBottom="20dp"
-             android:layout_marginTop="20dp"
-             android:layout_gravity="center"
-             android:id="@+id/profile_image"
-             android:layout_width="80dp"
-             android:layout_height="80dp"
-             android:src="@drawable/profile"
-             android:textAlignment="center"
-             app:border_width="1dp"
-             app:border_color="@color/Black"/>
+          android:layout_height="1000dp"
+          android:orientation="vertical"
+          tools:layout_editor_absoluteX="0dp">
          <LinearLayout
-             android:layout_marginTop="20dp"
-             android:layout_marginBottom="20dp"
-             android:layout_width="wrap_content"
+             android:elevation="1dp"
+             android:background="@color/Xhome"
+             android:layout_width="match_parent"
              android:layout_height="wrap_content"
-             android:orientation="vertical">
-            <TextView
-                android:layout_marginTop="10dp"
-                android:id="@+id/profilename"
-                android:gravity="start"
-                android:layout_marginStart="10dp"
-                android:layout_width="wrap_content"
+             android:orientation="horizontal">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_weight="0"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:id="@+id/profile_image"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/profile"
+                android:textAlignment="center"
+                app:border_width="1dp"
+                app:border_color="@color/Black"/>
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:text="Gopal Meena"
-                android:fontFamily="sans-serif-medium"
-                android:textSize="25sp"
-                android:textColor="@color/Black"/>
-            <TextView
-                android:id="@+id/profilebranch"
-                android:gravity="start"
-                android:layout_marginStart="10dp"
-                android:layout_width="wrap_content"
+                android:orientation="vertical">
+               <TextView
+                   android:layout_marginTop="10dp"
+                   android:id="@+id/profilename"
+                   android:gravity="start"
+                   android:layout_marginStart="10dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Gopal Meena"
+                   android:fontFamily="sans-serif-medium"
+                   android:textSize="25sp"
+                   android:textColor="@color/Black"/>
+               <TextView
+                   android:id="@+id/profilebranch"
+                   android:gravity="start"
+                   android:layout_marginStart="10dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="30dp"
+                   android:text="computer Science"
+                   android:textSize="15dp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="30dp"
+                android:layout_gravity="top"
+                android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:text="computer Science"
-                android:textSize="15dp" />
+                android:orientation="vertical">
+               <ImageView
+                   android:id="@+id/editprofile"
+                   android:alpha="0.5"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:src="@drawable/editing"/>
+            </LinearLayout>
 
 
          </LinearLayout>
-         
+
+         <LinearLayout
+             android:background="@color/white"
+             android:layout_marginTop="20dp"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="vertical">
+            <TextView
+                android:elevation="2dp"
+                android:background="@drawable/homeshapegrid"
+                android:padding="10sp"
+                android:id="@+id/profilemail"
+                android:layout_gravity="center"
+                android:gravity="start|center"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:text="Email address"
+                android:textSize="20sp"
+                android:autoSizeTextType="uniform"
+                android:autoSizePresetSizes="@array/autosizeText"
+                app:drawableStartCompat="@drawable/drawable_email" />
+            <TextView
+                android:elevation="2dp"
+                android:background="@drawable/homeshapegrid"
+                android:padding="10sp"
+                android:layout_gravity="center"
+                android:id="@+id/profilephone"
+                android:gravity="start|center"
+                android:layout_marginTop="20dp"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:textSize="20sp"
+                android:autoSizePresetSizes="@array/autosizeText"
+                android:autoSizeTextType="uniform"
+                android:text="Mobile"
+                app:drawableStartCompat="@drawable/drawable_mobile" />
+            <TextView
+                android:elevation="2dp"
+                android:background="@drawable/homeshapegrid"
+                android:id="@+id/profileroll"
+                android:layout_gravity="center"
+                android:gravity="start|center"
+                android:layout_marginTop="20dp"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:textSize="20sp"
+                android:text="Enroll Number"
+                android:autoSizePresetSizes="@array/autosizeText"
+                android:autoSizeTextType="uniform"
+                app:drawableStartCompat="@drawable/drawable_enroll" />
+            <TextView
+                android:elevation="2dp"
+                android:background="@drawable/homeshapegrid"
+                android:padding="10sp"
+                android:autoSizePresetSizes="@array/autosizeText"
+                android:autoSizeTextType="uniform"
+                android:id="@+id/profilecity"
+                android:layout_gravity="center"
+                android:gravity="start|center"
+                android:layout_marginTop="20dp"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:textSize="20sp"
+                android:text="City"
+                app:drawableStartCompat="@drawable/drawable_city" />
+            <TextView
+                android:foreground="@drawable/rip"
+                android:elevation="2dp"
+                android:background="@drawable/homeshapegrid"
+                android:padding="10sp"
+                android:autoSizePresetSizes="@array/autosizeText"
+                android:autoSizeTextType="uniform"
+                android:id="@+id/profileLogout"
+                android:layout_gravity="center"
+                android:gravity="start|center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:textSize="20sp"
+                android:text="Sign Out"
+                app:drawableStartCompat="@drawable/drawable_power"  />
+
+         </LinearLayout>
+         <LinearLayout
+
+             android:layout_marginTop="10dp"
+             android:layout_width="match_parent"
+             android:layout_height="100dp"
+             android:orientation="vertical">
+
+         </LinearLayout>
+
 
       </LinearLayout>
 
-      <LinearLayout
-          android:background="@color/white"
-          android:layout_marginTop="10dp"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:orientation="vertical">
-         <TextView
-             android:background="@drawable/homeshapegrid"
-             android:padding="10sp"
-             android:id="@+id/profilemail"
-             android:layout_gravity="center"
-             android:gravity="start"
-             android:layout_width="300dp"
-             android:layout_height="50dp"
-             android:text="Email address"
-             android:textSize="20sp"
-             android:autoSizeTextType="uniform"
-             android:autoSizePresetSizes="@array/autosizeText"
+   </ScrollView>
 
-             app:drawableStartCompat="@drawable/drawable_email" />
-         <TextView
-             android:background="@drawable/homeshapegrid"
-             android:padding="10sp"
-             android:layout_gravity="center"
-             android:id="@+id/profilephone"
-             android:gravity="start"
-             android:layout_marginTop="10dp"
-             android:layout_width="300dp"
-             android:layout_height="50dp"
-             android:textSize="20sp"
-             android:autoSizePresetSizes="@array/autosizeText"
-             android:autoSizeTextType="uniform"
-             android:text="Mobile"
-             app:drawableStartCompat="@drawable/drawable_mobile" />
-         <TextView
-             android:background="@drawable/homeshapegrid"
-             android:id="@+id/profileroll"
-             android:layout_gravity="center"
-             android:gravity="start"
-             android:layout_marginTop="10dp"
-             android:layout_width="300dp"
-             android:layout_height="50dp"
-             android:textSize="20sp"
-             android:text="Enroll Number"
-             android:autoSizePresetSizes="@array/autosizeText"
-             android:autoSizeTextType="uniform"
-             app:drawableStartCompat="@drawable/drawable_enroll" />
-         <TextView
-             android:background="@drawable/homeshapegrid"
-             android:padding="10sp"
-             android:autoSizePresetSizes="@array/autosizeText"
-             android:autoSizeTextType="uniform"
-             android:id="@+id/profilecity"
-             android:layout_gravity="center"
-             android:gravity="start"
-             android:layout_marginTop="10dp"
-             android:layout_width="300dp"
-             android:layout_height="50dp"
-             android:textSize="20sp"
-             android:text="City"
-             app:drawableStartCompat="@drawable/drawable_city" />
-         <TextView
-             android:background="@drawable/homeshapegrid"
-             android:padding="10sp"
-             android:autoSizePresetSizes="@array/autosizeText"
-             android:autoSizeTextType="uniform"
-             android:id="@+id/profileLogout"
-             android:layout_gravity="center"
-             android:gravity="start"
-             android:layout_marginTop="10dp"
-             android:layout_width="300dp"
-             android:layout_height="50dp"
-             android:textSize="20sp"
-             android:text="Sign OutC"
-             app:drawableStartCompat="@drawable/drawable_power" />
-
-      </LinearLayout>
-      <LinearLayout
-          android:layout_marginTop="10dp"
-          android:background="@drawable/homeshapegrid"
-          android:layout_width="match_parent"
-          android:layout_height="100dp"
-         android:orientation="vertical">
-
-      </LinearLayout>
-
-
-   </LinearLayout>
-
-
-
-
-
-
-
-
-<!--    <TextView-->
-<!--        android:visibility="invisible"-->
-<!--        android:id="@+id/profileLogout"-->
-<!--        android:layout_width="191dp"-->
-<!--        android:layout_height="38dp"-->
-<!--        android:fontFamily="sans-serif-medium"-->
-<!--        android:text="logout"-->
-<!--        android:textAllCaps="false"-->
-<!--        android:textSize="20sp"-->
-<!--        app:layout_constraintBottom_toBottomOf="@+id/textView7"-->
-<!--        app:layout_constraintEnd_toStartOf="@+id/imageView14"-->
-<!--        app:layout_constraintHorizontal_bias="0.512"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/imageView8"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/textView7"-->
-<!--        app:layout_constraintVertical_bias="1.0" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/profilebranch"-->
-<!--        android:layout_width="292dp"-->
-<!--        android:layout_height="54dp"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:textSize="17sp"-->
-<!--        android:textColor="#E53935"-->
-<!--        android:fontFamily="sans-serif-medium"-->
-<!--        android:text="Computer Science and Engineering"-->
-<!--        android:textAlignment="center"-->
-<!--        android:textStyle="normal"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.495"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/profilename" />-->
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/BottomNav"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/Xhome"
-        android:foreground="?attr/selectableItemBackgroundBorderless"
-        app:itemIconTint="@drawable/selector"
-        app:itemTextColor="@drawable/selector"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:menu="@menu/nav_menu" />
+<!--   <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--       android:id="@+id/BottomNav"-->
+<!--       android:layout_width="match_parent"-->
+<!--       android:layout_height="wrap_content"-->
+<!--       android:layout_alignParentBottom="true"-->
+<!--       android:background="@color/Xhome"-->
+<!--       android:foreground="?attr/selectableItemBackgroundBorderless"-->
+<!--       app:itemIconTint="@drawable/selector"-->
+<!--       app:itemTextColor="@drawable/selector"-->
+<!--       app:layout_constraintBottom_toBottomOf="parent"-->
+<!--       app:layout_constraintEnd_toEndOf="parent"-->
+<!--       app:layout_constraintHorizontal_bias="1.0"-->
+<!--       app:layout_constraintStart_toStartOf="parent"-->
+<!--       app:layout_constraintTop_toTopOf="parent"-->
+<!--       app:layout_constraintVertical_bias="1.0"-->
+<!--       app:menu="@menu/nav_menu" />-->
 
    <com.facebook.shimmer.ShimmerFrameLayout
        android:id="@+id/shimmer"
@@ -255,10 +242,10 @@
        app:layout_constraintTop_toTopOf="parent"
        app:shimmer_shape="linear">
 
-              <include
-                  layout="@layout/shimmer"
-                  android:layout_width="match_parent"
-                  android:layout_height="866dp" />
+      <include
+          layout="@layout/shimmer"
+          android:layout_width="match_parent"
+          android:layout_height="866dp" />
 
    </com.facebook.shimmer.ShimmerFrameLayout>
 

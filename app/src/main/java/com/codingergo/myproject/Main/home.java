@@ -2,45 +2,63 @@ package com.codingergo.myproject.Main;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.net.Uri;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.codingergo.myproject.AboutDev.developer;
 import com.codingergo.myproject.Cs_Dashboard.DashBoard;
+import com.codingergo.myproject.NotesManager.NotesUploader;
 import com.codingergo.myproject.R;
+import com.codingergo.myproject.moreButton.moreButton;
+import com.codingergo.myproject.noticeBoard.fireNoticeAdapter;
 import com.codingergo.myproject.noticeBoard.noticeAdapter;
+import com.codingergo.myproject.noticeBoard.noticeBoardExtended;
 import com.codingergo.myproject.noticeBoard.noticeModel;
-import com.codingergo.myproject.photoGallery.galleryMain;
+import com.codingergo.myproject.photoGallery.GalleryExtended;
+import com.codingergo.myproject.photoGallery.fireAdapter;
 import com.codingergo.myproject.photoGallery.imageAdapter;
 import com.codingergo.myproject.photoGallery.imageModel;
+import com.codingergo.myproject.studentDashboard.studentdashboard;
 import com.codingergo.myproject.tabLayout.TabManager;
-import com.codingergo.myproject.users.Profile;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+
+import java.io.File;
+import java.util.Date;
 
 public class home extends AppCompatActivity {
     // globale varialbe
@@ -48,10 +66,12 @@ public class home extends AppCompatActivity {
     RecyclerView recyclerView ;
     RecyclerView galleryrec;
     noticeAdapter adapter;
+    fireNoticeAdapter firenoticeadapter;
     imageAdapter iadapter;
+    fireAdapter fireadapter;
     DrawerLayout drawerLayout ;
     private long backbutton;
-    TextView welcome , pdf;
+    TextView welcome , galleryAll , notificationall;
     String welcomename;
     private Toast toast;
     Button button;
@@ -60,41 +80,149 @@ public class home extends AppCompatActivity {
     ViewPager viewPager;
     TabManager tabManager;
     FirebaseAuth auth;
+    FirebaseFirestore firestore;
     DatabaseReference databaseReference;
     FirebaseDatabase firebaseDatabase;
     public final  String USER= "Users";
     ShimmerFrameLayout shimmerFrameLayout;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor ;
+    String isUser;
 
     // on create method starts here
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-        // button = findViewById(R.id.signout);
-      shimmerFrameLayout = findViewById(R.id.shimmer);
-      imageView = (ImageView)findViewById(R.id.profile_image);
-       //  drawerLayout =(DrawerLayout) findViewById(R.id.drawer_tab);
-       // tableLayout=(TabLayout)findViewById(R.id.tab_Layout);
-       viewPager = (ViewPager)findViewById(R.id.pageholder);
-       recyclerView = findViewById(R.id.notice_Rec);
-       galleryrec = findViewById(R.id.galleryrec);
-       GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
-       galleryrec.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false));
-       recyclerView.setLayoutManager(new LinearLayoutManager(this ,LinearLayoutManager.HORIZONTAL, false ));
-       welcome = (TextView)findViewById(R.id.welcome_text);
-       ce = (TabItem)findViewById(R.id.civiltab);
-       cs = (TabItem)findViewById(R.id.cstab);
-       me = (TabItem)findViewById(R.id.metab);
-       et = (TabItem)findViewById(R.id.ettab);
-      // pdf = (TextView)findViewById(R.id.pdf);
-
-//        databaseReference  = FirebaseDatabase.getInstance().getReference();
-//        DatabaseReference user = databaseReference.child(USER);
+          setContentView(R.layout.activity_home);
+           shimmerFrameLayout = findViewById(R.id.shimmer);
+           imageView = (ImageView)findViewById(R.id.profile_image);
+           viewPager = (ViewPager)findViewById(R.id.pageholder);
+           recyclerView = findViewById(R.id.notice_Rec);
+           galleryrec = findViewById(R.id.galleryrec);
+           galleryAll = findViewById(R.id.galleryall);
+           notificationall = findViewById(R.id.notificationall);
+           welcome = (TextView)findViewById(R.id.welcome_text);
+           ce = (TabItem)findViewById(R.id.civiltab);
+           cs = (TabItem)findViewById(R.id.cstab);
+           me = (TabItem)findViewById(R.id.metab);
+           et = (TabItem)findViewById(R.id.ettab);
+           sharedPreferences = getSharedPreferences("whole",MODE_PRIVATE);
+           editor = sharedPreferences.edit();
         auth = FirebaseAuth.getInstance();
+        firestore = FirebaseFirestore.getInstance();
         DatabaseReference rooref = FirebaseDatabase.getInstance().getReference();
         DatabaseReference userref = rooref.child(USER);
-       // welcome = findViewById(R.id.welcome_text);
         welcomename = auth.getCurrentUser().getEmail();
+        UserDetails();
+        RecyclerAD();
+        Buttons();
+        BottomNav();
+        PermissionManager();
+        CreateFolder();
+        temp();
+
+//nav bar end
+        String uri = "https://scontent-bom1-1.cdninstagram.com/v/t51.2885-19/s320x320/117567853_3278764075515229_6349804811514481652_n.jpg?_nc_ht=scontent-bom1-1.cdninstagram.com&_nc_ohc=B_1OXxT4dRkAX_3AbB3&tp=1&oh=4d99dbd66c972cdb060bd7c9920363ca&oe=6030CAD8";
+        Glide.with(imageView).load(uri).into(imageView);
+        editor.putString("name", "Shared Prefs");
+        SharedPreferences sp = getSharedPreferences("whole", MODE_PRIVATE);
+        if (sp.contains("name")){
+            welcome.setText(sp.getString("name", ""));
+            isUser = sp.getString("isUser","nullaaa");
+
+        }
+//        else{
+//            while (!sp.contains("name")){
+//                ProgressDialog p = new ProgressDialog(this);
+//                p.show();
+//            }
+//        }
+        Log.d("TAG", "onSuccess: id @ "+isUser);
+        final Thread thread = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    while (!isInterrupted()) {
+                        Thread.sleep(100);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                // update TextView here!
+                                UserDetails();
+                                if (sp.contains("name")){
+                                    welcome.setText(sp.getString("name", ""));
+                                    isUser = sp.getString("isUser","nullaaa");
+                                    Log.d("TAG", "onSuccess: id @ "+isUser);
+                                }
+                            }
+                        });
+                    }
+                } catch (InterruptedException e) {
+                }
+            }
+        };
+
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+              UserDetails();
+
+            }
+        });
+
+    }
+
+    private void CreateFolder() {
+        File file = new File(Environment.getExternalStorageDirectory(), "/CodingErgo/Download");
+        if (!file.exists()){
+            if (file.mkdirs()){
+                Log.d("TAG", "CreatedFolder:TWO ");
+                // Toast.makeText(this, "Created Already", Toast.LENGTH_SHORT).show();
+            }
+            Log.d("TAG", "CreateFolder: "+file);
+        }
+    }
+
+    private void PermissionManager() {
+        if (ActivityCompat.checkSelfPermission(home.this , Manifest.permission.WRITE_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED){
+            Log.d("TAG", "PermissionManager: Granteed ");
+            CreateFolder();
+        }
+        else {
+            ActivityCompat.requestPermissions(home.this ,new  String[]{ Manifest.permission.WRITE_EXTERNAL_STORAGE},1);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 1 && (grantResults.length >0 ) && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+            // Toast.makeText(this, "Permission Granteed", Toast.LENGTH_SHORT).show();
+            CreateFolder();
+        }
+        else {
+            Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void temp() {
+        LinearLayout l ;
+        l = findViewById(R.id.choose);
+        l.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), NotesUploader.class));
+            }
+        });
+//        File file = new File(Environment.getExternalStorageDirectory()+"/CodeErgo/Download");
+//        if (!file.mkdirs()){
+//            file.mkdirs();
+//        }
+//        String fname = file.getAbsolutePath() + File.separator ;
+//        Log.d("TAG", "temp: "+fname);
+    }
+
+    private void BottomNav() {
         BottomNavigationView bottomNavigationView = findViewById(R.id.BottomNav);
         bottomNavigationView.setSelectedItemId(R.id.home);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -104,119 +232,98 @@ public class home extends AppCompatActivity {
                     case R.id.home:
                         return true;
                     case R.id.dash:
-                        startActivity(new Intent(getApplicationContext(), DashBoard.class));
+                        if (isUser!=null){
+                            String id = "1";
+//                            String doc = "1";
+                            if (isUser.equals(id)){
+                                startActivity(new Intent(getApplicationContext(), studentdashboard.class));
+                                overridePendingTransition(0,0);
+
+                            }
+                            else {
+                                startActivity(new Intent(getApplicationContext(), DashBoard.class));
+                                overridePendingTransition(0,0);
+//
+                            }
+                        }
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.profile:
-                        startActivity(new Intent(getApplicationContext(), Profile.class));
+                        startActivity(new Intent(getApplicationContext(), moreButton.class));
                         overridePendingTransition(0,0);
                         return true;
                 }
                 return false;
             }
         });
-//nav bar end
-        String uri = "https://scontent-bom1-1.cdninstagram.com/v/t51.2885-19/s320x320/117567853_3278764075515229_6349804811514481652_n.jpg?_nc_ht=scontent-bom1-1.cdninstagram.com&_nc_ohc=B_1OXxT4dRkAX_3AbB3&tp=1&oh=4d99dbd66c972cdb060bd7c9920363ca&oe=6030CAD8";
-        Glide.with(imageView).load(uri).into(imageView);
-//        welcome text
+    }
 
-        shimmerFrameLayout.setVisibility(View.VISIBLE);
-        userref.addValueEventListener(new ValueEventListener() {
+    private void Buttons() {
+        galleryAll.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot snap : snapshot.getChildren()){
-                    if ( snap.child("email").getValue().equals(welcomename)) {
-
-                        String first = snap.child("name").getValue(String.class);
-                        String[] splited = first.split("\\s+");
-                        welcome.setText("Hello "+splited[0]);
-                     //   welcome.setText("Hi "+snap.child("name").getValue(String.class));
-
-                    }
-                }
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), GalleryExtended.class));
             }
-
+        });
+        notificationall.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), noticeBoardExtended.class));
             }
         });
 
-//         pdf.setOnClickListener(new View.OnClickListener() {
-//          @Override
-//          public void onClick(View v) {
-//              startActivity(new Intent(getApplicationContext(), developer.class));
-//          }
-//      });
-/// tab manager
-//        tabManager = new TabManager(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT,tableLayout.getTabCount());
-//        viewPager.setAdapter(tabManager);
-//          tableLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-//              @Override
-//              public void onTabSelected(TabLayout.Tab tab) {
-//                  viewPager.setCurrentItem(tab.getPosition());
-//              }
-//
-//              @Override
-//              public void onTabUnselected(TabLayout.Tab tab) {
-//
-//              }
-//
-//              @Override
-//              public void onTabReselected(TabLayout.Tab tab) {
-//
-//              }
-//          });
-//          viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tableLayout));
+    }
 
-//         imageView.setOnClickListener(new View.OnClickListener() {
-//             @Override
-//             public void onClick(View v) {
-//                 startActivity(new Intent(getApplicationContext(), Profile.class));
-//             }
-//         });
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                try {
-//                    auth.signOut();
-//                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
-//                } catch (Exception e) {
-//                    Toast.makeText(getApplicationContext(),e.getMessage().toString(),Toast.LENGTH_LONG).show();
-//                }
-//
-//
-//            }
-//        });
-//Notice Baord Rec View
-        FirebaseRecyclerOptions<noticeModel> options =
-                new FirebaseRecyclerOptions.Builder<noticeModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Notifications").orderByChild("date"), noticeModel.class)
-                        .build();
-        adapter = new noticeAdapter(options);
-        recyclerView.setAdapter(adapter);
-//        recyclerView.smoothScrollToPosition(adapter.getItemCount());
+    private void RecyclerAD() {
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
+        galleryrec.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this ,LinearLayoutManager.HORIZONTAL, false ));
 
-//  galleryAdapter
-        FirebaseRecyclerOptions<imageModel> option =
-                new FirebaseRecyclerOptions.Builder<imageModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Gallery").orderByChild("date"), imageModel.class)
-                       .build();
-        iadapter = new imageAdapter(option);
-        galleryrec.setAdapter(iadapter);
+        shimmerFrameLayout.setVisibility(View.VISIBLE);
+        Query query2 = firestore.collection("Notifications").orderBy("date" , Query.Direction.DESCENDING);
+        FirestoreRecyclerOptions<noticeModel> noticeRec = new  FirestoreRecyclerOptions.Builder<noticeModel>()
+                .setQuery(query2, noticeModel.class)
+                .build();
+        firenoticeadapter = new fireNoticeAdapter(noticeRec);
+        recyclerView.setAdapter(firenoticeadapter);
+
+        Query query = firestore.collection("Gallery");
+        FirestoreRecyclerOptions<imageModel> options3 = new  FirestoreRecyclerOptions.Builder <imageModel>()
+                .setQuery(query, imageModel.class)
+                .build();
+        fireadapter = new fireAdapter(options3);
+        galleryrec.setAdapter(fireadapter);
+
+    }
+
+    private void UserDetails() {
+        DocumentReference df = firestore.collection("Users").document(auth.getCurrentUser().getUid());
+        df.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                String First = documentSnapshot.getString("fullname");
+                String[] splited = First.split("\\s+");
+                welcome.setText("Hello "+splited[0]);
+                editor.putString("name" ,"Hello "+splited[0]);
+                editor.putString("isUser",documentSnapshot.getString("isUser"));
+                editor.commit();
+                isUser = sharedPreferences.getString("isUser", "null found");
+            }
+        });
 
     }
     @Override
     public void onStart() {
         super.onStart();
-        adapter.startListening();
-        iadapter.startListening();
+        firenoticeadapter.startListening();
+        fireadapter.startListening();
+        UserDetails();
     }
     @Override
     public void onStop() {
         super.onStop();
-        adapter.stopListening();
-         iadapter.stopListening();
+        firenoticeadapter.stopListening();
+        fireadapter.stopListening();
        // shimmerFrameLayout.setVisibility(View.INVISIBLE);
     }
 
@@ -239,5 +346,39 @@ public class home extends AppCompatActivity {
         backbutton = System.currentTimeMillis();
 
     }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        TextView textView = findViewById(R.id.welcome_text);
+        CharSequence cr = textView.getText();
+        outState.putCharSequence("welcomename",cr);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        CharSequence charSequence = savedInstanceState.getCharSequence("welcomename");
+        TextView textView = findViewById(R.id.welcome_text);
+        textView.setText(charSequence);
+    }
+   public void addData(View view){
+        SharedPreferences sharedPreferences = getSharedPreferences("wt",MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("name", "Shared Prefs");
+        editor.commit();
+
+
+     }
+     public void getData(View view) {
+        SharedPreferences sharedPreferences = getSharedPreferences("wt", MODE_PRIVATE);
+        if (sharedPreferences.contains("name")){
+            welcome.setText(sharedPreferences.getString("name", ""));
+
+        }
+        else{
+            Toast.makeText(getApplicationContext(),"Shared Not found",Toast.LENGTH_LONG).show();
+        }
+     }
 
 }

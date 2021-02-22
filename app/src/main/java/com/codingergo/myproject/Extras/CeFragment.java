@@ -11,9 +11,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.codingergo.myproject.R;
+import com.codingergo.myproject.facultyList.FacultyListAdapter;
+import com.codingergo.myproject.facultyList.FacultyModel;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,6 +37,8 @@ public class CeFragment extends Fragment {
     private String mParam2;
     RecyclerView recyclerView;
     CivilAdapter civilAdapter;
+    FacultyListAdapter facultyListAdapter;
+    FirebaseFirestore firestore;
     ShimmerFrameLayout shimmerFrameLayout;
 
     public CeFragment() {
@@ -73,13 +80,27 @@ public class CeFragment extends Fragment {
         shimmerFrameLayout = view.findViewById(R.id.shimmerfrag);
         shimmerFrameLayout.startShimmer();
          recyclerView = view.findViewById(R.id.civil_rec);
-         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        FirebaseRecyclerOptions<CivilModel> options =
-                new FirebaseRecyclerOptions.Builder<CivilModel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Users"), CivilModel.class)
-                        .build();
-        civilAdapter = new CivilAdapter(options);
-        recyclerView.setAdapter(civilAdapter);
+         firestore = FirebaseFirestore.getInstance();
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        Query Tquery = firestore.collection("Cs_Teachers");
+        FirestoreRecyclerOptions<FacultyModel> Toptiions = new FirestoreRecyclerOptions.Builder<FacultyModel>()
+                .setQuery(Tquery,FacultyModel.class)
+                .build();
+        facultyListAdapter = new FacultyListAdapter(Toptiions);
+        recyclerView.setAdapter(facultyListAdapter);
+
+
+
+
+
+
+//        FirebaseRecyclerOptions<CivilModel> options =
+//                new FirebaseRecyclerOptions.Builder<CivilModel>()
+//                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Users"), CivilModel.class)
+//                        .build();
+//        civilAdapter = new CivilAdapter(options);
+//        recyclerView.setAdapter(civilAdapter);
 
 
         return  view;
@@ -87,12 +108,12 @@ public class CeFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        civilAdapter.startListening();
+        facultyListAdapter.startListening();
     }
     @Override
     public void onStop() {
         super.onStop();
-        civilAdapter.stopListening();
+        facultyListAdapter.stopListening();
     }
 
 }

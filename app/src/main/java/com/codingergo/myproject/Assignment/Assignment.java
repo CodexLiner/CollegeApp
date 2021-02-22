@@ -16,10 +16,15 @@ import android.widget.Toast;
 
 import com.codingergo.myproject.R;
 import com.codingergo.myproject.noticeBoard.noticeModel;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -27,6 +32,8 @@ import com.google.firebase.storage.UploadTask;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Assignment extends AppCompatActivity {
     TextView pdfname ,select , selected;
@@ -34,11 +41,14 @@ public class Assignment extends AppCompatActivity {
     ImageView chooser ,choosed;
     StorageReference storageReference;
     DatabaseReference databaseReference;
+    FirebaseFirestore firestore;
+    FirebaseAuth auth;
     Uri path;
     java.util.Date Date = new Date();
     SimpleDateFormat ft =
             new SimpleDateFormat("dd-MM-yyyy");
-    String date = (ft.format(Date));;
+    String date = (ft.format(Date));
+    String branch ,Fname ;
 
 
     @Override
@@ -51,8 +61,14 @@ public class Assignment extends AppCompatActivity {
         padupload= (Button)findViewById(R.id.pdf_loader);
         chooser = (ImageView)findViewById(R.id.Chooser);
         choosed = (ImageView)findViewById(R.id.choosed);
+        firestore = FirebaseFirestore.getInstance();
+        auth = FirebaseAuth.getInstance();
         select = findViewById(R.id.selectonTap);
         selected = findViewById(R.id.selected);
+
+        UserDetails();
+
+
         padupload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,9 +88,20 @@ public class Assignment extends AppCompatActivity {
         });
     }
 
+    private void UserDetails() {
+        DocumentReference df = firestore.collection("Users").document(auth.getCurrentUser().getUid());
+        df.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+               branch = documentSnapshot.getString("branch");
+                Fname = documentSnapshot.getString("fullname");
+            }
+        });
+    }
+
     private void upload(Uri path) {
         final ProgressDialog  progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("Uploading");
+       // progressDialog.setTitle("Uploading");
         progressDialog.show();
         StorageReference reference = storageReference.child("Assignment"+System.currentTimeMillis()+".pdf");
         reference.putFile(path).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -83,8 +110,29 @@ public class Assignment extends AppCompatActivity {
                 Task<Uri> task = taskSnapshot.getStorage().getDownloadUrl();
                 while (!task.isComplete());
                 Uri uri = task.getResult();
-                noticeModel noticeModel = new noticeModel(pdfname.getText().toString() ,uri.toString(), date);
-                databaseReference.child(databaseReference.push().getKey()).setValue(noticeModel);
+//                noticeModel noticeModel = new noticeModel(pdfname.getText().toString() ,uri.toString(), date);
+//                databaseReference.child(databaseReference.push().getKey()).setValue(noticeModel);
+                DocumentReference df = firestore.collection("Drills").document();
+                Map<String,Object> Drill = new HashMap<>();
+                Drill.put("subject" , "Subject");
+                Drill.put("branch" , branch);
+                Drill.put("title" , pdfname.getText().toString());
+                Drill.put("url" , uri.toString());
+                Drill.put("date" ,date);
+                Drill.put("Fname" , Fname);
+                df.set(Drill).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(Assignment.this, "Success", Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(Assignment.this, "Failed", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
                 pdfname.setText("");
                 choosed.setVisibility(View.INVISIBLE);
                 chooser.setVisibility(View.VISIBLE);
@@ -97,7 +145,7 @@ public class Assignment extends AppCompatActivity {
             public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
 
                 double run = ((100*snapshot.getBytesTransferred())/snapshot.getTotalByteCount());
-                progressDialog.setMessage("Uploded "+(int)run+ " %");
+                progressDialog.setMessage("Uploading..."+(int)run+ " %");
 
             }
         });

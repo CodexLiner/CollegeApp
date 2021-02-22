@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.codingergo.myproject">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
 
     <application
+        android:requestLegacyExternalStorage="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -14,7 +19,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".studentDashboard.studentdashboard"></activity>
+        <activity android:name=".NotesManager.NotesDownloader"></activity>
+        <activity android:name=".NotesManager.NotesUploader" />
+        <activity android:name=".EventManager.EventList" />
+        <activity android:name=".Assignment.DrillsExtended" />
+        <activity android:name=".NotesManager.notes_list" />
+        <activity android:name=".Assignment.AssignView" />
+        <activity android:name=".facultyList.addFaculty" />
+        <activity android:name=".noticeBoard.noticeBoardExtended" />
+        <activity android:name=".photoGallery.GalleryExtended" />
+        <activity android:name=".moreButton.moreButton" />
+        <activity android:name=".studentDashboard.studentdashboard" />
         <activity android:name=".Assignment.Assignment" />
         <activity android:name=".studentList.studentList" />
         <activity android:name=".facultyList.facultyList" />
@@ -27,8 +42,8 @@
         <activity android:name=".Cs_Dashboard.DashBoard" />
         <activity android:name=".users.Profile" />
         <activity
-            android:windowSoftInputMode="stateHidden|adjustPan"
-            android:name=".users.SignUp" />
+            android:name=".users.SignUp"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
             android:name=".Main.home"
             android:theme="@style/mainTheme" />

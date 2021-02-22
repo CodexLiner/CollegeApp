@@ -11,7 +11,7 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/BottomNav"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:background="@color/Xhome"
         android:foreground="?attr/selectableItemBackgroundBorderless"
@@ -28,7 +28,7 @@
     <LinearLayout
         android:id="@+id/relativeLayout4"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="85dp"
         android:background="@color/Xhome"
         android:elevation="3dp"
         android:orientation="horizontal"
@@ -68,7 +68,7 @@
             android:layout_marginStart="10dp"
             android:layout_weight="3"
             android:gravity="start"
-            android:text="Hi Gopal"
+            android:text="Hello Welcome"
             android:textColor="@color/Black"
             android:textSize="25sp" />
 
@@ -102,13 +102,13 @@
             android:layout_margin="0dp"
             android:orientation="vertical">
 
-<!--            <RelativeLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="50dp"-->
-<!--                android:layout_margin="1dp"-->
-<!--                android:elevation="1dp">-->
+            <!--            <RelativeLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="50dp"-->
+            <!--                android:layout_margin="1dp"-->
+            <!--                android:elevation="1dp">-->
 
-<!--            </RelativeLayout>-->
+            <!--            </RelativeLayout>-->
 
             <RelativeLayout
                 android:id="@+id/notificationRel"
@@ -133,14 +133,16 @@
                         android:id="@+id/notificationHead"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="sans-serif-medium"
+                        android:layout_marginStart="0dp"
+                        android:fontFamily="@font/cabin"
+                        android:textStyle="bold"
                         android:gravity="bottom"
-                        android:text="Notifications"
-                        android:textColor="@color/Black"
+                        android:text="Notices"
+                        android:alpha="0.75"
                         android:textSize="25sp" />
 
                     <TextView
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
                         android:id="@+id/notificationall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -156,9 +158,12 @@
                 </RelativeLayout>
                 <com.facebook.shimmer.ShimmerFrameLayout
                     android:id="@+id/shimmer"
+                    app:shimmer_duration="1000"
+                    app:shimmer_repeat_mode="restart"
+                    app:shimmer_repeat_count="5"
                     android:visibility="invisible"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="70dp"
                     android:layout_marginTop="65dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp">
@@ -180,27 +185,27 @@
 
             </RelativeLayout>
 
-<!--            <RelativeLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="50dp"-->
-<!--               android:layout_marginTop="10dp"-->
-<!--                android:layout_marginEnd="10dp"-->
-<!--                android:layout_marginStart="10dp"-->
-<!--                android:layout_marginBottom="10dp"-->
-<!--                android:background="@drawable/homeprincipleshape"-->
-<!--                android:elevation="1dp">-->
+            <!--            <RelativeLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="50dp"-->
+            <!--               android:layout_marginTop="10dp"-->
+            <!--                android:layout_marginEnd="10dp"-->
+            <!--                android:layout_marginStart="10dp"-->
+            <!--                android:layout_marginBottom="10dp"-->
+            <!--                android:background="@drawable/homeprincipleshape"-->
+            <!--                android:elevation="1dp">-->
 
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="Manage Students"-->
-<!--                    android:textSize="18sp"-->
-<!--                    android:textStyle="bold"-->
-<!--                    android:layout_marginStart="15dp"-->
-<!--                    android:alpha="0.7"-->
-<!--                    android:fontFamily="@font/cabin"/>-->
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Manage Students"-->
+            <!--                    android:textSize="18sp"-->
+            <!--                    android:textStyle="bold"-->
+            <!--                    android:layout_marginStart="15dp"-->
+            <!--                    android:alpha="0.7"-->
+            <!--                    android:fontFamily="@font/cabin"/>-->
 
-<!--            </RelativeLayout>-->
+            <!--            </RelativeLayout>-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -222,72 +227,80 @@
                 android:elevation="1dp">
 
                 <LinearLayout
+                    android:id="@+id/choose"
                     android:layout_width="100dp"
                     android:layout_height="130dp"
+                    android:layout_row="0"
                     android:layout_rowWeight="1"
+                    android:layout_column="0"
                     android:layout_columnWeight="1"
                     android:layout_margin="10dp"
-                    android:background="@drawable/homeshapegrid"
+                    android:background="@drawable/layouthomeshape"
                     android:elevation="1dp"
+                    android:foreground="@drawable/rip"
                     android:orientation="vertical">
 
                     <ImageView
                         android:id="@+id/textgridhome"
-                        android:layout_width="50dp"
-                        android:layout_height="62dp"
-                        android:layout_gravity="start"
+                        android:layout_width="60dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="bottom|start|center"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="5dp"
                         android:layout_weight="1"
+                        android:background="@drawable/dashitemshape"
                         android:src="@drawable/homemain" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="60dp"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/textgridhome"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="5dp"
                         android:layout_weight="1"
-                        android:gravity="start"
+                        android:gravity="center|top"
                         android:text="Home"
                         android:textSize="20sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
                 <LinearLayout
+                    android:foreground="@drawable/rip"
                     android:layout_width="100dp"
                     android:layout_height="130dp"
                     android:layout_row="0"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:layout_margin="10dp"
-                    android:background="@drawable/homeshapegrid"
+                    android:background="@drawable/layouthomeshape"
                     android:elevation="1dp"
                     android:orientation="vertical">
 
                     <ImageView
+                        android:padding="3dp"
+                        android:background="@drawable/dashitemshape"
                         android:id="@+id/textgridhome2"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="60dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="bottom|start|center"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="5dp"
                         android:layout_weight="1"
                         android:src="@drawable/menmain" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:layout_below="@id/textgridhome2"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="5dp"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
                         android:layout_weight="1"
-                        android:gravity="start"
-                        android:text="Staff"
+                        android:gravity="center|top"
+                        android:text="Team"
                         android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"/>
                 </LinearLayout>
 
                 <LinearLayout
+                    android:foreground="@drawable/rip"
                     android:layout_width="100dp"
                     android:layout_height="130dp"
                     android:layout_row="1"
@@ -295,33 +308,36 @@
                     android:layout_column="0"
                     android:layout_columnWeight="1"
                     android:layout_margin="10dp"
-                    android:background="@drawable/homeshapegrid"
+                    android:background="@drawable/layouthomeshape"
                     android:elevation="1dp"
                     android:orientation="vertical">
 
                     <ImageView
+                        android:padding="3dp"
                         android:id="@+id/textgridhome3"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:background="@drawable/dashitemshape"
+                        android:layout_width="60dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="bottom|start|center"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="5dp"
                         android:layout_weight="1"
                         android:src="@drawable/staff" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:layout_below="@id/textgridhome3"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="5dp"
+                        android:layout_width="62dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
                         android:layout_weight="1"
-                        android:gravity="start"
-                        android:text="Work"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:gravity="center|top"
+                        android:text="Worker"
+                        android:textSize="18.5sp"
+                        android:textStyle="bold"/>
                 </LinearLayout>
 
                 <LinearLayout
+                    android:foreground="@drawable/rip"
                     android:layout_width="100dp"
                     android:layout_height="130dp"
                     android:layout_row="1"
@@ -329,28 +345,28 @@
                     android:layout_column="1"
                     android:layout_columnWeight="1"
                     android:layout_margin="10dp"
-                    android:background="@drawable/homeshapegrid"
+                    android:background="@drawable/layouthomeshape"
                     android:elevation="1dp"
                     android:orientation="vertical">
 
                     <ImageView
                         android:id="@+id/textgridhome4"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="start"
+                        android:background="@drawable/dashitemshape"
+                        android:layout_width="60dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="bottom|start|center"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="5dp"
                         android:layout_weight="1"
                         android:src="@drawable/extra" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:layout_below="@id/textgridhome4"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="5dp"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
                         android:layout_weight="1"
-                        android:gravity="start"
+                        android:gravity="center|top"
                         android:text="Other"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -375,6 +391,7 @@
                     android:fontFamily="@font/cabin"/>
 
                 <TextView
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
                     android:id="@+id/galleryall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -412,7 +429,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="130dp">
+                android:layout_height="140dp">
 
             </LinearLayout>
 
@@ -465,17 +482,17 @@
     </ScrollView>
 
     <!--    <com.facebook.shimmer.ShimmerFrameLayout-->
-<!--        android:id="@+id/shimmer"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content">-->
+    <!--        android:id="@+id/shimmer"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content">-->
 
-<!--        <include-->
-<!--            layout="@layout/shimmer"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="820dp">-->
+    <!--        <include-->
+    <!--            layout="@layout/shimmer"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="820dp">-->
 
-<!--        </include>-->
-<!--    </com.facebook.shimmer.ShimmerFrameLayout>-->
+    <!--        </include>-->
+    <!--    </com.facebook.shimmer.ShimmerFrameLayout>-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

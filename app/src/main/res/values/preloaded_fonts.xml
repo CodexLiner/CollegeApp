@@ -3,6 +3,7 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/arya</item>
         <item>@font/cabin</item>
+        <item>@font/cairo</item>
         <item>@font/cairo_semibold</item>
     </array>
 </resources>

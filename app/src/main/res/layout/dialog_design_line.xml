@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:background="@drawable/dashitemshape"
+        android:layout_margin="0dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:elevation="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="101dp"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/DialogImage"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:elevation="1dp"
+                android:src="@drawable/profile" />
+
+            <TextView
+                android:textSize="25sp"
+                android:id="@+id/DialogName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/cabin"
+                android:gravity="center"
+                android:text="Gopal Meena"
+                android:autoSizePresetSizes="@arrays/autosizeText"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:scrollbars="none">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/temp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@drawable/dashboardshape"
+                        android:hint="Gopal Meena"
+                        android:layout_gravity="center"
+                        android:gravity="center"/>
+                    <TextView
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@drawable/dashboardshape"
+                        android:hint="Gopal Meena"
+                        android:layout_gravity="center"
+                        android:gravity="center"/>
+                    <TextView
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@drawable/dashboardshape"
+                        android:hint="Gopal Meena"
+                        android:layout_gravity="center"
+                        android:gravity="center"/>
+                    <TextView
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@drawable/dashboardshape"
+                        android:hint="Gopal Meena"
+                        android:layout_gravity="center"
+                        android:gravity="center"/>
+                    <TextView
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@drawable/dashboardshape"
+                        android:hint="Gopal Meena"
+                        android:layout_gravity="center"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+            </ScrollView>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:background="@color/white"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:foreground="@drawable/rip"
+                android:id="@+id/diloagButton"
+                android:layout_margin="10dp"
+                android:background="@drawable/buttonshape"
+                android:layout_width="100dp"
+                android:layout_height="48dp"
+                android:text="Close"
+                android:layout_gravity="center"
+                android:gravity="center" />
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

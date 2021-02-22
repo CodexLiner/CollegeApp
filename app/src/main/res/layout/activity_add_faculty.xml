@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".users.SignUp">
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/Xhome"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Add Faculty"
+            android:textColor="@color/Black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="To your Database"
+            android:textSize="18sp"/>
+
+    </LinearLayout>
+    <ScrollView
+        android:layout_marginTop="96dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="6dp"
+                    android:src="@drawable/men"
+                    app:border_color="@color/Black"
+                    app:border_width="1dp" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/EditName"
+                android:layout_width="300dp"
+                android:layout_height="55dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/inputshape2"
+                android:drawableStart="@drawable/personfocus"
+                android:drawablePadding="20dp"
+                android:ems="10"
+                android:hint="Name"
+                android:inputType="textPersonName" />
+
+<!--            <EditText-->
+<!--                android:id="@+id/EditRoll"-->
+<!--                android:layout_width="300dp"-->
+<!--                android:layout_height="55dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginStart="12dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:layout_marginEnd="12dp"-->
+<!--                android:background="@drawable/inputshape2"-->
+<!--                android:drawableStart="@drawable/rollfocus"-->
+<!--                android:drawablePadding="20dp"-->
+<!--                android:ems="10"-->
+<!--                android:hint="Roll"-->
+<!--                android:inputType="numberSigned" />-->
+
+
+
+            <EditText
+                android:id="@+id/EditEmail"
+                android:layout_width="300dp"
+                android:layout_height="55dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/inputshape2"
+                android:drawableStart="@drawable/focusemail"
+                android:drawablePadding="20dp"
+                android:ems="10"
+                android:hint="Email"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:id="@+id/EditPhone"
+                android:layout_width="300dp"
+                android:layout_height="55dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/inputshape2"
+                android:drawableStart="@drawable/phonefocus"
+                android:drawablePadding="20dp"
+                android:ems="10"
+                android:hint="Phone"
+                android:inputType="phone" />
+
+            <EditText
+                android:id="@+id/editAddress"
+                android:layout_width="300dp"
+                android:layout_height="55dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/inputshape2"
+                android:drawableStart="@drawable/cityfocus"
+                android:drawablePadding="20dp"
+                android:ems="10"
+                android:hint="Address"
+                android:inputType="textPostalAddress" />
+
+<!--            <EditText-->
+<!--                android:id="@+id/EditPass"-->
+<!--                android:layout_width="300dp"-->
+<!--                android:layout_height="55dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginStart="12dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:layout_marginEnd="12dp"-->
+<!--                android:background="@drawable/inputshape2"-->
+<!--                android:drawableStart="@drawable/focuslock"-->
+<!--                android:drawablePadding="20dp"-->
+<!--                android:ems="10"-->
+<!--                android:hint="Password"-->
+<!--                android:inputType="textPassword" />-->
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="300dp"
+                android:layout_height="55dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="12dp"
+                android:hint="Email"
+                android:background="@drawable/inputshape2"
+                android:drawableStart="@color/red"
+                android:drawablePadding="20dp"
+                android:spinnerMode="dropdown" />
+
+            <Button
+                android:id="@+id/add_faculty"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/buttonshape"
+                android:elevation="1dp"
+                android:fontFamily="sans-serif-black"
+                android:foreground="@drawable/rip"
+                android:text="Add"
+                android:textAllCaps="false"
+                android:textSize="24sp" />
+
+            <RelativeLayout
+                android:layout_width="10dp"
+                android:layout_height="10dp">
+
+
+                <TextView
+
+                    android:id="@+id/LoginActbutton"
+                    android:layout_width="71dp"
+                    android:layout_height="33dp"
+                    android:layout_marginBottom="80dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
+                    android:text="Login"
+                    android:textColor="@color/red"
+                    android:textSize="24sp" />
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/progressBar2"
+        style="@style/SpinKitView.FadingCircle"
+        android:layout_width="69dp"
+        android:layout_height="60dp"
+        app:SpinKit_Color="@color/colorPrimaryDark2"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout4" />
+
+    <!--    <LinearLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:orientation="vertical"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">-->
+    <!--        -->
+
+    <!--    </LinearLayout>-->
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/EditName"-->
+    <!--        android:layout_width="300dp"-->
+    <!--        android:drawableStart="@drawable/personfocus"-->
+    <!--        android:drawablePadding="20dp"-->
+    <!--        android:layout_marginEnd="12dp"-->
+    <!--        android:layout_marginStart="12dp"-->
+    <!--        android:layout_height="55dp"-->
+    <!--        android:layout_marginTop="28dp"-->
+    <!--        android:background="@drawable/inputshape2"-->
+    <!--        android:ems="10"-->
+    <!--        android:hint="Name"-->
+    <!--        android:inputType="textPersonName"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.495"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/imageView" />-->
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/EditRoll"-->
+    <!--        android:layout_width="300dp"-->
+    <!--        android:layout_height="55dp"-->
+    <!--        android:drawableStart="@drawable/rollfocus"-->
+    <!--        android:drawablePadding="20dp"-->
+    <!--        android:layout_marginEnd="12dp"-->
+    <!--        android:layout_marginStart="12dp"-->
+    <!--        android:layout_marginTop="20dp"-->
+    <!--        android:background="@drawable/inputshape2"-->
+    <!--        android:ems="10"-->
+    <!--        android:hint="Roll"-->
+    <!--        android:inputType="numberSigned"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.504"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/EditName" />-->
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/EditEmail"-->
+    <!--        android:layout_width="300dp"-->
+    <!--        android:layout_height="55dp"-->
+    <!--        android:layout_marginTop="20dp"-->
+    <!--        android:background="@drawable/inputshape2"-->
+    <!--        android:drawableStart="@drawable/focusemail"-->
+    <!--        android:drawablePadding="20dp"-->
+    <!--        android:layout_marginEnd="12dp"-->
+    <!--        android:layout_marginStart="12dp"-->
+    <!--        android:ems="10"-->
+    <!--        android:hint="Email"-->
+    <!--        android:inputType="textEmailAddress"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.495"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/EditRoll" />-->
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/EditPhone"-->
+    <!--        android:layout_width="300dp"-->
+    <!--        android:layout_height="55dp"-->
+    <!--        android:layout_marginTop="20dp"-->
+    <!--        android:background="@drawable/inputshape2"-->
+    <!--        android:drawableStart="@drawable/phonefocus"-->
+    <!--        android:drawablePadding="20dp"-->
+    <!--        android:layout_marginEnd="12dp"-->
+    <!--        android:layout_marginStart="12dp"-->
+    <!--        android:ems="10"-->
+    <!--        android:hint="Phone"-->
+    <!--        android:inputType="phone"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.495"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/EditEmail" />-->
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/editAddress"-->
+    <!--        android:layout_width="300dp"-->
+    <!--        android:layout_height="55dp"-->
+    <!--        android:layout_marginTop="20dp"-->
+    <!--        android:background="@drawable/inputshape2"-->
+    <!--        android:ems="10"-->
+    <!--        android:hint="Address"-->
+    <!--        android:drawableStart="@drawable/cityfocus"-->
+    <!--        android:drawablePadding="20dp"-->
+    <!--        android:layout_marginEnd="12dp"-->
+    <!--        android:layout_marginStart="12dp"-->
+    <!--        android:inputType="textPostalAddress"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.504"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/EditPhone" />-->
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/EditPass"-->
+    <!--        android:layout_width="300dp"-->
+    <!--        android:layout_height="55dp"-->
+    <!--        android:layout_marginTop="20dp"-->
+    <!--        android:background="@drawable/inputshape2"-->
+    <!--        android:drawableStart="@drawable/focuslock"-->
+    <!--        android:drawablePadding="20dp"-->
+    <!--        android:layout_marginEnd="12dp"-->
+    <!--        android:layout_marginStart="12dp"-->
+    <!--        android:ems="10"-->
+    <!--        android:hint="Password"-->
+    <!--        android:inputType="textPassword"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.504"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/editAddress" />-->
+
+    <!--    <Button-->
+    <!--        android:id="@+id/SignUpButton"-->
+    <!--        android:layout_width="130dp"-->
+    <!--        android:layout_height="61dp"-->
+    <!--        android:layout_marginTop="28dp"-->
+    <!--        android:background="@drawable/rectangle"-->
+    <!--        android:fontFamily="sans-serif-black"-->
+    <!--        android:foreground="?android:attr/selectableItemBackground"-->
+    <!--        android:text="SignUp"-->
+    <!--        android:textAllCaps="false"-->
+    <!--        android:textSize="24sp"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/EditPass" />-->
+
+    <!--    <ProgressBar-->
+    <!--        android:id="@+id/progressBar2"-->
+    <!--        style="?android:attr/progressBarStyle"-->
+    <!--        android:layout_width="69dp"-->
+    <!--        android:layout_height="60dp"-->
+    <!--        android:layout_marginBottom="72dp"-->
+    <!--        android:visibility="invisible"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.498"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="@+id/SignUpButton"-->
+    <!--        app:layout_constraintVertical_bias="0.0" />-->
+
+    <!--    <TextView-->
+
+    <!--        android:id="@+id/LoginActbutton"-->
+    <!--        android:layout_width="71dp"-->
+    <!--        android:layout_height="33dp"-->
+    <!--        android:layout_marginBottom="80dp"-->
+    <!--        android:fontFamily="sans-serif-medium"-->
+    <!--        android:foreground="?attr/selectableItemBackgroundBorderless"-->
+    <!--        android:text="Login"-->
+    <!--        android:textColor="@color/red"-->
+    <!--        android:textSize="24sp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.161"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/EditPass"-->
+    <!--        app:layout_constraintVertical_bias="0.35" />-->
+
+    <!--    <de.hdodenhof.circleimageview.CircleImageView-->
+    <!--        android:id="@+id/imageView"-->
+    <!--        android:layout_width="119dp"-->
+    <!--        android:layout_height="112dp"-->
+    <!--        android:layout_marginTop="48dp"-->
+    <!--        android:src="@drawable/profile"-->
+    <!--        app:border_color="@color/red"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:srcCompat="@drawable/profile" />-->
+
+    <!--    <ImageView-->
+    <!--        android:id="@+id/imageView4"-->
+    <!--        android:layout_width="30dp"-->
+    <!--        android:layout_height="33dp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@+id/imageView"-->
+    <!--        app:layout_constraintEnd_toEndOf="@+id/imageView"-->
+    <!--        app:layout_constraintHorizontal_bias="0.687"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/imageView"-->
+    <!--        app:layout_constraintTop_toTopOf="@+id/imageView"-->
+    <!--        app:layout_constraintVertical_bias="0.887"-->
+    <!--        app:srcCompat="@drawable/ic_baseline_camera_alt_24" />-->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,11 +4,12 @@
     <gradient android:centerX="@color/x"
         android:centerY="@color/y"
         android:type="linear"
-        android:startColor="@color/s"
-        android:endColor="@color/s"
+        android:startColor="#CDEFBC0A"
+        android:endColor="#70EFBC0A"
         android:useLevel="false"/>
     <corners android:radius="10dp"/>
-    <padding android:left="25sp"/>
+    <stroke android:width="2px" android:color="@color/Xhome" />
+    <padding android:left="25sp" android:top="25sp" android:right="25sp" android:bottom="25sp"/>
 
 
 </shape>

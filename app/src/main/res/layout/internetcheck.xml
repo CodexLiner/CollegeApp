@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/white"
+    android:gravity="center"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/signal"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Whoops!"
+        android:gravity="center"
+        android:textColor="#000"
+        android:textSize="40sp"/>
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/nettext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No Internet Connection Found"
+        android:textColor="#000"
+        android:textSize="15sp"
+        android:layout_marginBottom="0dp"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Check Your Connection"
+        android:textColor="#000"
+        android:textSize="15sp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"/>
+
+    <Button
+        android:layout_margin="5dp"
+        android:id="@+id/restartapp"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="Restart"
+        android:textSize="20sp"
+       android:background="@drawable/buttonshape"/>
+
+</LinearLayout>

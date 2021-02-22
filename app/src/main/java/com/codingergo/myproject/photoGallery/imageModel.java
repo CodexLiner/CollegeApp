@@ -1,12 +1,21 @@
 package com.codingergo.myproject.photoGallery;
 
 public class imageModel {
-    String name , Url , About ;
+    String name , Url , About , time ;
 
-    public imageModel(String name, String url, String about) {
+    public imageModel(String name, String url, String about, String time) {
         this.name = name;
         Url = url;
         About = about;
+        this.time = time;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public imageModel() {
@@ -36,4 +45,7 @@ public class imageModel {
         About = about;
     }
 
+    public imageModel(String time) {
+        this.time = time;
+    }
 }

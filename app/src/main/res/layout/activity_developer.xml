@@ -4,56 +4,64 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/gradiantbg"
     tools:context=".AboutDev.developer">
 
-    <RelativeLayout
-        android:background="@color/white"
-        android:elevation="5dp"
-        android:id="@+id/relativeLayout5"
+    <LinearLayout
+        android:elevation="0.7dp"
+        android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
-        android:layout_height="67dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content"
+        android:background="@color/Xhome"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:fontFamily="monospace"
-            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
             android:text="Developer"
             android:textColor="@color/Black"
             android:textSize="30sp"
             android:textStyle="bold" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="Know Something About Developer"
+            android:textSize="18sp"/>
 
-    </RelativeLayout>
+    </LinearLayout>
 
     <RelativeLayout
-        android:background="@color/white"
         android:id="@+id/relativeLayout6"
         android:layout_width="200dp"
         android:layout_height="200dp"
+
         android:elevation="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout5"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
         app:layout_constraintVertical_bias="0.100000024">
 
-        <ImageView
-            android:layout_margin="5dp"
-           android:foregroundGravity="center"
+        <de.hdodenhof.circleimageview.CircleImageView
+            app:border_color="@color/colorPrimaryDark2"
+            app:border_width="1dp"
             android:id="@+id/devprofile"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
+            android:layout_margin="5dp"
+            android:foregroundGravity="center"
+            android:padding="10dp"
             android:src="@drawable/profile" />
 
     </RelativeLayout>
@@ -70,44 +78,29 @@
 <!--    </RelativeLayout>-->
 
 
-    <TextView
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@drawable/dashshape"
+        android:id="@+id/relativeLayout7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="monospace"
-        android:text="About Me :-"
-        android:gravity="start"
-        android:textStyle="bold"
-        android:textColor="#3949AB"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/relativeLayout7"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout6"
-        tools:layout_editor_absoluteX="-3dp" />
-
-    <RelativeLayout
-        android:background="@color/white"
-        android:id="@+id/relativeLayout7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:elevation="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:elevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout6">
 
         <TextView
-            android:background="@color/white"
             android:id="@+id/Devname"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="10dp"
-            android:gravity="start"
-            android:text="Gopal Meena"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:fontFamily="@font/cairo_semibold"
+            android:gravity="center"
+            android:text="Gopal Meena"
             android:textColor="@color/Black"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -115,45 +108,83 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/Devabout"
+            android:id="@+id/contact"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/Devname"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:fontFamily="@font/cairo_semibold"
-           android:gravity="start"
-            android:text="Hi, My name is Gopal Meena \nI'm Student\nLearner\nDeveloper\nAnd i am on my way"
-            android:textColor="#000000"
-            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:fontFamily="cursive"
+            android:gravity="bottom|center"
+            android:text="Connect With Me"
+            android:textColor="@color/Black"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
-
-    </RelativeLayout>
-
-
-    <RelativeLayout
-        android:id="@+id/contacme"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout7">
-
-        <TextView
-           android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="monospace"
-            android:text="Connect with Me :-"
-            android:gravity="start"
-            android:textStyle="bold"
-            android:textColor="#3949AB"
-            android:textSize="20sp" />
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:elevation="1dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout7">
 
-    </RelativeLayout>
+            <ImageView
+                android:foreground="@drawable/rip"
+                android:id="@+id/instagram"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="25dp"
+                android:layout_weight="0.2"
+                android:elevation="20dp"
+                android:src="@drawable/ibb"
+                android:tooltipText="instagram" />
+
+            <ImageView
+                android:id="@+id/whatsapp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:foreground="@drawable/rip"
+                android:layout_weight="0.2"
+                android:elevation="20dp"
+                android:src="@drawable/wpb"
+                android:tooltipText="whatsapp" />
+
+            <ImageView
+                android:id="@+id/facebook"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:foreground="@drawable/rip"
+                android:layout_weight="0.2"
+                android:elevation="20dp"
+                android:src="@drawable/fbb"
+                android:tooltipText="facebook" />
+
+            <ImageView
+                android:foreground="@drawable/rip"
+                android:id="@+id/sendmail"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="25dp"
+                android:layout_weight="0.2"
+                android:elevation="20dp"
+                android:src="@drawable/ebb"
+                android:tooltipText="email" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
 
     <!--    <LinearLayout-->
 <!--        android:background="@color/white"-->
@@ -165,65 +196,10 @@
 <!--        app:layout_constraintEnd_toEndOf="parent"-->
 <!--        app:layout_constraintStart_toStartOf="parent"-->
 <!--        app:layout_constraintTop_toBottomOf="@+id/relativeLayout7">-->
-1        <LinearLayout
-            android:background="@color/white"
-            android:id="@+id/linearLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:orientation="horizontal"
-            android:elevation="1dp"
-            android:layout_marginTop="1dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/contacme">
 
-            <ImageView
-                android:id="@+id/instagram"
-                android:tooltipText="instagram"
-                android:elevation="20dp"
-                android:layout_margin="5dp"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:src="@drawable/ibb" />
 
-            <ImageView
-                android:id="@+id/whatsapp"
-                android:tooltipText="whatsapp"
-                android:elevation="20dp"
-                android:layout_margin="5dp"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:src="@drawable/wpb" />
 
-            <ImageView
-                android:id="@+id/facebook"
-                android:tooltipText="facebook"
-                android:elevation="20dp"
-                android:layout_margin="5dp"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:src="@drawable/fbb" />
-            <ImageView
-                android:id="@+id/sendmail"
-                android:tooltipText="email"
-                android:elevation="20dp"
-                android:layout_margin="5dp"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:src="@drawable/ebb" />
-
-        </LinearLayout>
-
-<!--        <LinearLayout-->
+    <!--        <LinearLayout-->
 <!--            android:layout_marginBottom="0dp"-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="wrap_content"-->

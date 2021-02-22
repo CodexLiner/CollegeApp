@@ -31,7 +31,7 @@ public class CivilAdapter extends FirebaseRecyclerAdapter <CivilModel, CivilAdap
     @NonNull
     @Override
     public CivilViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.timelinerow, parent , false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.notice_row_line, parent , false);
         return  new CivilViewHolder(view);
     }
 

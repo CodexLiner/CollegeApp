@@ -19,6 +19,9 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -33,11 +36,14 @@ public class noticeBoard extends AppCompatActivity {
     ImageView chooser ,choosed;
     StorageReference storageReference;
     DatabaseReference databaseReference;
+    FirebaseFirestore firestore;
+    CollectionReference collectionReference;
     Uri path;
     Date Date = new Date();
     SimpleDateFormat ft =
             new SimpleDateFormat("dd-MM-yyyy");
    String date = (ft.format(Date));;
+   Long s = System.currentTimeMillis();
 
 
 
@@ -53,6 +59,8 @@ public class noticeBoard extends AppCompatActivity {
         choosed = (ImageView)findViewById(R.id.choosed);
         select = findViewById(R.id.selectonTap);
         selected = findViewById(R.id.selected);
+        firestore = FirebaseFirestore.getInstance();
+        collectionReference = firestore.collection("Notifications");
 
 
         chooser.setOnClickListener(new View.OnClickListener() {
@@ -162,9 +170,17 @@ public class noticeBoard extends AppCompatActivity {
                 Task<Uri> uri = taskSnapshot.getStorage().getDownloadUrl();
                 while (!uri.isComplete());
                 Uri url = uri.getResult();
-                noticeBoardModel noticeBoardModel = new noticeBoardModel( url.toString(),pdfname.getText().toString(), date);
-                databaseReference.child(databaseReference.push().getKey()).setValue(noticeBoardModel);
-                Toast.makeText(getApplicationContext(),"Uploaded",Toast.LENGTH_LONG).show();
+                noticeBoardModel noticeBoardModel = new noticeBoardModel( url.toString(),pdfname.getText().toString(), s.toString());
+                DocumentReference df = firestore.collection("Notifications").document();
+                df.set(noticeBoardModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(noticeBoard.this, "Collection Added", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+//                databaseReference.child(databaseReference.push().getKey()).setValue(noticeBoardModel);
+//                Toast.makeText(getApplicationContext(),"Uploaded",Toast.LENGTH_LONG).show();
                 progressDialog.dismiss();
 
             }

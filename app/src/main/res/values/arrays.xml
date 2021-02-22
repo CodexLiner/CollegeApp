@@ -6,4 +6,8 @@
         <item>18sp</item>
         <item>20sp</item>
     </array>
+    <array name="autosizeText2">
+        <item>18sp</item>
+        <item>20sp</item>
+    </array>
 </resources>

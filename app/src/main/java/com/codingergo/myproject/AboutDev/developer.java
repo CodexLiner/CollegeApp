@@ -27,7 +27,7 @@ public class developer extends AppCompatActivity {
         facebook = findViewById(R.id.facebook);
         email = findViewById(R.id.sendmail);
         devprofile = findViewById(R.id.devprofile);
-        uri = "https://scontent-bom1-1.cdninstagram.com/v/t51.2885-19/s320x320/117567853_3278764075515229_6349804811514481652_n.jpg?_nc_ht=scontent-bom1-1.cdninstagram.com&_nc_ohc=B_1OXxT4dRkAX_3AbB3&tp=1&oh=4d99dbd66c972cdb060bd7c9920363ca&oe=6030CAD8";
+        uri = "https://famouspeople.wiki/wp-content/uploads/2020/04/arijit-singh.jpg";
         Glide.with(devprofile.getContext()).load(uri).into(devprofile);
 
         instagram.setOnClickListener(new View.OnClickListener() {

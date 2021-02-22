@@ -3,6 +3,8 @@ package com.codingergo.myproject.users;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -25,8 +27,14 @@ import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class SignUp extends AppCompatActivity {
     EditText name, email, password, phone, roll , address;
@@ -35,6 +43,7 @@ public class SignUp extends AppCompatActivity {
     Bitmap bitmap;
     TextView tologin;
     FirebaseAuth auth;
+    FirebaseFirestore firestore ;
     ProgressBar progressBar;
     ImageView imageSelector;
 //    ProgressDialog progressDialog = new ProgressDialog(this);
@@ -50,6 +59,7 @@ public class SignUp extends AppCompatActivity {
           address= (EditText)findViewById(R.id.editAddress);
           roll = (EditText)findViewById(R.id.EditRoll);
           auth = FirebaseAuth.getInstance();
+          firestore = FirebaseFirestore.getInstance();
           imageSelector= (ImageView)findViewById(R.id.imageView);
          // Button = findViewById(R.id.button);
           tologin = findViewById(R.id.LoginActbutton);
@@ -210,7 +220,7 @@ public class SignUp extends AppCompatActivity {
              @Override
              public void onClick(final View v) {
 
-                     final String loginmaill = email.getText().toString().trim();
+                     final String loginmaill = email.getText().toString().trim().toLowerCase();
                      final String loginPass = password.getText().toString().trim();
                      final String loginame = name.getText().toString().trim();
                      final String loginroll = roll.getText().toString().trim();
@@ -231,6 +241,12 @@ public class SignUp extends AppCompatActivity {
                          password.setError("Required");
                          return;
                      }
+//                  if(Patterns.EMAIL_ADDRESS.matcher(loginmaill).matches()) {
+//                      email.requestFocus();
+//                      email.setError("Username Not Valid");
+//                      return;
+//                  }
+
                      if(loginPass.length() < 6){
                          password.setError("password shoud be 6 charactor");
 
@@ -255,49 +271,34 @@ public class SignUp extends AppCompatActivity {
                         address.setError("Required");
                         return;
                      }
-
-                 progressBar.setVisibility(View.VISIBLE);
-                 auth.createUserWithEmailAndPassword(loginmaill,loginPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                     @Override
-                     public void onComplete(@NonNull Task<AuthResult> task) {
-                         if(task.isSuccessful()){
-                             Toast.makeText(SignUp.this, "Complete Registration", Toast.LENGTH_LONG);
-                             userModel user = new userModel( loginame, loginmaill,  loginroll, loginphone , loginaddress);
-                             FirebaseDatabase.getInstance().getReference("Users")
-                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                 @Override
-                                 public void onComplete(@NonNull Task<Void> task) {
-                                     if (task.isSuccessful()){
-                                         Toast.makeText(SignUp.this,"Registartion Successfull",Toast.LENGTH_LONG).show();
-                                          progressBar.setVisibility(View.GONE);
-                                     }
-                                     else{
-                                         Toast.makeText(SignUp.this, "" +task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                                         progressBar.setVisibility(View.GONE);
-                                     }
-                                 }
-                             });
-//                             startActivity(new Intent(getApplicationContext(),MainActivity.class));
-//                             finish();
-                         Snackbar snackbar = Snackbar.make(v,"Example",Snackbar.LENGTH_LONG);
-                             snackbar.show();
-
-                             progressBar.setVisibility(View.GONE);
-                         }
-                         else {
-                            Toast.makeText(SignUp.this, "Error" +task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                             progressBar.setVisibility(View.GONE);
-
-                         }
-
-                     }
-                 });
-//                 Toast.makeText(getApplicationContext(),"Failed",Toast.LENGTH_LONG).show();
+                     DocumentReference df = firestore.collection("Students").document(loginmaill);
+                         Map<String ,Object> studentInfo = new HashMap<>();
+                         studentInfo.put("fullname",loginame);
+                         studentInfo.put("email", loginmaill);
+                         studentInfo.put("roll", loginroll);
+                         studentInfo.put("mobile",loginphone);
+                         studentInfo.put("address",loginaddress);
+                         //access level is Student
+                         studentInfo.put("isUser","1");
+                         df.set(studentInfo);
+                  progressBar.setVisibility(View.GONE);
+                  Doempty();
+                  Snackbar snackbar = Snackbar.make( v ,"Student Added Succesfully", Snackbar.LENGTH_LONG);
+                 snackbar.show();
              }
          });
 
 
 
+    }
+
+    private void Doempty() {
+        name.setText("");
+        email.setText("");
+        roll.setText("");
+        address.setText("");
+        phone.setText("");
+        password.setText("");
     }
 
 //    @Override

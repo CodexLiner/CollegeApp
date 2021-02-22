@@ -28,6 +28,8 @@ import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -48,17 +50,19 @@ public class galleryMain extends AppCompatActivity {
     StorageReference storageReference;
     FirebaseStorage firebaseStorage;
     DatabaseReference databaseReference;
+    FirebaseFirestore firestore;
     java.util.Date Date = new Date();
     SimpleDateFormat ft =
-            new SimpleDateFormat("yyyy/MM/ddsm");
-    String date = (ft.format(Date));;
+            new SimpleDateFormat("yyyy/MM/dd");
+    String date = (ft.format(Date));
+    Long s = System.currentTimeMillis();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery_main);
-        imageView = findViewById(R.id.AddImage);
+       // imageView = findViewById(R.id.AddImage);
         upload =(Button)findViewById(R.id.buttonUpload);
         imageView1 = findViewById(R.id.AddImage1);
         firebaseStorage = FirebaseStorage.getInstance();
@@ -67,12 +71,13 @@ public class galleryMain extends AppCompatActivity {
         title = (TextView)findViewById(R.id.titleText);
         imgTitle = (EditText)findViewById(R.id.aboutPhoto);
         imgDesc = (EditText)findViewById(R.id.aboutPhotoDesk);
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                chooseImage();
-            }
-        });
+        firestore = FirebaseFirestore.getInstance();
+//        imageView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                chooseImage();
+//            }
+//        });
         imageView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,8 +110,8 @@ public class galleryMain extends AppCompatActivity {
             }
 
             final ProgressDialog progressDialog = new ProgressDialog(this);
-            progressDialog.setTitle("Uploading");
             progressDialog.show();
+            progressDialog.setCancelable(false);
             StorageReference reference = storageReference.child("Gallery"+System.currentTimeMillis());
             reference.putFile(file).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
@@ -114,8 +119,17 @@ public class galleryMain extends AppCompatActivity {
                     Task<Uri> uri = taskSnapshot.getStorage().getDownloadUrl();
                    while (!uri.isComplete()) ;
                        Uri url = uri.getResult();
-                       imageModel imageModel = new imageModel(imgTitle.getText().toString().trim(), url.toString(), imgDesc.getText().toString());
-                       databaseReference.child(databaseReference.push().getKey()).setValue(imageModel);
+                       imageModel imageModel = new imageModel(imgTitle.getText().toString().trim(), url.toString(), imgDesc.getText().toString() , s.toString());
+                       DocumentReference df = firestore.collection("Gallery").document();
+                       df.set(imageModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                           @Override
+                           public void onSuccess(Void aVoid) {
+//                               Toast.makeText(getApplicationContext(),"Collection Added",Toast.LENGTH_LONG).show();
+
+                           }
+                       });
+
+                     //  databaseReference.child(databaseReference.push().getKey()).setValue(imageModel);
                        progressDialog.dismiss();
                        Snackbar snackbar = Snackbar.make(findViewById(R.id.mainLayout), "Success", Snackbar.LENGTH_LONG);
                        snackbar.show();
@@ -132,7 +146,7 @@ public class galleryMain extends AppCompatActivity {
                 @Override
                 public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
                     double progress = (100.0*snapshot.getBytesTransferred()/snapshot.getTotalByteCount());
-                    progressDialog.setMessage("Uploaded...."+ (int)progress+" %");
+                    progressDialog.setMessage("Uploading... ");
 
                 }
             });
@@ -163,7 +177,7 @@ public class galleryMain extends AppCompatActivity {
             }
             imageView1.setImageBitmap(bitmap);
            // title.setText(file.toString());
-            imageView.setVisibility(View.INVISIBLE);
+          //  imageView.setVisibility(View.INVISIBLE);
 
         }
         else

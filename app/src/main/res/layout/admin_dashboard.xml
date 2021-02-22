@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".Cs_Dashboard.DashBoard">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/BottomNav"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:background="@color/Xhome"
         android:foreground="?attr/selectableItemBackgroundBorderless"
@@ -38,11 +39,12 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:fontFamily="@font/cabin"
-            android:text="Dashobard"
+            android:text="Dashboard"
             android:textColor="@color/Black"
             android:textSize="30dp" />
 
         <TextView
+            android:visibility="invisible"
             android:layout_marginTop="10dp"
             android:id="@+id/TimeDash"
             android:layout_width="wrap_content"
@@ -57,6 +59,7 @@
             android:textSize="40sp" />
 
         <TextView
+            android:visibility="invisible"
             android:id="@+id/DateDash"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -76,9 +79,9 @@
     </RelativeLayout>
 
     <ScrollView
+        android:scrollbars="none"
         android:layout_width="match_parent"
         android:layout_height="658dp"
-        android:paddingTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout8">
@@ -114,17 +117,18 @@
                 android:layout_height="35dp"
                 android:src="@drawable/ic_add"/>
             <TextView
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="15dp"
                 android:layout_weight="1"
                 android:gravity="left"
                 android:id="@+id/DashnoticeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add Notice"
+                android:text="Notification"
                android:layout_gravity="center"
                 android:textSize="20sp"
                 android:fontFamily="sans-serif-medium"/>
             <Button
+                android:foreground="@drawable/rip"
                 android:id="@+id/add_notice_btn"
                 android:layout_marginEnd="10dp"
                 android:layout_weight="0"
@@ -156,17 +160,18 @@
                     android:layout_height="35dp"
                     android:src="@drawable/ic_add"/>
                 <TextView
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="15dp"
                     android:layout_weight="1"
                     android:gravity="left"
                     android:id="@+id/DashnassisgnText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Add Assignment"
+                    android:text="Assignment"
                     android:layout_gravity="center"
                     android:textSize="20sp"
                     android:fontFamily="sans-serif-medium"/>
                 <Button
+                    android:foreground="@drawable/rip"
                     android:id="@+id/add_assignment_btn"
                     android:layout_marginEnd="10dp"
                     android:layout_weight="0"
@@ -198,17 +203,18 @@
                     android:layout_height="35dp"
                     android:src="@drawable/ic_add"/>
                 <TextView
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="15dp"
                     android:layout_weight="1"
                     android:gravity="left"
                     android:id="@+id/DashfacultyText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Add Lecturers"
+                    android:text="New Faculty"
                     android:layout_gravity="center"
                     android:textSize="20sp"
                     android:fontFamily="sans-serif-medium"/>
                 <Button
+                    android:foreground="@drawable/rip"
                     android:id="@+id/add_faculty_btn"
                     android:layout_marginEnd="10dp"
                     android:layout_weight="0"
@@ -252,7 +258,7 @@
                             android:layout_height="150dp"
                             android:background="@drawable/homeshapegrid">
                             <RelativeLayout
-                                android:id="@+id/iconrelative"
+                                android:id="@+id/iconrelative2"
                                 android:layout_width="60dp"
                                 android:layout_height="60dp"
                                 android:background="@drawable/dashitemshape"
@@ -275,7 +281,7 @@
                                 android:layout_marginTop="15dp"
                                 android:layout_marginEnd="20dp"
                                 android:layout_marginBottom="50dp"
-                                android:layout_toEndOf="@+id/iconrelative"
+                                android:layout_toEndOf="@+id/iconrelative2"
                                 android:orientation="vertical">
 
                                 <TextView
@@ -301,6 +307,7 @@
                              </LinearLayout>
 
                             <Button
+                                android:foreground="@drawable/rip"
                                 android:id="@+id/addStudentDash"
                                 android:background="@drawable/buttonshape"
                                 android:text="Add Student"
@@ -444,6 +451,7 @@
                             </LinearLayout>
 
                             <Button
+                                android:foreground="@drawable/rip"
                                 android:id="@+id/addGalleryDash"
                                 android:background="@drawable/buttonshape"
                                 android:text="Add Photo"
@@ -471,50 +479,189 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Manage Students"
+                android:text="Manage Data"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_marginStart="15dp"
                 android:alpha="0.7"
                 android:fontFamily="@font/cabin"/>
-            <RelativeLayout
-                android:layout_margin="5dp"
+            <LinearLayout
+                android:layout_marginBottom="5dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <androidx.recyclerview.widget.RecyclerView
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/adminStudentrec"/>
+                    android:orientation="horizontal">
+                    <RelativeLayout
+                        android:id="@+id/editstudentdashboard"
+                        android:foreground="@drawable/rip"
+                        android:layout_weight="1"
+                        android:layout_width="90dp"
+                        android:layout_height="75dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/edititemshape">
+                        <ImageView
+                            android:id="@+id/editImagestudent"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/stud"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerInParent="true"/>
 
-            </RelativeLayout>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Manage Teachers"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginStart="15dp"
-                android:alpha="0.7"
-                android:fontFamily="@font/cabin"/>
-            <RelativeLayout
-                android:layout_margin="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="wrap_content"
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/editfacultydashboard"
+                        android:foreground="@drawable/rip"
+                        android:layout_weight="1"
+                        android:layout_width="90dp"
+                        android:layout_height="75dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/edititemshape">
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/teche"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerInParent="true"/>
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/editnoticedashboard"
+                        android:foreground="@drawable/rip"
+                        android:layout_weight="1"
+                        android:layout_width="90dp"
+                        android:layout_height="75dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/edititemshape">
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/notes"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerInParent="true"/>
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/editassignmentdashobard"
+                        android:foregroundTint="@color/red"
+                        android:foreground="@drawable/rip"
+                        android:layout_weight="1"
+                        android:layout_width="90dp"
+                        android:layout_height="75dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/edititemshape">
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/editnote"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerInParent="true"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+                <LinearLayout
+
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/adminTeachersrec"/>
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_weight="1"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Student's"
+                        android:fontFamily="@font/cabin"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textSize="16sp"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_weight="1"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Teacher's"
+                        android:fontFamily="@font/cabin"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textSize="16sp"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_weight="1"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Notice's"
+                        android:fontFamily="@font/cabin"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textSize="16sp"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_weight="1"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Drill's"
+                        android:fontFamily="@font/cabin"
+                        android:autoSizeTextType="uniform"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textSize="16sp"
+                        android:layout_gravity="center"/>
 
-            </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
             <TextView
+                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Manage Gallery"
+                android:text="Edit Gallery Images's"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_marginStart="15dp"
                 android:alpha="0.7"
                 android:fontFamily="@font/cabin"/>
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Manage Teachers"-->
+<!--                android:textSize="18sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:layout_marginStart="15dp"-->
+<!--                android:alpha="0.7"-->
+<!--                android:fontFamily="@font/cabin"/>-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Manage Gallery"-->
+<!--                android:textSize="18sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:layout_marginStart="15dp"-->
+<!--                android:alpha="0.7"-->
+<!--                android:fontFamily="@font/cabin"/>-->
             <RelativeLayout
                 android:layout_marginBottom="30dp"
                 android:layout_margin="5dp"
@@ -528,7 +675,28 @@
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"/>
+                android:layout_height="20dp"/>
+
+            <RelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/adminStudentrec"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/adminTeachersrec"/>
+
+            </RelativeLayout>
 
 
         </LinearLayout>
