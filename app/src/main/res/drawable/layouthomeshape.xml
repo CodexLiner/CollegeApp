@@ -4,7 +4,8 @@
     <size android:width="100dp" android:height="100dp" />
     <!--    <solid android:color="@color/Xhome" />-->
         <stroke android:color="@color/white" android:width="0.5dp" />
-    <gradient android:type="linear" android:startColor="#CFD9EC" android:endColor="#B2C0D5"/>
+    <gradient android:type="linear" android:startColor="#E0EAFC" android:endColor="#CFDEF3"/>
+<!--    <gradient android:type="linear" android:startColor="#CFD9EC" android:endColor="#B2C0D5"/>-->
     <padding android:top="10dp" android:right="10dp" android:bottom="10dp" android:left="10dp"/>
 
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".users.SignUp">
+    tools:context=".UserManager.SignUp">
 
     <LinearLayout
         android:id="@+id/linearLayout4"
@@ -92,7 +92,7 @@
                     android:background="@drawable/inputshape2"
                     android:ems="10"
                     android:hint="Roll"
-                    android:inputType="numberSigned" />
+                    android:inputType="textPersonName" />
 
                     <EditText
                         android:layout_gravity="center"
@@ -140,7 +140,7 @@
                 android:layout_marginStart="12dp"
                 android:inputType="textPostalAddress" />
 
-                <EditText
+                <Spinner
                     android:layout_gravity="center"
                     android:id="@+id/EditPass"
                     android:layout_width="300dp"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:background="@drawable/dashboard"
     android:layout_height="match_parent"
-    tools:context=".users.Profile">
+    tools:context=".UserManager.Profile">
    <LinearLayout
        android:elevation="0.7dp"
        android:id="@+id/linearLayout4"
@@ -154,6 +154,21 @@
                 android:elevation="2dp"
                 android:background="@drawable/homeshapegrid"
                 android:id="@+id/profileroll"
+                android:layout_gravity="center"
+                android:gravity="start|center"
+                android:layout_marginTop="20dp"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:textSize="20sp"
+                android:text="Enroll Number"
+                android:autoSizePresetSizes="@array/autosizeText"
+                android:autoSizeTextType="uniform"
+                app:drawableStartCompat="@drawable/drawable_enroll" />
+            <TextView
+                android:visibility="gone"
+                android:elevation="2dp"
+                android:background="@drawable/homeshapegrid"
+                android:id="@+id/teacherDeggre"
                 android:layout_gravity="center"
                 android:gravity="start|center"
                 android:layout_marginTop="20dp"

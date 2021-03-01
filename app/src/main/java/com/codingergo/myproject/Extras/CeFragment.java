@@ -11,12 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.codingergo.myproject.R;
-import com.codingergo.myproject.facultyList.FacultyListAdapter;
-import com.codingergo.myproject.facultyList.FacultyModel;
+import com.codingergo.myproject.FacultyList.FacultyListAdapter;
+import com.codingergo.myproject.FacultyList.FacultyModel;
 import com.facebook.shimmer.ShimmerFrameLayout;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 

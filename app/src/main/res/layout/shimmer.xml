@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:background="#CFFFFFFF"
     android:layout_height="match_parent"
-    tools:context=".users.Profile">
+    tools:context=".UserManager.Profile">
 
 
  <de.hdodenhof.circleimageview.CircleImageView

@@ -8,15 +8,16 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_Layout"
-        app:tabIndicatorAnimationMode="elastic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/tab_shape"
         android:focusableInTouchMode="true"
-        app:tabMode="auto"
         app:tabIndicator="@drawable/rip"
+        app:tabIndicatorAnimationMode="elastic"
+        app:tabMode="scrollable"
         app:tabSelectedTextColor="@color/colorPrimaryDark"
         app:tabUnboundedRipple="true"
-        android:background="@drawable/tab_shape"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="55dp">
 

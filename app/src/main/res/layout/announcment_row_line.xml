@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/white"
+    app:cardElevation="0dp"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="0dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="200dp"
+        android:layout_height="120dp"
+        android:layout_margin="1dp"
+        android:background="@drawable/homeshapegrid">
+        <LinearLayout
+            android:elevation="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+           
+            <de.hdodenhof.circleimageview.CircleImageView
+                app:border_color="@color/white"
+                app:border_width="0.5dp"
+                android:layout_margin="2dp"
+                android:layout_gravity="center"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:src="@drawable/profile"/>
+            <TextView
+                android:fontFamily="@font/cabin"
+                android:drawablePadding="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/pen"
+                android:layout_gravity="center"
+                android:text="Shubham"
+                android:autoSizeTextType="uniform"
+                android:autoSizePresetSizes="@textsize/autosizehead"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGrey2"/>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:padding="5dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/chat"
+                android:layout_gravity="center"/>
+            <TextView
+                android:id="@+id/ChatMsg"
+                android:fontFamily="@font/cabin"
+                android:layout_marginStart="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"
+                android:layout_gravity="center"
+                android:text="Shubham gopal meena rewapur ka hone wala kuch kaam ji rewapur "
+                android:autoSizeTextType="uniform" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGrey2"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

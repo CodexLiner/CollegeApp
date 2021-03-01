@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:id="@+id/cardView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    app:cardBackgroundColor="@color/white"
+    app:cardElevation="0dp"
+    app:cardCornerRadius="0dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:background="@drawable/assignment_shape"
+        android:layout_margin="5dp"
+        android:baselineAligned="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/StudentProfileList"
+            android:layout_margin="10dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/profile"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false">
+            <TextView
+                android:id="@+id/StudentAdapterNAme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gopal Meena"
+                android:layout_gravity="center|top"
+                android:gravity="center|start"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"/>
+            <TextView
+                android:id="@+id/StudentBranchList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Computer Science"
+                android:layout_gravity="center|top"
+                android:gravity="center|start"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:textStyle="bold" />
+            <LinearLayout
+                android:baselineAligned="false"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/StudentYearList"
+                    android:layout_gravity="center"
+                    android:textStyle="bold"
+                    android:gravity="center|bottom|start"
+                    android:layout_weight="1"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Second Year"
+                    android:layout_margin="5dp"/>
+                <ImageView
+                    android:id="@+id/StudentPromotList"
+                    android:gravity="center|bottom"
+                    android:visibility="visible"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_add2"
+                    android:layout_margin="5dp"/>
+                <ImageView
+                    android:id="@+id/StudentEditList"
+                    android:gravity="center|bottom"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_info"
+                    android:layout_margin="5dp"/>
+                <ImageView
+                    android:id="@+id/StudentDeleteList"
+                    android:gravity="center|bottom"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_delete_24"
+                    android:layout_margin="5dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

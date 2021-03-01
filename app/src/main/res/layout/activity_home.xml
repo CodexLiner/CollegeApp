@@ -171,6 +171,8 @@
                 </com.facebook.shimmer.ShimmerFrameLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
+                    tools:listitem="@layout/notice_row_line"
+                    tools:itemCount="1"
                     android:id="@+id/notice_Rec"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

@@ -5,50 +5,51 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
 
     <application
-        android:requestLegacyExternalStorage="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:networkSecurityConfig="@xml/net"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".NotesManager.NotesDownloader"></activity>
+        <activity android:name=".SuperAdminManager.SuperAdminHome"></activity>
+        <activity android:name=".NotesManager.NotesDownloader" />
         <activity android:name=".NotesManager.NotesUploader" />
         <activity android:name=".EventManager.EventList" />
         <activity android:name=".Assignment.DrillsExtended" />
         <activity android:name=".NotesManager.notes_list" />
         <activity android:name=".Assignment.AssignView" />
-        <activity android:name=".facultyList.addFaculty" />
-        <activity android:name=".noticeBoard.noticeBoardExtended" />
-        <activity android:name=".photoGallery.GalleryExtended" />
-        <activity android:name=".moreButton.moreButton" />
-        <activity android:name=".studentDashboard.studentdashboard" />
+        <activity android:name=".FacultyList.addFaculty" />
+        <activity android:name=".NoticeBoard.noticeBoardExtended" />
+        <activity android:name=".PhotoGallery.GalleryExtended" />
+        <activity android:name=".MoreButton.moreButton" />
+        <activity android:name=".StudentDashboard.studentdashboard" />
         <activity android:name=".Assignment.Assignment" />
-        <activity android:name=".studentList.studentList" />
-        <activity android:name=".facultyList.facultyList" />
-        <activity android:name=".photoGallery.galleryMain" />
+        <activity android:name=".StudentList.studentList" />
+        <activity android:name=".FacultyList.FacultyListHod" />
+        <activity android:name=".PhotoGallery.galleryMain" />
         <activity android:name=".AboutDev.developer" />
-        <activity android:name=".noticeBoard.PDFViewer" />
-        <activity android:name=".noticeBoard.noticeBoard" />
-        <activity android:name=".users.forgotPass" />
+        <activity android:name=".NoticeBoard.PDFViewer" />
+        <activity android:name=".NoticeBoard.noticeBoard" />
+        <activity android:name=".UserManager.forgotPass" />
         <activity android:name=".Garbage.imagedemo" />
-        <activity android:name=".Cs_Dashboard.DashBoard" />
-        <activity android:name=".users.Profile" />
+        <activity android:name=".TeachersDashboard.DashBoard" />
+        <activity android:name=".UserManager.Profile" />
         <activity
-            android:name=".users.SignUp"
+            android:name=".UserManager.SignUp"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
             android:name=".Main.home"
             android:theme="@style/mainTheme" />
         <activity
-            android:name=".users.MainActivity"
+            android:name=".UserManager.MainActivity"
             android:theme="@style/SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

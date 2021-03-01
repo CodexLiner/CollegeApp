@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context=".moreButton.moreButton">
+    tools:context=".MoreButton.moreButton">
     <LinearLayout
         android:elevation="0.7dp"
         android:id="@+id/linearLayout4"

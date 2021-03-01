@@ -15,7 +15,6 @@ import com.codingergo.myproject.R;
 
 public class developer extends AppCompatActivity {
  ImageView instagram ,whatsapp , facebook , email , devprofile;
- Bitmap bitmap;
  String uri;
 
     @Override
@@ -28,38 +27,55 @@ public class developer extends AppCompatActivity {
         email = findViewById(R.id.sendmail);
         devprofile = findViewById(R.id.devprofile);
         uri = "https://famouspeople.wiki/wp-content/uploads/2020/04/arijit-singh.jpg";
-        Glide.with(devprofile.getContext()).load(uri).into(devprofile);
+        Glide.with(devprofile.getContext()).load(uri).placeholder(R.drawable.men).into(devprofile);
 
         instagram.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse("https://www.instagram.com/meenagopal24/");
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                intent.setPackage("com.instagram.android");
-                startActivity(intent);
+                try {
+                    Uri uri = Uri.parse("https://www.instagram.com/meenagopal24/");
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    intent.setPackage("com.instagram.android");
+                    startActivity(intent);
+                }catch (Exception d){
+                    Toast.makeText(developer.this, "Sorry...You don't have any app to open", Toast.LENGTH_SHORT).show();
+                    d.printStackTrace();
+                }
+
 
             }
         });
         whatsapp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                try {
+                    Uri uri =  Uri.parse("https://api.whatsapp.com/send?phone=919399846909&text=Hi+I%27m+Here+From+Poly+Harsud+Let+Guide+Me+Please+%F0%9F%98%8A%F0%9F%98%8A" );
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setType("text/plan");
+                    intent.setData(Uri.parse(String.valueOf(uri)));
+                    intent.setPackage("com.whatsapp");
 
-                Uri uri =  Uri.parse("https://api.whatsapp.com/send?phone=919399846909&text=Hi+I%27m+Here+From+Poly+Harsud+Let+Guide+Me+Please+%F0%9F%98%8A%F0%9F%98%8A" );
-              Intent intent = new Intent(Intent.ACTION_VIEW);
-              intent.setType("text/plan");
-                intent.setData(Uri.parse(String.valueOf(uri)));
-              intent.setPackage("com.whatsapp");
+                    startActivity(intent);
 
-                startActivity(intent);
+                }catch (Exception e){
+                    Toast.makeText(developer.this, "Sorry...You don't have any app to open", Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
+                }
 
             }
         });
         facebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse("https://www.facebook.com/meenagopal24");
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(String.valueOf(uri)));
-                startActivity(intent);
+                try {
+                    Uri uri = Uri.parse("https://www.facebook.com/meenagopal24");
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(String.valueOf(uri)));
+                    startActivity(intent);
+                }catch (Exception e){
+                    Toast.makeText(developer.this, "Sorry...You don't have any app to open", Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
+                }
+
 
             }
         });

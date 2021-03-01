@@ -30,6 +30,7 @@ static String ROOT;
         name = getIntent().getStringExtra("name");
        // MakeDir();
         FileType = MimeTypeMap.getFileExtensionFromUrl(url);
+        Log.d("TAG", "onCreate: "+url);
         try {
             DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
             request.allowScanningByMediaScanner();

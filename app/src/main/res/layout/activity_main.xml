@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradiantbg"
-    tools:context=".users.MainActivity">
+    tools:context=".UserManager.MainActivity">
     <LinearLayout
 
         android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#54FFFFFF"
+        android:background="#00FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -94,7 +94,7 @@
             android:layout_height="wrap_content"
 
             android:layout_marginBottom="20dp"
-            android:src="@drawable/logosplash" />
+            android:src="@drawable/splashlogonew" />
 
 <!--        <TextView-->
 <!--            android:id="@+id/HeadtextView"-->
@@ -109,6 +109,7 @@
 <!--            android:textSize="30sp" />-->
 
         <EditText
+            android:importantForAutofill="yes"
             android:elevation="5dp"
             android:id="@+id/RollView"
             android:layout_width="310dp"
@@ -118,7 +119,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="12dp"
             android:layout_marginBottom="15dp"
-            android:autofillHints=""
+            android:autofillHints="Email"
             android:background="@drawable/inputshape2"
             android:drawableStart="@drawable/focusemail"
             android:drawablePadding="20dp"
@@ -128,6 +129,7 @@
             android:textColorHighlight="#59535754" />
 
         <EditText
+            android:autofillHints="password"
             android:elevation="5dp"
             android:id="@+id/LoginPassView"
             android:layout_width="310dp"
@@ -190,7 +192,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LoginPassView"
         app:layout_constraintVertical_bias="0.45" />
 
 

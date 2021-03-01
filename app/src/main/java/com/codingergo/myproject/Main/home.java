@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.Manifest;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -27,23 +26,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.codingergo.myproject.Cs_Dashboard.DashBoard;
+import com.codingergo.myproject.TeachersDashboard.DashBoard;
 import com.codingergo.myproject.NotesManager.NotesUploader;
 import com.codingergo.myproject.R;
-import com.codingergo.myproject.moreButton.moreButton;
-import com.codingergo.myproject.noticeBoard.fireNoticeAdapter;
-import com.codingergo.myproject.noticeBoard.noticeAdapter;
-import com.codingergo.myproject.noticeBoard.noticeBoardExtended;
-import com.codingergo.myproject.noticeBoard.noticeModel;
-import com.codingergo.myproject.photoGallery.GalleryExtended;
-import com.codingergo.myproject.photoGallery.fireAdapter;
-import com.codingergo.myproject.photoGallery.imageAdapter;
-import com.codingergo.myproject.photoGallery.imageModel;
-import com.codingergo.myproject.studentDashboard.studentdashboard;
-import com.codingergo.myproject.tabLayout.TabManager;
+import com.codingergo.myproject.MoreButton.moreButton;
+import com.codingergo.myproject.NoticeBoard.fireNoticeAdapter;
+import com.codingergo.myproject.NoticeBoard.noticeAdapter;
+import com.codingergo.myproject.NoticeBoard.noticeBoardExtended;
+import com.codingergo.myproject.NoticeBoard.noticeModel;
+import com.codingergo.myproject.PhotoGallery.GalleryExtended;
+import com.codingergo.myproject.PhotoGallery.fireAdapter;
+import com.codingergo.myproject.PhotoGallery.imageAdapter;
+import com.codingergo.myproject.PhotoGallery.imageModel;
+import com.codingergo.myproject.StudentDashboard.studentdashboard;
+import com.codingergo.myproject.TabLayout.TabManager;
 import com.facebook.shimmer.ShimmerFrameLayout;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -58,7 +55,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
 import java.io.File;
-import java.util.Date;
 
 public class home extends AppCompatActivity {
     // globale varialbe
@@ -122,8 +118,8 @@ public class home extends AppCompatActivity {
         temp();
 
 //nav bar end
-        String uri = "https://scontent-bom1-1.cdninstagram.com/v/t51.2885-19/s320x320/117567853_3278764075515229_6349804811514481652_n.jpg?_nc_ht=scontent-bom1-1.cdninstagram.com&_nc_ohc=B_1OXxT4dRkAX_3AbB3&tp=1&oh=4d99dbd66c972cdb060bd7c9920363ca&oe=6030CAD8";
-        Glide.with(imageView).load(uri).into(imageView);
+        String uri = sharedPreferences.getString("url" , null);
+        Glide.with(imageView).load(uri).placeholder(R.drawable.profile).into(imageView);
         editor.putString("name", "Shared Prefs");
         SharedPreferences sp = getSharedPreferences("whole", MODE_PRIVATE);
         if (sp.contains("name")){
@@ -302,12 +298,16 @@ public class home extends AppCompatActivity {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 String First = documentSnapshot.getString("fullname");
+                String url = documentSnapshot.getString("url");
+                Glide.with(imageView.getContext()).load(url).placeholder(R.drawable.profile).into(imageView);
                 String[] splited = First.split("\\s+");
                 welcome.setText("Hello "+splited[0]);
                 editor.putString("name" ,"Hello "+splited[0]);
                 editor.putString("isUser",documentSnapshot.getString("isUser"));
+                editor.putString("url" , url);
                 editor.commit();
                 isUser = sharedPreferences.getString("isUser", "null found");
+
             }
         });
 
