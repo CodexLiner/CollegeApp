@@ -21,6 +21,12 @@
             android:layout_height="50dp"
             android:src="@drawable/profile"/>
         <LinearLayout
+            android:layout_marginEnd="10dp"
+            android:alpha="0.5"
+            android:background="@color/Black"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"/>
+        <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -34,7 +40,7 @@
                 android:gravity="center|start"
                 android:textStyle="bold"
                 android:textSize="20sp"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="0dp"
                 android:layout_marginTop="5dp"/>
             <TextView
                 android:id="@+id/StudentBranchList"
@@ -43,7 +49,7 @@
                 android:text="Computer Science"
                 android:layout_gravity="center|top"
                 android:gravity="center|start"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="0dp"
                 android:layout_marginTop="5dp"
                 android:textStyle="bold" />
             <LinearLayout
@@ -61,8 +67,9 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:text="Second Year"
-                    android:layout_margin="5dp"/>
+                    android:layout_margin="0dp"/>
                 <ImageView
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
                     android:id="@+id/StudentPromotList"
                     android:gravity="center|bottom"
                     android:visibility="visible"
@@ -72,6 +79,7 @@
                     android:src="@drawable/ic_add2"
                     android:layout_margin="5dp"/>
                 <ImageView
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
                     android:id="@+id/StudentEditList"
                     android:gravity="center|bottom"
                     android:layout_weight="1"
@@ -80,6 +88,7 @@
                     android:src="@drawable/ic_info"
                     android:layout_margin="5dp"/>
                 <ImageView
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
                     android:id="@+id/StudentDeleteList"
                     android:gravity="center|bottom"
                     android:layout_weight="1"

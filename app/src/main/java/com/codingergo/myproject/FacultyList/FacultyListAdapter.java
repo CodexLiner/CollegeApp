@@ -42,8 +42,8 @@ public class FacultyListAdapter extends FirestoreRecyclerAdapter<FacultyModel , 
 
     @Override
     protected void onBindViewHolder(@NonNull vholder holder, int position, @NonNull FacultyModel model) {
-        holder.editor.putString("TeacherName",model.getName());
-        holder.editor.putString("TeacherImage", model.getPhoto());
+        holder.editor.putString("TeacherName",model.getFullname());
+        holder.editor.putString("TeacherImage", model.getUrl());
         holder.editor.putString("TeacherBranch",model.getBranch());
         holder.editor.commit();
         branch = holder.sharedPreferences.getString("UserBranch", null);
@@ -56,11 +56,11 @@ public class FacultyListAdapter extends FirestoreRecyclerAdapter<FacultyModel , 
 
             if (branch.equals(model.getBranch())){
                 holder.name.setText(StringUtils.capitalize(nameSplited[0]));
-                Glide.with(holder.img).load(model.getPhoto()).placeholder(R.drawable.men).into(holder.img);
+                Glide.with(holder.img).load(model.getUrl()).placeholder(R.drawable.men).into(holder.img);
             }
             else {
                 holder.linearLayout.setVisibility(View.GONE);
-                Log.d("TAG", "onBindViewHolder:Second Code "+model.getName() + model.getBranch());
+                Log.d("TAG", "onBindViewHolder:Second Code "+model.getFullname() + model.getBranch());
             }
 
         }catch (Exception e){
@@ -71,9 +71,9 @@ public class FacultyListAdapter extends FirestoreRecyclerAdapter<FacultyModel , 
                     holder.editor.putString("UserBranch",documentSnapshot.getString("branch"));
                     holder.editor.commit();
                     if (documentSnapshot.getString("branch").equals(model.getBranch())){
-                        nameSplited = model.getName().split("\\s+");
+                        nameSplited = model.getFullname().split("\\s+");
                         holder.name.setText(StringUtils.capitalize(nameSplited[0]));
-                        Glide.with(holder.img).load(model.getPhoto()).into(holder.img);
+                        Glide.with(holder.img).load(model.getUrl()).into(holder.img);
                     }
                     else  {
                         holder.linearLayout.setVisibility(View.GONE);
@@ -92,13 +92,33 @@ public class FacultyListAdapter extends FirestoreRecyclerAdapter<FacultyModel , 
                 dialog.setCancelable(false);
                 dialog.show();
                 ImageView profile = dialog.findViewById(R.id.DialogImage);
-                TextView DialogName , DialogBranch;
-                DialogName = dialog.findViewById(R.id.DialogName);
-                DialogBranch = dialog .findViewById(R.id.temp);
-                DialogBranch.setText(model.getBranch());
-                DialogName.setText(StringUtils.capitalize(model.getName())) ;
-                Glide.with(profile).load(model.photo).into(profile);
+                TextView address , name , roll , email , mobile ;
+                address = dialog.findViewById(R.id.DialogAddress);
+                name= dialog.findViewById(R.id.DialogName);
+                roll= dialog.findViewById(R.id.DialogRoll);
+                email = dialog.findViewById(R.id.DialogEmail);
+                mobile = dialog.findViewById(R.id.DialogMobile);
                 Button done = dialog.findViewById(R.id.diloagButton);
+
+
+                DocumentReference df = firestore.collection("Users").document(getSnapshots().getSnapshot(position).getId());
+                df.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        address.setText(documentSnapshot.getString("address"));
+                        roll.setText(documentSnapshot.getString("roll"));
+                        email.setText(documentSnapshot.getString("email"));
+                        mobile.setText(documentSnapshot.getString("mobile"));
+                        name.setText(documentSnapshot.getString("fullname"));
+                        Glide.with(profile).load(documentSnapshot.getString("url"))
+                                .placeholder(R.drawable.men)
+                                .into(profile);
+                    }
+                });
+
+
+
+
                 done.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

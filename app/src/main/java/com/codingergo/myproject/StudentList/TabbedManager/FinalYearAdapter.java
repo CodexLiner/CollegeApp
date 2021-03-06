@@ -1,12 +1,12 @@
-package com.codingergo.myproject.StudentList;
+package com.codingergo.myproject.StudentList.TabbedManager;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,6 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.codingergo.myproject.R;
+import com.codingergo.myproject.StudentList.StudentListAdapter;
+import com.codingergo.myproject.StudentList.StudentListModel;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -25,14 +27,13 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-public class StudentListAdapter extends FirestoreRecyclerAdapter<StudentListModel ,StudentListAdapter.Holder> {
+public class FinalYearAdapter extends FirestoreRecyclerAdapter<StudentListModel , FinalYearAdapter.Holder> {
     FirebaseAuth auth = FirebaseAuth.getInstance();
     FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-    public StudentListAdapter(@NonNull FirestoreRecyclerOptions<StudentListModel> options) {
+    public FinalYearAdapter(@NonNull FirestoreRecyclerOptions<StudentListModel> options) {
         super(options);
     }
 
@@ -40,16 +41,24 @@ public class StudentListAdapter extends FirestoreRecyclerAdapter<StudentListMode
     protected void onBindViewHolder(@NonNull Holder holder, int position, @NonNull StudentListModel model) {
         String [] year = {"null","First Year" , "Second Year" , "Final Year"};
         int i = Integer.parseInt(model.getSem());
-        holder.name.setText(model.getFullname());
-        Glide.with(holder.ProfileImg).load(model.getUrl()).into(holder.ProfileImg);
-        holder.branch.setText(model.getBranch());
+        if (model.getSem().equals("3")){
+            holder.name.setText(model.getFullname());
+            Glide.with(holder.ProfileImg).load(model.getUrl()).into(holder.ProfileImg);
+            holder.branch.setText(model.getBranch());
+        }
+        else {
+            holder.cardView.setVisibility(View.GONE);
+            holder.cardView.getLayoutParams().width = 0;
+            holder.cardView.getLayoutParams().height = 0;
+        }
+
         if (year!=null){
             holder.year.setText(year[i]);
         }
         else {
             holder.year.setText(model.getSem());
         }
-        getSnapshots().getSnapshot(position).getReference().getId();
+
         if ( getSnapshots().getSnapshot(position).getReference().getId().equals(auth.getCurrentUser().getUid())){
             holder.cardView.setVisibility(View.GONE);
             holder.cardView.getLayoutParams().width = 0;
@@ -138,27 +147,59 @@ public class StudentListAdapter extends FirestoreRecyclerAdapter<StudentListMode
         holder.EditBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Dialog dialog = new Dialog(holder.itemView.getContext());
+                dialog.setContentView(R.layout.dialog_design_line);
+                dialog.show();
+                Button close = dialog.findViewById(R.id.diloagButton);
+                ImageView profile = dialog.findViewById(R.id.DialogImage);
+                TextView address , name , roll , email , mobile ;
+                address = dialog.findViewById(R.id.DialogAddress);
+                name= dialog.findViewById(R.id.DialogName);
+                roll= dialog.findViewById(R.id.DialogRoll);
+                email = dialog.findViewById(R.id.DialogEmail);
+                mobile = dialog.findViewById(R.id.DialogMobile);
+                DocumentReference df = firestore.collection("Users").document(getSnapshots().getSnapshot(position).getId());
+                df.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        address.setText(documentSnapshot.getString("address"));
+                        roll.setText(documentSnapshot.getString("roll"));
+                        email.setText(documentSnapshot.getString("email"));
+                        mobile.setText(documentSnapshot.getString("mobile"));
+                        name.setText(documentSnapshot.getString("fullname"));
+                        Glide.with(profile).load(documentSnapshot.getString("url"))
+                                .placeholder(R.drawable.men)
+                                .into(profile);
+                    }
+                });
+                close.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+
 
             }
         });
         holder.DeleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            AlertDialog alertDialog = new AlertDialog.Builder(holder.itemView.getContext())
-                    .setTitle("Delete")
-                    .setMessage("Are You Sure Want To Delete "+model.getFullname())
-                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                           // getSnapshots().getSnapshot(position).getReference().delete();
-                            Toast.makeText(holder.itemView.getContext(), "Deleted", Toast.LENGTH_SHORT).show();
-                        }
-                    }).setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
+                AlertDialog alertDialog = new AlertDialog.Builder(holder.itemView.getContext())
+                        .setTitle("Delete")
+                        .setMessage("Are You Sure Want To Delete "+model.getFullname())
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // getSnapshots().getSnapshot(position).getReference().delete();
+                                Toast.makeText(holder.itemView.getContext(), "Deleted", Toast.LENGTH_SHORT).show();
+                            }
+                        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
 
-                        }
-                    }).show();
+                            }
+                        }).show();
             }
         });
     }
@@ -169,9 +210,6 @@ public class StudentListAdapter extends FirestoreRecyclerAdapter<StudentListMode
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.studentlist_row_line , parent , false);
 
         return new Holder(v);
-    }
-    public void Delete(int pos){
-       // getSnapshots().getSnapshot(pos).getReference().
     }
 
     class Holder extends RecyclerView.ViewHolder {

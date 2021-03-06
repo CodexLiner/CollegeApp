@@ -44,6 +44,7 @@ public class SignUp extends AppCompatActivity {
     ProgressBar progressBar;
     ImageView imageSelector;
     Spinner Spinner ;
+    String url = "https://firebasestorage.googleapis.com/v0/b/gpc-harsud.appspot.com/o/basics%2Fblank-profile-picture-973460_1280.jpg?alt=media&token=3f4c43d5-19ee-4730-a122-cb0cd6764800";
     String [] Year = {"Select Year","First Year","Second Year","Final Year"};
     String StudentYaer , StudentBranch;
 //    ProgressDialog progressDialog = new ProgressDialog(this);
@@ -137,7 +138,7 @@ public class SignUp extends AppCompatActivity {
                     studentInfo.put("mobile",loginphone);
                     studentInfo.put("address",loginaddress);
                     studentInfo.put("sem",StudentYaer);
-                    studentInfo.put("url",null);
+                    studentInfo.put("url",url);
                     studentInfo.put("branch",StudentBranch);
                     //access level is Student
                     studentInfo.put("isHod","0");
@@ -179,8 +180,8 @@ public class SignUp extends AppCompatActivity {
 
                 }
                 else {
-                    StudentYaer = Year[position];
-                   //  Toast.makeText(SignUp.this, ""+StudentYaer, Toast.LENGTH_SHORT).show();
+                    StudentYaer = String.valueOf(position);
+                   // Toast.makeText(SignUp.this, ""+StudentYaer, Toast.LENGTH_SHORT).show();
                 }
 
 

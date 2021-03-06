@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StudentList.TabbedManager.FinalYear">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:visibility="visible"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:id="@+id/studentList"
+        tools:listitem="@layout/studentlist_row_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp" />
+
+</FrameLayout>

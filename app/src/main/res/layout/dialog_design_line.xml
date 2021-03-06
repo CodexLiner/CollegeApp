@@ -40,7 +40,7 @@
                 android:layout_gravity="center"
                 android:fontFamily="@font/cabin"
                 android:gravity="center"
-                android:text="Gopal Meena"
+                android:text="Loading..."
                 android:autoSizePresetSizes="@arrays/autosizeText"
                 android:textStyle="bold" />
 
@@ -59,6 +59,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:visibility="gone"
                         android:id="@+id/temp"
                         android:layout_marginTop="10dp"
                         android:layout_marginStart="10dp"
@@ -67,49 +68,61 @@
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:background="@drawable/dashboardshape"
-                        android:hint="Gopal Meena"
+                        android:hint="Loding..."
                         android:layout_gravity="center"
                         android:gravity="center"/>
                     <TextView
+                        android:id="@+id/DialogRoll"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:background="@drawable/dashboardshape"
-                        android:hint="Gopal Meena"
+                        android:drawableStart="@drawable/drawable_enroll"
+                        android:drawablePadding="10dp"
+                        android:hint="Loding..."
                         android:layout_gravity="center"
-                        android:gravity="center"/>
+                        android:gravity="start|center"/>
                     <TextView
+                        android:id="@+id/DialogEmail"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:background="@drawable/dashboardshape"
-                        android:hint="Gopal Meena"
+                        android:drawableStart="@drawable/drawable_email"
+                        android:drawablePadding="10dp"
+                        android:hint="Loding..."
                         android:layout_gravity="center"
-                        android:gravity="center"/>
+                        android:gravity="start|center"/>
                     <TextView
+                        android:id="@+id/DialogMobile"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:background="@drawable/dashboardshape"
-                        android:hint="Gopal Meena"
+                        android:drawableStart="@drawable/drawable_mobile"
+                        android:drawablePadding="10dp"
+                        android:hint="Loding..."
                         android:layout_gravity="center"
-                        android:gravity="center"/>
+                        android:gravity="start|center"/>
                     <TextView
+                        android:id="@+id/DialogAddress"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:background="@drawable/dashboardshape"
-                        android:hint="Gopal Meena"
+                        android:drawableStart="@drawable/drawable_city"
+                        android:drawablePadding="10dp"
+                        android:hint="Loding..."
                         android:layout_gravity="center"
-                        android:gravity="center"/>
+                        android:gravity="start|center"/>
                 </LinearLayout>
 
             </ScrollView>

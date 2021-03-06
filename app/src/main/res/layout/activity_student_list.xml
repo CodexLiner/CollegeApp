@@ -34,7 +34,36 @@
             android:layout_marginBottom="20dp"
             android:text="On your Database"
             android:textSize="18sp"/>
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/Black"
+            android:alpha="0.3"/>
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_LayoutStudent"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            app:tabBackground="@color/Xhome"
+            app:tabIndicatorColor="@color/white"
+            app:tabTextColor="@color/colorGrey"
+            app:tabSelectedTextColor="@color/white">
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/FirstYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="First Year"/>
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/SecondYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Second Year"/>
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/FinalYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Final Year"/>
+        </com.google.android.material.tabs.TabLayout>
     </LinearLayout>
 
     <ScrollView
@@ -49,21 +78,29 @@
         app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
+            android:background="#9FFFFFFF"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="5dp"
-                android:fontFamily="@font/cabin"
-                android:text="Student LIst"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+            <androidx.viewpager.widget.ViewPager
+                android:layout_gravity="center"
+                android:id="@+id/StudentViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="555dp"/>
+
+            <!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:layout_marginEnd="10dp"-->
+<!--                android:layout_marginBottom="5dp"-->
+<!--                android:fontFamily="@font/cabin"-->
+<!--                android:text="Student LIst"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textStyle="bold" />-->
 
             <androidx.recyclerview.widget.RecyclerView
+                android:visibility="gone"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:id="@+id/studentList"

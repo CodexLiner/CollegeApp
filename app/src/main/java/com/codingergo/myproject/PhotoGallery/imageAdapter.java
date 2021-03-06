@@ -1,10 +1,12 @@
 package com.codingergo.myproject.PhotoGallery;
 
+import android.app.Dialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,6 +26,7 @@ public class imageAdapter extends FirebaseRecyclerAdapter<imageModel , imageAdap
     protected void onBindViewHolder(@NonNull final Vholder holder, int position, @NonNull final imageModel model) {
         holder.name.setText(model.getName());
         Glide.with(holder.imageView.getContext()).load(model.getUrl()).into(holder.imageView);
+
     }
 
     @NonNull
@@ -33,19 +36,6 @@ public class imageAdapter extends FirebaseRecyclerAdapter<imageModel , imageAdap
         return new Vholder(view);
     }
 
-//    @Override
-//    protected void onBindViewHolder(@NonNull Vholder holder, int position, @NonNull imageModel model) {
-//        holder.name.setText(model.getName());
-//
-//    }
-//
-//    @NonNull
-//    @Override
-//    public Vholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-//        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.timelinerow, parent,false);
-//        return new Vholder(view);
-//
-//    }
 
     class Vholder extends RecyclerView.ViewHolder {
         TextView name, url;

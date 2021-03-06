@@ -56,7 +56,7 @@ public class FacultyListAdapterForHod extends FirestoreRecyclerAdapter<FacultyMo
             public void onClick(View v) {
                 AlertDialog alertDialog = new AlertDialog.Builder(holder.itemView.getContext())
                         .setTitle("Delete")
-                        .setMessage("Are You Sure Want To Delete "+model.getName())
+                        .setMessage("Are You Sure Want To Delete "+model.getFullname())
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {

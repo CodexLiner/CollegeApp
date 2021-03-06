@@ -26,8 +26,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.codingergo.myproject.Demo.pusher;
 import com.codingergo.myproject.TeachersDashboard.DashBoard;
-import com.codingergo.myproject.NotesManager.NotesUploader;
 import com.codingergo.myproject.R;
 import com.codingergo.myproject.MoreButton.moreButton;
 import com.codingergo.myproject.NoticeBoard.fireNoticeAdapter;
@@ -202,12 +202,13 @@ public class home extends AppCompatActivity {
     }
 
     private void temp() {
+
         LinearLayout l ;
         l = findViewById(R.id.choose);
         l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), NotesUploader.class));
+                startActivity(new Intent(getApplicationContext(), pusher.class));
             }
         });
 //        File file = new File(Environment.getExternalStorageDirectory()+"/CodeErgo/Download");

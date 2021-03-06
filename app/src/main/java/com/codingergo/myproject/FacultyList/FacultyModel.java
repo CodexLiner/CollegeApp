@@ -1,23 +1,22 @@
 package com.codingergo.myproject.FacultyList;
 
 public class FacultyModel {
-    String name , branch , photo;
+    String fullname , branch , sem , url , isUser ;
 
-    public FacultyModel() {
+    public String getFullname() {
+        return fullname;
     }
 
-    public FacultyModel(String name, String branch, String photo) {
-        this.name = name;
+    public FacultyModel(String fullname, String branch, String sem, String url, String isUser) {
+        this.fullname = fullname;
         this.branch = branch;
-        this.photo = photo;
+        this.sem = sem;
+        this.url = url;
+        this.isUser = isUser;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
     }
 
     public String getBranch() {
@@ -28,11 +27,30 @@ public class FacultyModel {
         this.branch = branch;
     }
 
-    public String getPhoto() {
-        return photo;
+    public String getSem() {
+        return sem;
     }
 
-    public void setPhoto(String photo) {
-        this.photo = photo;
+    public void setSem(String sem) {
+        this.sem = sem;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getIsUser() {
+        return isUser;
+    }
+
+    public void setIsUser(String isUser) {
+        this.isUser = isUser;
+    }
+
+    public FacultyModel() {
     }
 }

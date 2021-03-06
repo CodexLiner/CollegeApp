@@ -22,4 +22,7 @@
     <string name="ce_tilte">CE Fragment</string>
     <string name="pdfText">Upload a new pdf file as a notice that can be visible on the home page of your application. you can edit or delete this file in your dashboard area</string>
     <string name="assignText">upload a new pdf file as an assignment that will be visible on the dashboard page of your students. you can edit or delete this file in your dashboard area</string>
+    <string name="title_activity_tabbed_test">TabbedTest</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
 </resources>

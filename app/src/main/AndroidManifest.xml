@@ -19,7 +19,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SuperAdminManager.SuperAdminHome"></activity>
+        <activity android:name=".Demo.pusher" />
+        <activity android:name=".SuperAdminManager.SuperAdminHome" />
         <activity android:name=".NotesManager.NotesDownloader" />
         <activity android:name=".NotesManager.NotesUploader" />
         <activity android:name=".EventManager.EventList" />

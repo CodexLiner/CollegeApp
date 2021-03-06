@@ -208,9 +208,9 @@ public class studentdashboard extends AppCompatActivity {
        assignmentAdapter = new AssignmentAdapter(options);
        recyclerView.setAdapter(assignmentAdapter);
 
-       // Student List View Recycler Adpater
+       // Teacher List View Recycler Adpater
         Trecycler.setLayoutManager(new LinearLayoutManager(this,RecyclerView.HORIZONTAL,false));
-       Query Tquery = firestore.collection("Cs_Teachers");
+       Query Tquery = firestore.collection("Users");
        FirestoreRecyclerOptions<FacultyModel> Toptiions = new FirestoreRecyclerOptions.Builder<FacultyModel>()
                .setQuery(Tquery,FacultyModel.class)
                .build();

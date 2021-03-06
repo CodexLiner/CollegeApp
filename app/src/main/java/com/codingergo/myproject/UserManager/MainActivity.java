@@ -43,7 +43,7 @@
       ImageView arrow;
       Button Login;
       FirebaseFirestore firestore;
-      String name , email , roll , address , mobile ;
+      String name , email , roll , address , mobile ,isUser , IsHod , url ,sem ,branch;
       FirebaseAuth auth;
       ProgressBar progressBar;
 
@@ -133,7 +133,6 @@
                                     if (task.isComplete()){
                                         DocumentReference df = firestore.collection("Students").document(Username);
                                         df.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-
                                             @Override
                                             public void onSuccess(DocumentSnapshot documentSnapshot) {
                                                 if (documentSnapshot.getString("email")!=null){
@@ -142,6 +141,12 @@
                                                     roll = documentSnapshot.getString("roll");
                                                     address = documentSnapshot.getString("address");
                                                     name = documentSnapshot.getString("fullname");
+                                                    isUser = documentSnapshot.getString("isUser");
+                                                    IsHod = documentSnapshot.getString("isHod");
+                                                    url = documentSnapshot.getString("url");
+                                                    sem = documentSnapshot.getString("sem");
+                                                    branch = documentSnapshot.getString("branch");
+
                                                     DocumentReference df = firestore.collection("Students").document(Username);
                                                     df.delete();
                                                 }
@@ -181,8 +186,12 @@
                                                     studentInfo.put("roll", roll);
                                                     studentInfo.put("mobile",mobile);
                                                     studentInfo.put("address",address);
+                                                    studentInfo.put("isHod",IsHod);
+                                                    studentInfo.put("url",url);
+                                                    studentInfo.put("branch",branch);
+                                                    studentInfo.put("sem",sem);
                                                     //access level is Student
-                                                    studentInfo.put("isUser","1");
+                                                    studentInfo.put("isUser",isUser);
                                                     documentReference.set(studentInfo);
                                                     Toast.makeText(getApplicationContext(),"Login Success",Toast.LENGTH_LONG).show();
                                                     startActivity(new Intent(getApplicationContext(),home.class));
