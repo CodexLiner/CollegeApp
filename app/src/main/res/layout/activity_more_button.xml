@@ -103,56 +103,6 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:foreground="@drawable/rip"
-                android:id="@+id/about"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/morebuttonshape"
-                android:elevation="1dp">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:elevation="1dp"
-                    android:src="@drawable/ic_info" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="10dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="About Dev"
-                        android:textColor="@color/Black"
-                        android:textSize="25sp"
-                        android:fontFamily="sans-serif-medium" />
-
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_gravity="top"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:fontFamily="sans-serif-smallcaps"-->
-<!--                        android:gravity="top"-->
-<!--                        android:text="Know More About Developer"-->
-<!--                        android:textSize="20sp" />-->
-
-                </LinearLayout>
-
-            </LinearLayout>
 
             <LinearLayout
                 android:foreground="@drawable/rip"
@@ -251,6 +201,58 @@
 <!--                        android:gravity="top"-->
 <!--                        android:text="Share This App"-->
 <!--                        android:textSize="20sp" />-->
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:foreground="@drawable/rip"
+                android:id="@+id/about"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/morebuttonshape"
+                android:elevation="1dp">
+
+                <ImageView
+                    android:alpha="0.7"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:elevation="1dp"
+                    android:src="@drawable/programming" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Developer"
+                        android:textColor="@color/Black"
+                        android:textSize="25sp"
+                        android:fontFamily="sans-serif-medium" />
+
+                    <!--                    <TextView-->
+                    <!--                        android:layout_width="wrap_content"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_gravity="top"-->
+                    <!--                        android:layout_weight="1"-->
+                    <!--                        android:fontFamily="sans-serif-smallcaps"-->
+                    <!--                        android:gravity="top"-->
+                    <!--                        android:text="Know More About Developer"-->
+                    <!--                        android:textSize="20sp" />-->
 
                 </LinearLayout>
 

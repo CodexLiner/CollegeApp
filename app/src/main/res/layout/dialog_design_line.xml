@@ -58,20 +58,9 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
+
                     <TextView
-                        android:visibility="gone"
-                        android:id="@+id/temp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="55dp"
-                        android:background="@drawable/dashboardshape"
-                        android:hint="Loding..."
-                        android:layout_gravity="center"
-                        android:gravity="center"/>
-                    <TextView
                         android:id="@+id/DialogRoll"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
@@ -123,6 +112,18 @@
                         android:hint="Loding..."
                         android:layout_gravity="center"
                         android:gravity="start|center"/>
+                    <TextView
+                        android:visibility="gone"
+                        android:id="@+id/temp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@drawable/dashboardshape"
+                        android:hint="Loding..."
+                        android:layout_gravity="center"
+                        android:gravity="center"/>
                 </LinearLayout>
 
             </ScrollView>

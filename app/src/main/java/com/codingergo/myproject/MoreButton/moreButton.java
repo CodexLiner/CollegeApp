@@ -3,12 +3,16 @@ package com.codingergo.myproject.MoreButton;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.Toast;
 
 import com.codingergo.myproject.AboutDev.developer;
@@ -24,6 +28,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class moreButton extends AppCompatActivity {
     LinearLayout share , profile , about , feedback;
@@ -104,7 +112,35 @@ public class moreButton extends AppCompatActivity {
       feedback.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-              Toast.makeText(moreButton.this, "on Share Button", Toast.LENGTH_SHORT).show();
+              Dialog dialog = new Dialog(moreButton.this);
+              dialog.setContentView(R.layout.feedback_layout);
+              RatingBar ratingBar = dialog.findViewById(R.id.ratingBar);
+              Button btn = dialog.findViewById(R.id.submit);
+              EditText et = dialog.findViewById(R.id.Ratemsg);
+
+              btn.setOnClickListener(new View.OnClickListener() {
+                  @Override
+                  public void onClick(View v) {
+                      final String rate = String.valueOf(ratingBar.getRating());
+                      final  String msg = et.getText().toString().trim();
+                      if (rate.equals("0.0")){
+                          Toast.makeText(moreButton.this, "Please Select Atleast 1 Star", Toast.LENGTH_SHORT).show();
+                          return;
+                      }
+                      DocumentReference df = firestore.collection("Ratings").document();
+                      Map<String , Object> rates = new HashMap<>();
+                      rates.put("Star" , rate);
+                      rates.put("msg", msg);
+                      rates.put("date",System.currentTimeMillis());
+                      rates.put("rateBy", auth.getCurrentUser().getEmail().toString());
+                      df.set(rates);
+                      Toast.makeText(moreButton.this, "Thanks for Rating", Toast.LENGTH_SHORT).show();
+                      dialog.dismiss();
+
+                  }
+              });
+
+              dialog.show();
           }
       });
       if (sharedPreferences.contains("isUser")){

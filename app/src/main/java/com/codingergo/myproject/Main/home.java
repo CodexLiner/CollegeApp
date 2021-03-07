@@ -53,6 +53,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+import com.onesignal.OneSignal;
 
 import java.io.File;
 
@@ -115,6 +116,7 @@ public class home extends AppCompatActivity {
         BottomNav();
         PermissionManager();
         CreateFolder();
+        OneSignalInit();
         temp();
 
 //nav bar end
@@ -168,6 +170,14 @@ public class home extends AppCompatActivity {
 
     }
 
+    private void OneSignalInit() {
+        final String ONESIGNAL_APP_ID = "61bf7c23-e222-4d1c-8297-7532813a8619";
+        OneSignal.setLogLevel(OneSignal.LOG_LEVEL.VERBOSE, OneSignal.LOG_LEVEL.NONE);
+        // OneSignal Initialization
+        OneSignal.initWithContext(this);
+        OneSignal.setAppId(ONESIGNAL_APP_ID);
+    }
+
     private void CreateFolder() {
         File file = new File(Environment.getExternalStorageDirectory(), "/CodingErgo/Download");
         if (!file.exists()){
@@ -211,6 +221,7 @@ public class home extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), pusher.class));
             }
         });
+
 //        File file = new File(Environment.getExternalStorageDirectory()+"/CodeErgo/Download");
 //        if (!file.mkdirs()){
 //            file.mkdirs();

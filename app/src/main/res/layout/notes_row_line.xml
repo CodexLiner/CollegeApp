@@ -8,7 +8,7 @@
     <LinearLayout
         android:id="@+id/NotesLiniar"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="160dp"
         android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
@@ -62,6 +62,12 @@
 
             </LinearLayout>
         </LinearLayout>
+        <LinearLayout
+            android:alpha="0.3"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGrey"/>
 
         <LinearLayout
             android:layout_width="match_parent"

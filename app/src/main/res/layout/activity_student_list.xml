@@ -40,6 +40,10 @@
             android:background="@color/Black"
             android:alpha="0.3"/>
         <com.google.android.material.tabs.TabLayout
+            android:scrollIndicators="none"
+            app:tabIndicatorAnimationDuration="1000"
+            app:tabIndicatorAnimationMode="elastic"
+            android:scrollbarFadeDuration="50"
             android:id="@+id/tab_LayoutStudent"
             android:background="@color/white"
             android:layout_width="match_parent"
