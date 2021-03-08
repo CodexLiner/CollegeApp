@@ -81,7 +81,7 @@ public class CeFragment extends Fragment {
          firestore = FirebaseFirestore.getInstance();
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        Query Tquery = firestore.collection("Cs_Teachers");
+        Query Tquery = firestore.collection("Users");
         FirestoreRecyclerOptions<FacultyModel> Toptiions = new FirestoreRecyclerOptions.Builder<FacultyModel>()
                 .setQuery(Tquery,FacultyModel.class)
                 .build();

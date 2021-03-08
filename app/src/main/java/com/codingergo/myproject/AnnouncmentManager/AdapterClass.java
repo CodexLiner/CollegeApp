@@ -35,7 +35,7 @@ public class AdapterClass extends FirestoreRecyclerAdapter<ModelClass , AdapterC
     @Override
     public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.announcment_row_line ,parent,false);
-        return new Holder(view);
+          return new Holder(view);
     }
 
     class Holder extends RecyclerView.ViewHolder {

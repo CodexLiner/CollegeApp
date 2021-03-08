@@ -288,13 +288,13 @@
                                 android:orientation="vertical">
 
                                 <TextView
+                                    android:id="@+id/StudentCount"
                                     android:alpha="0.5"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:gravity="start"
                                     android:textStyle="bold"
-                                    android:text="200"
                                     android:textColor="#5E35B1"
                                     android:textSize="30dp" />
 
@@ -364,13 +364,13 @@
                                 android:orientation="vertical">
 
                                 <TextView
+                                    android:id="@+id/EventCount"
                                     android:alpha="0.5"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:gravity="start"
                                     android:textStyle="bold"
-                                    android:text="200"
                                     android:textColor="@color/colorRed"
                                     android:textSize="30dp" />
 
@@ -437,13 +437,13 @@
                                 android:orientation="vertical">
 
                                 <TextView
+                                    android:id="@+id/NotesCount"
                                     android:alpha="0.5"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:gravity="start"
                                     android:textStyle="bold"
-                                    android:text="200"
                                     android:textColor="@color/colorRed"
                                     android:textSize="30dp" />
 
@@ -512,13 +512,13 @@
                                 android:orientation="vertical">
 
                                 <TextView
+                                    android:id="@+id/GalleryCount"
                                     android:alpha="0.5"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="start"
                                     android:gravity="start"
                                     android:textStyle="bold"
-                                    android:text="200"
                                     android:textColor="#8E24AA"
                                     android:textSize="30dp" />
 

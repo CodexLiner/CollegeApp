@@ -30,10 +30,13 @@ import com.codingergo.myproject.PhotoGallery.fireAdapter;
 import com.codingergo.myproject.PhotoGallery.galleryMain;
 import com.codingergo.myproject.PhotoGallery.imageAdapter;
 import com.codingergo.myproject.PhotoGallery.imageModel;
+import com.codingergo.myproject.StudentList.StudentListAdapter;
+import com.codingergo.myproject.StudentList.StudentListModel;
 import com.codingergo.myproject.StudentList.studentList;
 import com.codingergo.myproject.UserManager.SignUp;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.firebase.ui.firestore.ObservableSnapshotArray;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -43,15 +46,19 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DashBoard extends AppCompatActivity {
 imageAdapter iadapter;
+StudentListAdapter studentListAdapter;
 com.codingergo.myproject.PhotoGallery.fireAdapter fireadapter ;
 SimpleDateFormat simpleDateFormat , timef;
-TextView timeview , todays , EventText , StudentText , TechersText;
+TextView timeview , todays , EventText , StudentText , TechersText,StudentCount, EventCount , GalleryCount ,NotesCount;
 String time , Date , isHod;
 Button notice , faculty , assign, addStudent , addGallery ,AddNotesBtn;
 RecyclerView studentsRecycler , galleryRecycler , teachersRecycler;
@@ -74,6 +81,10 @@ RelativeLayout studentEdit, facultyEdit, noticeEdit, assignEdit , EventAdder , S
         StudentText = findViewById(R.id.StudentText);
         TechersText = findViewById(R.id.TechersText);
         StudentAdder = findViewById(R.id.StudentAdder);
+        StudentCount= findViewById(R.id.StudentCount);
+        NotesCount= findViewById(R.id.NotesCount);
+        EventCount = findViewById(R.id.EventCount);
+        GalleryCount= findViewById(R.id.GalleryCount);
         EventEdit = findViewById(R.id.editeventdashboard);
         StudentEdit = findViewById(R.id.editstudentdashboard);
         TeacherEdit = findViewById(R.id.editfacultydashboard);
@@ -127,11 +138,62 @@ RelativeLayout studentEdit, facultyEdit, noticeEdit, assignEdit , EventAdder , S
          ThreadFunction();
          RecyclerViewHandler();
          AccessManager();
-
-
-// recyclerView
+         ShowCounter();
 
     }
+   public void ShowCounter() {
+        String BranchWise = sharedPreferences.getString("BranchUser" ,"nob");
+      // StudentCount
+            StudentCount.setText(sharedPreferences.getString("StudentCountValue", ""));
+            Query cf = firestore.collection("Users").whereEqualTo("branch", BranchWise);
+            cf.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                @Override
+                public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                    String sizeS = String.valueOf(queryDocumentSnapshots.size());
+                    editor.putString("StudentCountValue",sizeS);
+                    Log.d("TAG", "onSuccessBybranch: "+BranchWise);
+                    StudentCount.setText(sizeS);
+                }
+            });
+
+        // GalleryCount
+            GalleryCount.setText(sharedPreferences.getString("GalleryCountValue", ""));
+            Query gc = firestore.collection("Gallery");
+            gc.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                @Override
+                public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                    Log.d("TAG", "onSuccessSize: "+queryDocumentSnapshots.size());
+                    String sizeS = String.valueOf(queryDocumentSnapshots.size());
+                    editor.putString("GalleryCountValue",sizeS);
+                    GalleryCount.setText(sizeS);
+                }
+            });
+        // NotesCount
+          NotesCount.setText(sharedPreferences.getString("NotesCountValue", ""));
+          Query ns = firestore.collection("Users").whereEqualTo("branch", BranchWise);
+            ns.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                @Override
+                public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                    Log.d("TAG", "onSuccessSize: "+queryDocumentSnapshots.size());
+                    String sizeS = String.valueOf(queryDocumentSnapshots.size());
+                    editor.putString("NotesCountValue",sizeS);
+                    NotesCount.setText(sizeS);
+                }
+            });
+
+        // EventsCount
+            EventCount.setText(sharedPreferences.getString("EventsCountValue", ""));
+            Query ev = firestore.collection("Users");
+            ev.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                @Override
+                public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                    Log.d("TAG", "onSuccessSize: "+queryDocumentSnapshots.size());
+                    String sizeS = String.valueOf(queryDocumentSnapshots.size());
+                    editor.putString("EventsCountValue",sizeS);
+                    EventCount.setText(sizeS);
+                }
+            });
+        }
 
     private void AccessManager() {
         DocumentReference df = firestore.collection("Users").document(auth.getCurrentUser().getUid());
@@ -139,6 +201,7 @@ RelativeLayout studentEdit, facultyEdit, noticeEdit, assignEdit , EventAdder , S
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 editor.putString("isHod", documentSnapshot.getString("isHod"));
+                editor.putString("BranchUser", documentSnapshot.getString("branch"));
                 editor.apply();
                 if (documentSnapshot.getString("isHod")!=null){
                     if (documentSnapshot.getString("isHod").equals("1")){

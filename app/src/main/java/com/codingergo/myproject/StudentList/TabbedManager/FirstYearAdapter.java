@@ -38,7 +38,7 @@ public class FirstYearAdapter extends FirestoreRecyclerAdapter<StudentListModel 
 
     @Override
     protected void onBindViewHolder(@NonNull Holder holder, int position, @NonNull StudentListModel model) {
-        {
+        { Toast.makeText(holder.itemView.getContext(), "Lengh"+getSnapshots().size(), Toast.LENGTH_SHORT).show();
             String [] year = {"null","First Year" , "Second Year" , "Final Year"};
             int i = Integer.parseInt(model.getSem());
             if (model.getSem().equals("1")){

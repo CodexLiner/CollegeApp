@@ -46,38 +46,37 @@ public class FacultyListAdapter extends FirestoreRecyclerAdapter<FacultyModel , 
         holder.editor.putString("TeacherImage", model.getUrl());
         holder.editor.putString("TeacherBranch",model.getBranch());
         holder.editor.commit();
-        branch = holder.sharedPreferences.getString("UserBranch", null);
+        branch = holder.sharedPreferences.getString("User_Branch", null);
         name = holder.sharedPreferences.getString("TeacherName", null);
         photo = holder.sharedPreferences.getString("TeacherImage", "Null Branch");
         Tbranch = holder.sharedPreferences.getString("TeacherBranch", "Null Branch");
         nameSplited = name.split("\\s+");
-        Log.d("TAG", "fbranch: Faculty "+branch);
-        try{
-
-            if (branch.equals(model.getBranch())){
+        try {
+             if (branch.equals(model.getBranch()) && model.isUser.equals("0")){
                 holder.name.setText(StringUtils.capitalize(nameSplited[0]));
                 Glide.with(holder.img).load(model.getUrl()).placeholder(R.drawable.men).into(holder.img);
+                holder.linearLayout.setVisibility(View.VISIBLE);
             }
             else {
-                holder.linearLayout.setVisibility(View.GONE);
-                Log.d("TAG", "onBindViewHolder:Second Code "+model.getFullname() + model.getBranch());
+                 holder.linearLayout.setVisibility(View.GONE);
+//                 Log.d("TAG", "onBindViewHolder:Second Code "+model.getFullname() + model.getBranch());
             }
 
-        }catch (Exception e){
+        } catch (Exception e){
             DocumentReference df = firestore.collection("Users").document(auth.getCurrentUser().getUid());
             df.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                 @Override
                 public void onSuccess(DocumentSnapshot documentSnapshot) {
-                    holder.editor.putString("UserBranch",documentSnapshot.getString("branch"));
-                    holder.editor.commit();
-                    if (documentSnapshot.getString("branch").equals(model.getBranch())){
+                    holder.editor.putString("User_Branch",documentSnapshot.getString("branch"));
+                    holder.editor.apply();
+                    if (documentSnapshot.getString("branch").equals(model.getBranch()) && model.isUser.equals("0")){
                         nameSplited = model.getFullname().split("\\s+");
                         holder.name.setText(StringUtils.capitalize(nameSplited[0]));
                         Glide.with(holder.img).load(model.getUrl()).into(holder.img);
                     }
-                    else  {
+                    else{
                         holder.linearLayout.setVisibility(View.GONE);
-                        Log.d("TAG", "onBindViewHolder:Second Code ");
+
                     }
 
                 }
@@ -99,8 +98,6 @@ public class FacultyListAdapter extends FirestoreRecyclerAdapter<FacultyModel , 
                 email = dialog.findViewById(R.id.DialogEmail);
                 mobile = dialog.findViewById(R.id.DialogMobile);
                 Button done = dialog.findViewById(R.id.diloagButton);
-
-
                 DocumentReference df = firestore.collection("Users").document(getSnapshots().getSnapshot(position).getId());
                 df.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
@@ -150,10 +147,9 @@ public class FacultyListAdapter extends FirestoreRecyclerAdapter<FacultyModel , 
             name = itemView.findViewById(R.id.Tnamerec);
             img = itemView.findViewById(R.id.Timgrec);
             linearLayout = itemView.findViewById(R.id.t_list_line);
-            sharedPreferences = itemView.getContext().getSharedPreferences("FacultyShared",Context.MODE_PRIVATE);
+            sharedPreferences = itemView.getContext().getSharedPreferences("Faculty_Shared_NEW",Context.MODE_PRIVATE);
             editor = sharedPreferences.edit();
-            editor.putString("Fname",branch);
-            editor.commit();
+            editor.apply();
 
         }
     }

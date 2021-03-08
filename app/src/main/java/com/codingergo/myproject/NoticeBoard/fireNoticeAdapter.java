@@ -36,6 +36,7 @@ public class fireNoticeAdapter extends FirestoreRecyclerAdapter<noticeModel , fi
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         holder.name.getContext().startActivity(intent);
                         Toast.makeText(holder.itemView.getContext(), "Downloading...", Toast.LENGTH_SHORT).show();
+
                     }
                 });
 
