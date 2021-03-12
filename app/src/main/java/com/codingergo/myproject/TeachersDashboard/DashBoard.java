@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -58,7 +60,8 @@ imageAdapter iadapter;
 StudentListAdapter studentListAdapter;
 com.codingergo.myproject.PhotoGallery.fireAdapter fireadapter ;
 SimpleDateFormat simpleDateFormat , timef;
-TextView timeview , todays , EventText , StudentText , TechersText,StudentCount, EventCount , GalleryCount ,NotesCount;
+TextView  EventText , StudentText , TechersText,StudentCount, EventCount , GalleryCount ,NotesCount;
+ImageView timeview;
 String time , Date , isHod;
 Button notice , faculty , assign, addStudent , addGallery ,AddNotesBtn;
 RecyclerView studentsRecycler , galleryRecycler , teachersRecycler;
@@ -73,7 +76,7 @@ RelativeLayout studentEdit, facultyEdit, noticeEdit, assignEdit , EventAdder , S
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_dashboard);
-        timeview =(TextView)findViewById(R.id.TimeDash);
+        timeview =findViewById(R.id.TimeDash);
         notice =(Button) findViewById(R.id.add_notice_btn);
         faculty=(Button) findViewById(R.id.add_faculty_btn);
         assign=(Button) findViewById(R.id.add_assignment_btn);
@@ -93,7 +96,7 @@ RelativeLayout studentEdit, facultyEdit, noticeEdit, assignEdit , EventAdder , S
         addStudent = findViewById(R.id.addStudentDash);
         addGallery = findViewById(R.id.addGalleryDash);
         AddNotesBtn = findViewById(R.id.AddNotesBtn);
-        todays = (TextView)findViewById(R.id.DateDash);
+      //  todays = (TextView)findViewById(R.id.DateDash);
         timef = new SimpleDateFormat("h:mm ");
         studentEdit = findViewById(R.id.editstudentdashboard);
         facultyEdit = findViewById(R.id.editfacultydashboard);
@@ -102,8 +105,6 @@ RelativeLayout studentEdit, facultyEdit, noticeEdit, assignEdit , EventAdder , S
         simpleDateFormat = new SimpleDateFormat("dd MMM yy");
         time = simpleDateFormat.format(new Date());
         Date = timef.format(new Date());
-        timeview.setText(Date);
-        todays.setText(time);
         studentsRecycler = findViewById(R.id.adminStudentrec);
         galleryRecycler = findViewById(R.id.adminGalleryrec);
         teachersRecycler = findViewById(R.id.adminTeachersrec);
@@ -135,13 +136,26 @@ RelativeLayout studentEdit, facultyEdit, noticeEdit, assignEdit , EventAdder , S
              }
          });
          ButtonsClickListner();
-         ThreadFunction();
+       //  ThreadFunction();
          RecyclerViewHandler();
          AccessManager();
          ShowCounter();
+         Announcement();
 
     }
-   public void ShowCounter() {
+
+    private void Announcement() {
+        timeview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dialog dialog = new Dialog(DashBoard.this);
+                dialog.setContentView(R.layout.dialog_announcemnet);
+                dialog.show();
+            }
+        });
+    }
+
+    public void ShowCounter() {
         String BranchWise = sharedPreferences.getString("BranchUser" ,"nob");
       // StudentCount
             StudentCount.setText(sharedPreferences.getString("StudentCountValue", ""));
@@ -287,8 +301,8 @@ RelativeLayout studentEdit, facultyEdit, noticeEdit, assignEdit , EventAdder , S
                                 // update TextView here!
                                 time = simpleDateFormat.format(new Date());
                                 Date = timef.format(new Date());
-                                timeview.setText(Date);
-                                todays.setText(time);
+//                                timeview.setText(Date);
+                              //   todays.setText(time);
                             }
                         });
                     }

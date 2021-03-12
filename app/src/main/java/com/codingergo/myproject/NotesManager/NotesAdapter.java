@@ -87,7 +87,6 @@ public class NotesAdapter extends FirestoreRecyclerAdapter<NotesModel ,NotesAdap
 
             }
         });
-        Log.d("TAG", "onBindViewHolderBranchSem: "+sem +"and" +branch);
 
     }
 

@@ -32,34 +32,35 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginStart="10dp"
             android:id="@+id/dashboardName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:gravity="center|top"
             android:fontFamily="@font/cabin"
             android:text="Dashboard"
             android:textColor="@color/Black"
-            android:textSize="30dp" />
+            android:textSize="30sp" />
 
-        <TextView
-            android:visibility="invisible"
+        <ImageView
+            android:visibility="visible"
             android:layout_marginTop="10dp"
             android:id="@+id/TimeDash"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_alignParentEnd="true"
             android:layout_marginLeft="9dp"
             android:layout_marginEnd="10dp"
             android:gravity="center"
             android:textAlignment="center"
-            android:text="TIME"
+            android:src="@drawable/chat"
             android:textColor="@color/white"
             android:textSize="40sp" />
 
         <TextView
-            android:visibility="invisible"
+            android:visibility="gone"
             android:id="@+id/DateDash"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
