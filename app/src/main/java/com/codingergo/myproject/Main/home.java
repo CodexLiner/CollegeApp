@@ -27,6 +27,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.codingergo.myproject.Demo.pusher;
+import com.codingergo.myproject.SuperAdminManager.SuperAdminHome;
 import com.codingergo.myproject.TeachersDashboard.DashBoard;
 import com.codingergo.myproject.R;
 import com.codingergo.myproject.MoreButton.moreButton;
@@ -218,7 +219,7 @@ public class home extends AppCompatActivity {
         l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), pusher.class));
+                startActivity(new Intent(getApplicationContext(), SuperAdminHome.class));
             }
         });
 
