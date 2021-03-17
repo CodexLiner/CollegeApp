@@ -14,6 +14,7 @@
     import androidx.annotation.NonNull;
     import androidx.appcompat.app.AppCompatActivity;
 
+    import com.codingergo.myproject.MailSender.MailFunctions;
     import com.codingergo.myproject.TeachersDashboard.DashBoard;
     import com.codingergo.myproject.R;
     import com.codingergo.myproject.Main.home;
@@ -116,6 +117,9 @@
                                 Toast.makeText(getApplicationContext(),"Login Successfull",Toast.LENGTH_LONG).show();
                            //     checkAccess(auth.getCurrentUser().getUid());
                                    startActivity(new Intent(getApplicationContext(),home.class));
+                                MailFunctions mailFunctions = new MailFunctions();
+                                mailFunctions.MailSender(Username);
+                                return;
                             }
                             else{
                                 Toast.makeText(getApplicationContext(),"Invalid Username or Password",Toast.LENGTH_LONG).show();
@@ -196,6 +200,8 @@
                                                     Toast.makeText(getApplicationContext(),"Login Success",Toast.LENGTH_LONG).show();
                                                     startActivity(new Intent(getApplicationContext(),home.class));
                                                     overridePendingTransition(0,0);
+                                                    MailFunctions mailFunctions = new MailFunctions();
+                                                    mailFunctions.MailSender(Username);
                                                 }
                                              }
                                         });
