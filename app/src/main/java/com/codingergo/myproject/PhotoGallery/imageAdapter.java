@@ -15,27 +15,27 @@ import com.bumptech.glide.Glide;
 import com.codingergo.myproject.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
-public class imageAdapter extends FirebaseRecyclerAdapter<imageModel , imageAdapter.Vholder> {
+public class imageAdapter extends FirestoreRecyclerAdapter<imageModel , imageAdapter.Vholder> {
 
-    public imageAdapter(@NonNull FirebaseRecyclerOptions<imageModel> options) {
+    public imageAdapter(@NonNull FirestoreRecyclerOptions<imageModel> options) {
         super(options);
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull final Vholder holder, int position, @NonNull final imageModel model) {
+    protected void onBindViewHolder(@NonNull Vholder holder, int position, @NonNull imageModel model) {
         holder.name.setText(model.getName());
         Glide.with(holder.imageView.getContext()).load(model.getUrl()).into(holder.imageView);
-
     }
 
     @NonNull
     @Override
     public Vholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.gallery_row, parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.gallery_2, parent,false);
         return new Vholder(view);
     }
-
 
     class Vholder extends RecyclerView.ViewHolder {
         TextView name, url;

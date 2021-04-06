@@ -343,20 +343,8 @@ public class home extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-           if (backbutton + 2000 > System.currentTimeMillis()) {
-            Log.d("CDA", "onBackPressed Called");
-            Intent setIntent = new Intent(Intent.ACTION_MAIN);
-            setIntent.addCategory(Intent.CATEGORY_HOME);
-            setIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(setIntent);
-            toast.cancel();
-            super.onBackPressed();
-        } else {
-            toast = Toast.makeText(getApplicationContext(), "Press back again to exit", Toast.LENGTH_SHORT);
-            toast.show();
-        }
-
-        backbutton = System.currentTimeMillis();
+        super.onBackPressed();
+        return;
 
     }
 

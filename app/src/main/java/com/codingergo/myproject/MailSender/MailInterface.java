@@ -8,7 +8,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
-public interface MailerApis {
+public interface MailInterface {
     @FormUrlEncoded
     @POST("LoginSuccess")
     Call<MailModel> RequestEmail(@Field("Email") String email );

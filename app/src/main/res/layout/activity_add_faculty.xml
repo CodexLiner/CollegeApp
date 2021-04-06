@@ -181,11 +181,9 @@
                 android:layout_marginTop="28dp"
                 android:background="@drawable/buttonshape"
                 android:elevation="1dp"
-                android:fontFamily="sans-serif-black"
                 android:foreground="@drawable/rip"
                 android:text="Add"
-                android:textAllCaps="false"
-                android:textSize="24sp" />
+                android:textAllCaps="false" />
 
             <RelativeLayout
                 android:layout_width="10dp"

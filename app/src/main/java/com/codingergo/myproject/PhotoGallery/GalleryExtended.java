@@ -15,6 +15,7 @@ import com.google.firebase.firestore.Query;
 public class GalleryExtended extends AppCompatActivity {
     RecyclerView recyclerView;
     fireAdapter fireadapter;
+    imageAdapter img;
     imageModel imagemodel;
     FirebaseFirestore firestore;
     FirebaseAuth auth;
@@ -27,25 +28,27 @@ public class GalleryExtended extends AppCompatActivity {
         firestore = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
 
-        recyclerView.setLayoutManager(new GridLayoutManager(this,2,GridLayoutManager.VERTICAL,false));
+        recyclerView.setLayoutManager(new GridLayoutManager(this,4,GridLayoutManager.VERTICAL,false));
         Query query = firestore.collection("Gallery");
         FirestoreRecyclerOptions<imageModel> options = new FirestoreRecyclerOptions.Builder<imageModel>()
                 .setQuery(query , imageModel.class)
                 .build();
-        fireadapter = new fireAdapter(options);
-        recyclerView.setAdapter(fireadapter);
+        img = new imageAdapter(options);
+        recyclerView.setAdapter(img);
 
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        fireadapter.startListening();
+        img.startListening();
+       // fireadapter.startListening();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        fireadapter.startListening();
+        img.stopListening();
+       // fireadapter.startListening();
     }
 }

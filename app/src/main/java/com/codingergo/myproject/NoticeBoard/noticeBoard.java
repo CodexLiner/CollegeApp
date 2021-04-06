@@ -69,39 +69,6 @@ public class noticeBoard extends AppCompatActivity {
                 choosepdf();
             }
         });
-//  chooser.setOnClickListener(new View.OnClickListener() {
-//      @Override
-//      public void onClick(View v) {
-//          Dexter.withContext(getApplicationContext()).withPermission(Manifest.permission.READ_EXTERNAL_STORAGE).withListener(new PermissionListener() {
-//              @Override
-//              public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
-////                  Intent intent = new Intent();
-////                  intent.setType("application/pdf");
-////                  intent.setAction(intent.ACTION_GET_CONTENT);
-////                  startActivityForResult(Intent.createChooser(intent, "Select Pdf"), 101);
-//                  Intent intent = new Intent();
-//
-//                  intent.setType("application/pdf");
-//
-//                  intent.setAction(Intent.ACTION_GET_CONTENT);
-//
-//                  startActivityForResult(Intent.createChooser(intent, "Select Pdf"), 101);
-//
-//              }
-//
-//              @Override
-//              public void onPermissionDenied(PermissionDeniedResponse permissionDeniedResponse) {
-//                  Toast.makeText(getApplicationContext(), "eroor p",Toast.LENGTH_LONG).show();
-//
-//              }
-//
-//              @Override
-//              public void onPermissionRationaleShouldBeShown(PermissionRequest permissionRequest, PermissionToken permissionToken) {
-//                  permissionToken.continuePermissionRequest();
-//              }
-//          }).check();
-//      }
-//  });
         choosed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -146,22 +113,10 @@ public class noticeBoard extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"File Not Selected",Toast.LENGTH_LONG).show();
 
     }
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (requestCode == 1 && resultCode == RESULT_OK && data != null && data.getData() != null) {
-//
-//            path = data.getData();
-//        }
-//        else
-//            Toast.makeText(getApplicationContext(),"Request Code Error",Toast.LENGTH_LONG).show();
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//
-//    }
 
     private void uploadfile(Uri path) {
         final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("Uploading");
+//        progressDialog.setTitle("Uploading");
         progressDialog.show();
         StorageReference reference = storageReference.child("NOTICE"+System.currentTimeMillis()+".pdf");
         reference.putFile(path).addOnSuccessListener( new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -175,7 +130,7 @@ public class noticeBoard extends AppCompatActivity {
                 df.set(noticeBoardModel).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Toast.makeText(noticeBoard.this, "Collection Added", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(noticeBoard.this, "Notice Uploaded", Toast.LENGTH_SHORT).show();
 
                     }
                 });

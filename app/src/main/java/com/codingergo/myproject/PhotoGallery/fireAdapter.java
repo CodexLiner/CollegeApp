@@ -1,9 +1,11 @@
 package com.codingergo.myproject.PhotoGallery;
 
 import android.app.Dialog;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +36,10 @@ public class fireAdapter extends FirestoreRecyclerAdapter<imageModel, fireAdapte
                 Dialog dialog = new Dialog(vholder.image.getContext());
                 dialog.show();
                 dialog.setContentView(R.layout.photoviewdialog);
+                WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+//                lp.copyFrom(dialog.getWindow().getAttributes());
+//                lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+//                dialog.getWindow().setAttributes(lp);
                 TextView Title = dialog.findViewById(R.id.fullimagetitle);
                 TextView desc = dialog.findViewById(R.id.imageDesc);
                 ImageView buttoncancle = dialog.findViewById(R.id.fullImageCancle);

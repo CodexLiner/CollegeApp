@@ -29,7 +29,7 @@
         <activity android:name=".Assignment.AssignView" />
         <activity android:name=".FacultyList.addFaculty" />
         <activity android:name=".NoticeBoard.noticeBoardExtended" />
-        <activity android:name=".PhotoGallery.GalleryExtended" />
+        <activity android:name=".PhotoGallery.GalleryExtended"/>
         <activity android:name=".MoreButton.moreButton" />
         <activity android:name=".StudentDashboard.studentdashboard" />
         <activity android:name=".Assignment.Assignment" />

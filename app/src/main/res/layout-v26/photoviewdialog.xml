@@ -35,25 +35,28 @@
                 android:textStyle="bold"
                 android:fontFamily="@font/cairo_semibold"/>
             <ImageView
+                android:scaleType="center"
                 android:foreground="?attr/selectableItemBackgroundBorderless"
                 android:id="@+id/fullImageCancle"
                 android:layout_margin="5dp"
                 android:layout_gravity="end|center|left"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/ic_outline_do_disturb_on_24"/>
+                android:src="@drawable/ic_baseline_cancel_24"
+                app:tint="@color/white" />
         </LinearLayout>
 
         <LinearLayout
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="top">
+            android:layout_gravity="top|center">
 
             <ImageView
                 android:id="@+id/fullImage"
                 android:layout_width="wrap_content"
                 android:layout_height="347dp"
-                android:layout_gravity="top"
+                android:layout_gravity="top|center"
                 android:src="@drawable/profile" />
             <TextView
                 android:visibility="gone"

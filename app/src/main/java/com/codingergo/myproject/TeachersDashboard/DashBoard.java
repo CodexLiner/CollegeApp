@@ -282,7 +282,7 @@ RelativeLayout studentEdit, facultyEdit, noticeEdit, assignEdit , EventAdder , S
                         .build();
 
 
-        iadapter = new imageAdapter(option);
+       // iadapter = new imageAdapter(option);
         galleryRecycler.setAdapter(fireadapter);
         /// teachersRecycler.setAdapter(fireadapter);
         // studentsRecycler.setAdapter(fireadapter);
@@ -417,15 +417,14 @@ RelativeLayout studentEdit, facultyEdit, noticeEdit, assignEdit , EventAdder , S
     @Override
     protected void onStart() {
         super.onStart();
-        iadapter.startListening();
+      //  iadapter.startListening();
         fireadapter.startListening();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        iadapter.stopListening();
-        fireadapter.stopListening();
+//        fireadapter.stopListening();
     }
 
     @Override

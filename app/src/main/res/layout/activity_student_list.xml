@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginBottom="20dp"
-            android:text="On your Database"
+            android:text="In Database"
             android:textSize="18sp"/>
         <LinearLayout
             android:layout_width="match_parent"

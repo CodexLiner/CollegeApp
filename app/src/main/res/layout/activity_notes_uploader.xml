@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:text="Gallery"
+            android:text="Add Notes"
             android:textColor="@color/Black"
             android:textSize="30sp"
             android:textStyle="bold" />
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginBottom="20dp"
-            android:text="Upload Photos To Database"
+            android:text="Send Updatetd notes "
             android:textSize="18sp"/>
 
     </LinearLayout>
@@ -131,7 +131,7 @@
                     android:background="@drawable/inputshape2"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:hint="Title Photo"/>
+                    android:hint="Subject Name"/>
 
                 <EditText
                     android:gravity="start|center"
@@ -144,7 +144,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/inputshape2"
                     android:ems="10"
-                    android:hint="About Photo"
+                    android:hint="Notes Description"
                     android:inputType="textLongMessage" />
                 <Spinner
                     android:gravity="center"
